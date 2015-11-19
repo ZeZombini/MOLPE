@@ -11,15 +11,11 @@ class Salle extends Lieu {
   var $idDuLieu;
   var $carte;
   var $description;
-  var $bar;
-  // Association avec organisateur
-  var $idProprio; // id de la BD
-  var $proprietaire; // Cardialité : 1
 
+  include("getter/salle.getter.php");
 
   function __construct() {
-    $dao = new DAO();
-    $this->proprietaire = $dao->getOrganisateurFromID($this->idProprio);
+
   }
 }
  ?>
