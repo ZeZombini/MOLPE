@@ -1,0 +1,94 @@
+body{
+	width:70%;
+	margin: auto;
+}
+
+/* HEADER */
+header{
+	padding-top: 10px;
+}
+
+#header-top div{
+	display: inline-block;
+	box-sizing: border-box;
+	width: 50%;
+	vertical-align: top;
+}
+
+/* Header left */
+
+#header-left{
+	
+}
+
+#logo{
+	width:200px;
+}
+
+
+/* Header right */
+
+#header-right{
+	text-align: right;
+}
+
+#img-profil{
+	width: 100px;
+}
+
+#account *{
+	width: auto;
+	display: block;
+}
+
+/* Header bottom */
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+} 
+
+nav li{
+    display: inline;
+}
+
+
+nav a{
+	display: inline-block;
+	box-sizing: border-box;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: center;
+	width: 25%;
+	font-size: 1.1em;
+	text-decoration: none;
+	/* Les bordures */
+	border-width: 1px;
+	border-style: none solid solid none;
+	border-color: black;
+}
+
+nav li:first-child a{
+	border-style: none solid solid solid;
+	border-width: 1px;
+}
+
+
+/* CORPS DU SITE */
+
+#content{
+	width: 60%;
+	box-sizing: border-box;
+	padding: 20px;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	height: 800px;
+	background-image: url("style/test_formulaire.png");
+	
+}
+
+#content img{
+	width: 100%;
+}
