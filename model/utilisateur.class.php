@@ -30,7 +30,9 @@ public login($mail,$mdp){
                     flash('dberror', 'Ce compte n\'existe pas.');
                     return false;
                   } else {
+                    session_start();
                     flash('connexion', 'Connexion effectuée.');
+                    header(../index.view.php);
                     return true;
                   }
 
@@ -43,7 +45,8 @@ public login($mail,$mdp){
   }
 
   public logout(){
-
+    session_destroy();
+    header(../index.view.php);
   }
 
   public register($mail,$mdp){    
@@ -75,6 +78,6 @@ public login($mail,$mdp){
   }
 
 
-  
+
 }
  ?>
