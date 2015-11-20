@@ -21,7 +21,7 @@ class Lieu {
 
   function __construct() {
     $dao = new DAO();
-    $this->scenes = $dao->getScenesFromLieuID($this->$idDuLieu);
+    $this->scenes = $dao->getScenesFromLieuID($this->$idLieu);
     $this->proprietaire = $dao->getOrganisateurFromID($this->idProprio);
     }
 

@@ -22,7 +22,8 @@ class Groupe extends Utilisateur {
 
   function __construct() {
     $dao = new DAO();
-    $bookers = $dao->getBookersfromGroupeID($this->idGroupe);
+    $bookers = $dao->getBookersFromGroupeID($this->idGroupe);
+    $passages = $dao->getPassagesFromGroupeID($this->idGroupe);
   }
 
 }

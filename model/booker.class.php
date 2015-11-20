@@ -10,13 +10,13 @@ class Booker extends Utilisateur {
   var $pourceCom;
   var $tailleGrp;
   // Association avec groupe
-  var $groupes; // Cardialité : *
+  var $groupes; // Cardinalité : *
 
   include("getter/booker.getter.php");
 
   function __construct() {
     $dao = new DAO();
-    $groupes = $dao->getGroupesFromIDBooker($this->idBooker);
+    $groupes = $dao->getGroupesFromBookerID($this->idBooker);
   }
 }
  ?>

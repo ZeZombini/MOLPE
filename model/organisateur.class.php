@@ -17,12 +17,13 @@ class Organisateur extends Utilisateur {
   // Association avec Evenement
   var $evenements; // Cardinalité : *
   // Association avec Lieu
-  var $lieus; // Cardinalité : *
+  var $lieux; // Cardinalité : *
 
   function __construct() {
     $dao = new DAO();
     $this->scenes     = $dao->getScenesFromOrganisateurID($this->idOrga);
     $this->evenements = $dao->getEvenementsFromOrganisateurID($this->idOrga);
+    $this->lieux      = $dao->getLieuxFromOrganisateurID($this->idOrga);
   }
 }
  ?>

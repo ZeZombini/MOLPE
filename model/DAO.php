@@ -12,6 +12,6 @@ class DAO {
           } catch (PDOException $e) {
             exit("Erreur ouverture BD : ".$e->getMessage());
           }
-        }
+        }      
 }
 ?>
