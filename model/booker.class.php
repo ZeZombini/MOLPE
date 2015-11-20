@@ -18,5 +18,7 @@ class Booker extends Utilisateur {
     $dao = new DAO();
     $groupes = $dao->getGroupesFromIDBooker($this->idBooker);
   }
+
+  
 }
  ?>
