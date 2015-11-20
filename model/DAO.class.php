@@ -21,15 +21,19 @@
       }
     }
 // Methodes -> Groupe //////////////////////////////////////////////////////////////////////////////////////////////////
+    // Cardinalité : 1 //
+    function getGroupeFromID($idGroupe) {
+      $req = "select * from groupe where idGroupe=$idGroupe";
+      $groupe = $this->db->query($req);
+      $tab = $groupe->fetchAll(PDO::FETCH_CLASS,'Groupe');
+    }
+
     // Cardinalité : * //
     function getGroupesFromBookerID($idBooker) {
 
     }
 
-    // Cardinalité : 1 //
-    function getGroupeFromID($idGroupe) {
 
-    }
 // Methodes -> Organisateur ////////////////////////////////////////////////////////////////////////////////////////////
     // Cardinalité : 1 //
     function getOrganisateurFromID($idOrga) {
