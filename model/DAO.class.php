@@ -26,11 +26,16 @@
       $req = "select * from groupe where idGroupe=$idGroupe";
       $groupe = $this->db->query($req);
       $tab = $groupe->fetchAll(PDO::FETCH_CLASS,'Groupe');
+      return $tab[0];
     }
 
     // Cardinalité : * //
     function getGroupesFromBookerID($idBooker) {
-
+      $req = "select Groupe.idGroupe,Groupe.style,Groupe.taille,Groupe.matDispo
+                  from BooGroupe,Groupe where Groupe.idGroupe=BooGroupe.idGroupe and idBooker=$idBooker";
+      $groupes = $this->db->query($req);
+      $tab = $groupes->fetchAll(PDO::FETCH_CLASS,'Groupe');
+      return $tab;
     }
 
 
