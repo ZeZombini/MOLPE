@@ -9,7 +9,7 @@
 					<span id="username">Michel</span>
 					<a href="#">Connexion / Déconnexion</a>
 				</div>
-				<img id="img-profil" src="../view/style/img/noimage.jpg"/>
+				<img class="img-profil" src="../view/style/img/noimage.jpg"/>
 			</div>
 		</div>
 		<div id="header-bottom">

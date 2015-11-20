@@ -1,7 +1,19 @@
+html{
+	background-color: pink;
+}
+
+
 body{
 	width:70%;
 	margin: auto;
+	font-family: Verdana, "DejaVu Sans", "Bitstream Vera Sans", Geneva, sans-serif;
+	background-color: white;
+	
 }
+
+a:visited {
+    color: blue;
+} 
 
 /* HEADER */
 header{
@@ -84,11 +96,11 @@ nav li:first-child a{
 	margin-top: 20px;
 	margin-left: auto;
 	margin-right: auto;
-	height: 800px;
-	background-image: url("style/test_formulaire.png");
-	
+	height: 800px;	
 }
 
-#content img{
-	width: 100%;
+/* AFFICHAGE D'UN ACTEUR */
+.img-profil{
+	width: 100px;
 }
+
