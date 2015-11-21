@@ -8,7 +8,7 @@ body{
 	margin: auto;
 	font-family: Verdana, "DejaVu Sans", "Bitstream Vera Sans", Geneva, sans-serif;
 	background-color: white;
-	
+	padding-bottom: 50px;
 }
 
 a:visited {
@@ -92,11 +92,13 @@ nav li:first-child a{
 #content{
 	width: 60%;
 	box-sizing: border-box;
+	border: 1px solid black;
 	padding: 20px;
 	margin-top: 20px;
 	margin-left: auto;
 	margin-right: auto;
-	height: 800px;	
+	height: auto;
+	padding-bottom: 50px;
 }
 
 
@@ -139,8 +141,6 @@ nav li:first-child a{
 #inscription .ligne_petite td:last-child input{
 	width: 39%;
 }
-
-
 
 /* Ligne double */
 #inscription .ligne_double td:last-child > input{
