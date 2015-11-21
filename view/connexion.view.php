@@ -10,10 +10,20 @@
    <?php include("header.view.php") ; ?>
    
 	<div id="content">
-		<h2>Accueil</h2>
-		
-		<p>Bonjour et bienvenu sur Molpe.</p>
-		<p><a href="#">Inscription</a> | <a href="#">Connexion</a></p>
+		<div id="content-connexion">
+			<h2>Connexion</h2>
+			
+			<form action="../controler/connexion.ctrl" method="get">
+				<p>Adresse e-mail :</p>
+				<input type="text" name="email"/>
+				<p>Mot de passe</p>
+				<input type="password" name="mdp"/>
+				
+				<p><a href="#">Mot de passe oublié ?</a></p>
+				
+				<input type="submit" value="Submit">
+			</form>
+		</div>
 	</div>
 	
 	<footer>
