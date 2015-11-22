@@ -48,7 +48,7 @@ header{
 	width: 100px;
 }
 
-#account *{
+#account > *{
 	width: auto;
 	display: block;
 }
