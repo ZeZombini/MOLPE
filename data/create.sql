@@ -9,6 +9,7 @@ DROP TABLE Lieu;
 DROP TABLE Salle;
 DROP TABLE Scene;
 DROP TABLE Passage;
+DROP TABLE SceneUtilise;
 
 CREATE TABLE Utilisateur(
 	idUser  	INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
@@ -118,5 +119,12 @@ CREATE TABLE Passage(
 	FOREIGN KEY (idGroupe) REFERENCES Groupe(idGroupe),
 	FOREIGN KEY (idEvenement) REFERENCES Evenement(idEvenement),
 	FOREIGN KEY (idScene) REFERENCES Scene(idScene)
+);
 
+CREATE TABLE SceneUtilise(
+	idScene	INTEGER,
+	idEvenement	INTEGER,
+	PRIMARY KEY (idScene, idEvenement),
+	FOREIGN KEY (idScene) REFERENCES Scene(idScene),
+	FOREIGN KEY (idEvenement) REFERENCES Evenement(idEvenement)
 );
