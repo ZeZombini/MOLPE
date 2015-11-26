@@ -1,3 +1,14 @@
+<?php
+	$data['connecte'] = false;
+	$data['nom']	  = "NotBad Records";
+
+
+?>
+
+
+
+
+
 <header>
 		<div id="header-top">
 			<div id="header-left">
@@ -5,11 +16,19 @@
 			</div><!--
 			
 			--><div id="header-right">
-				<div id="account">
-					<span id="username">Michel</span>
-					<a href="#">Connexion / Déconnexion</a>
-				</div>
-				<img id="img-profil" src="../view/style/img/noimage.jpg"/>
+					<?php
+					if ($data['connecte'] == true){
+						echo "<div id=\"account\">";
+						echo "<span id=\"username\">".$data['nom']."</span>\n";
+						echo "<a href=\"#\">Déconnexion</a>\n";
+						echo "</div>\n";
+						echo "<img class=\"img-profil\" src=\"../view/style/img/noimage.jpg\"/>\n";
+					} else {
+						echo "<div id=\"account\">";
+						echo "<span><a href=\"#\">Connexion</a> | <a href=\"#\">Inscription</a></span>\n";
+						echo "</div>\n";
+					}?>
+				
 			</div>
 		</div>
 		<div id="header-bottom">

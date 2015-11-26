@@ -1,7 +1,19 @@
+html{
+	background-color: pink;
+}
+
+
 body{
 	width:70%;
 	margin: auto;
+	font-family: Verdana, "DejaVu Sans", "Bitstream Vera Sans", Geneva, sans-serif;
+	background-color: white;
+	padding-bottom: 50px;
 }
+
+a:visited {
+    color: blue;
+} 
 
 /* HEADER */
 header{
@@ -36,7 +48,7 @@ header{
 	width: 100px;
 }
 
-#account *{
+#account > *{
 	width: auto;
 	display: block;
 }
@@ -80,15 +92,79 @@ nav li:first-child a{
 #content{
 	width: 60%;
 	box-sizing: border-box;
+	border: 1px solid black;
 	padding: 20px;
 	margin-top: 20px;
 	margin-left: auto;
 	margin-right: auto;
-	height: 800px;
-	background-image: url("style/test_formulaire.png");
-	
+	height: auto;
+	padding-bottom: 50px;
 }
 
-#content img{
+
+
+/* ------------------------------------------- */
+/*                                             */
+/*  CSS SPECIFIQUE A CERTAIN CONTENT DIFFERENT */
+/*                                             */
+/* ------------------------------------------- */
+
+/* INSCRIPTION */
+#inscription table{
 	width: 100%;
+	padding-right: 30px;
+}
+
+/* Première case du tableau */
+#inscription table td:first-child{
+	text-align: right;
+	width: 25%;
+}
+
+/* Seconde case du tableau (Celle qui stock le point d'intérogation) */
+#inscription table td:nth-child(2){
+	width: 25px;
+}
+
+/* Les trois checkbox */
+#inscription .ligne_checkbox span{
+	display: inline-block;
+	width: 30%;
+}
+
+/* L'input d'une ligne simple */
+#inscription .ligne_simple td:last-child input{
+	width: 100%;
+}
+
+/* Ligne plus petite pour les champs qui demande moins d'info */
+#inscription .ligne_petite td:last-child input{
+	width: 39%;
+}
+
+/* Ligne double */
+#inscription .ligne_double td:last-child > input{
+	width: 39%;
+}
+#inscription .ligne_double td:last-child span{
+	margin-left: 20px;
+}
+#inscription .ligne_double td:last-child span input{
+	margin-left: 20px;
+	width: 39%;
+}
+
+
+/* AFFICHAGE D'UN ACTEUR */
+.img-profil{
+	width: 100px;
+}
+
+
+/* AFFICHAGE CONNEXION */
+#content-connexion{
+	text-align: center;
+	border: 2px solid black;
+	padding: 10px;
+	padding-bottom: 30px;
 }

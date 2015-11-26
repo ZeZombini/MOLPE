@@ -9,6 +9,7 @@ DROP TABLE Lieu;
 DROP TABLE Salle;
 DROP TABLE Scene;
 DROP TABLE Passage;
+DROP TABLE SceneUtilise;
 
 CREATE TABLE Utilisateur(
 	idUser  	INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
@@ -53,15 +54,12 @@ CREATE TABLE BooGroupe(
 	FOREIGN KEY (idBooker) REFERENCES Booker(idBooker)
 );
 
-
-
 CREATE TABLE Organisateur(
 	idOrga 		INTEGER PRIMARY KEY NOT NULL,
 	nom			VARCHAR(100),
 	prenom		VARCHAR(100),
 	FOREIGN KEY (idOrga) REFERENCES Utilisateur(idUser)
 );
-
 
 CREATE TABLE Evenement (
 	idEvenement	INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
@@ -83,7 +81,6 @@ CREATE TABLE Lieu(
 	adresse		VARCHAR(100)
 );
 
-
 CREATE TABLE Salle(
 	idDuLieu	INTEGER,
 	idProprio	INTEGER,
@@ -91,8 +88,7 @@ CREATE TABLE Salle(
 	description	VARCHAR(100),
 	FOREIGN KEY (idProprio) REFERENCES Organisateur(idOrga),
 	FOREIGN KEY (idDuLieu) REFERENCES Lieu(idLieu)
-
-)
+);
 
 CREATE TABLE Scene(
 	idScene 	INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
@@ -119,5 +115,12 @@ CREATE TABLE Passage(
 	FOREIGN KEY (idGroupe) REFERENCES Groupe(idGroupe),
 	FOREIGN KEY (idEvenement) REFERENCES Evenement(idEvenement),
 	FOREIGN KEY (idScene) REFERENCES Scene(idScene)
+);
 
+CREATE TABLE SceneUtilise(
+	idScene	INTEGER,
+	idEvenement	INTEGER,
+	PRIMARY KEY (idScene, idEvenement),
+	FOREIGN KEY (idScene) REFERENCES Scene(idScene),
+	FOREIGN KEY (idEvenement) REFERENCES Evenement(idEvenement)
 );
