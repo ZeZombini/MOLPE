@@ -16,7 +16,8 @@ CREATE TABLE Utilisateur(
 	description	VARCHAR(100),
 	siteWeb 	VARCHAR(100),
 	tel			VARCHAR(100),
-	mail 		VARCHAR(100)
+	mail 		VARCHAR(100),
+	image   VARCHAR(100)
 	-- zoneGeo
 );
 

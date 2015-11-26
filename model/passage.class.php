@@ -1,6 +1,6 @@
 
 <?php
-// Ok avec V1
+// Ok avec la V1
 require_once("groupe.class.php");
 require_once("evenement.class.php");
 require_once("scene.class.php");

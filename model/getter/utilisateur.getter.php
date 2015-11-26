@@ -37,6 +37,10 @@ function getZone() {
   return $this->zone;
 }
 
+function getImage() {
+  return $this->image;
+}
+
 //////// Contacts /////////
 
 function getContacts() {

@@ -1,5 +1,5 @@
 <?php
-// Cohérent avec la BD
+// Ok avec la V1
 require_once("organisateur.class.php");
 require_once("scene.class.php");
 require_once("lieu.class.php");

@@ -1,6 +1,6 @@
 <?php
+// Ok avec la V1
   require_once("DAO.class.php");
-// Cohérent avec BD
 class Utilisateur {
 
   var $idUser;
@@ -12,6 +12,7 @@ class Utilisateur {
   var $mail;
   var $mdp;
   var $zone;
+  var $image;
 
   // Association avec lui-même avec les contacts
   var $contacts;

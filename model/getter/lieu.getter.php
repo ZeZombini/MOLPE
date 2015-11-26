@@ -2,7 +2,7 @@
 //include dans lieu.class.php
 
 function getIDLieu() {
-  return $this->idDuLieu;
+  return $this->idLieu;
 }
 
 function getAdresse() {
@@ -27,8 +27,5 @@ function getidProprio() {
 function getProprietaire() {
   return $this->proprietaire;
 }
-
-
-
 
  ?>

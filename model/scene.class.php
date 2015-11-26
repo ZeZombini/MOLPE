@@ -1,5 +1,5 @@
 <?php
-//Ok
+//Ok avec la V1
 class Scene {
 
   var $idScene;
