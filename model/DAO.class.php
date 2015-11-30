@@ -107,7 +107,7 @@
 
     // Cardinalité : * //
     function getLieuxFromOrganisateurID($idOrga) {
-      $req = ""; //Pas d'organisateur dans lieu mais dans salle oui //
+      $req = "select * from Lieu where idProprioDuLieu=$idOrga;";
       $lieux = $this->db->query($req);
       $tab = $lieux->fetchAll(PDO::FETCH_CLASS,'Lieu');
       return $tab;

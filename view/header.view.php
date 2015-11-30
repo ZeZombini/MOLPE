@@ -1,16 +1,8 @@
-<?php
-	$data['connecte'] = false;
-	$data['nom']	  = "NotBad Records";
-
-
-?>
-
-
-
-
-
 <header>
+	<div id="header-content">
+		<img id="logo" src="../view/style/img/logo.png" />
 		<div id="header-top">
+<<<<<<< HEAD
 			<div id="header-left">
 				<img id="logo" src="../view/style/img/molpe_small.png" />
 			</div><!--
@@ -44,3 +36,23 @@
 
 
 	</header>
+=======
+			<div id="news">
+				<p>Ouverture de la programmation pour "Musilac"</p>
+				<p>La musique donne une âme à nos coeurs et des ailes à la pensée. - Platon"</p>
+			</div>
+			</div>			
+			<div id="header-bottom">		
+				<nav>
+					<ul>
+						<li><a href="#">Accueil</a></li><!--
+						--><li><a href="#">Rechercher</a></li><!--
+						--><li><a href="#">Mes contacts</a></li><!--
+						--><li><a href="#">Mon compte</a></li>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+</header>
+>>>>>>> origin/master
