@@ -78,7 +78,9 @@ CREATE TABLE Evenement (
 CREATE TABLE Lieu(
 	idLieu 		INTEGER,
 	bar			  BOOLEAN,
-	adresse		VARCHAR(100)
+	adresse		VARCHAR(100),
+	idProprioLieu	INTEGER,
+	FOREIGN KEY (idProprio) REFERENCES Organisateur(idOrga),
 );
 
 CREATE TABLE Salle(

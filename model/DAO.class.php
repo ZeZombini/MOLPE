@@ -157,6 +157,14 @@
       return $tab;
     }
 
+    function getContactsFromUserID($idUser) {
+      $req = "select Utilisateur.idUser,Utilisateur.libelle,description,siteWeb,tel,mail
+                  from Utilisateur where idUser=$idUser;";
+      $contacts = $this->db->query($req);
+      $tab = $contacts->fetchAll(PDO::FETCH_CLASS,'Utilisateur');
+      return $tab;
+
+
 
 
 

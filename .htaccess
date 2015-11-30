@@ -1,0 +1,8 @@
+############################################
+##### Ne pas modifier ce fichier !!!!! #####
+############################################
+
+# Routing personnel
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [QSA,L]

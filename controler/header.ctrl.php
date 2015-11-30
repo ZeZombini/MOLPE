@@ -1,22 +1,18 @@
 <?php
+include("session.ctrl.php");
+// On concidère que la session est active et c'est
+// $session_secure qui nous dit si la personne est
+// authentifié ou si la session est vierge
+if ($session_secure) {
+  $dao = new DAO();
 
-// Vérifie si il y a une session déjà en cours
+  // On récupère l'utilisateur via son ID
+  $user = $dao->getUtilisateurFromID($_SESSION['id']);
 
-if ( session_status() === PHP_SESSION_ACTIVE) {
-  echo ("<h1>SESSION DEJA EN COURS</h1>");
-} else {
-
-  if (!empty($_GET['login']) && !empty($_GET['password'])) {
-    session_start();
-    echo ("<h1>NOUVELLE SESSION</h1>");
-  } else {
-    echo ("<h1>IMPOSSIBLE DE CREER SESSION</h1>");
-  }
-
+  // On construit le data en fonction de l'utilisateur retourné
+  $data = array('connecte' => $session_secure,
+                'nom' => $user[0]->getNom(),
+                'prenom' => $user[0]->getPrenom()
+              );
 }
-$res = session_status() === PHP_SESSION_ACTIVE;
-var_dump($res);
-
-//include("../view/header.view.php");
-
- ?>
+?>
