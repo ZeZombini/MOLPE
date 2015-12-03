@@ -164,13 +164,13 @@
     function getUserFromID($idUser) {
       $req="select * from Booker where idBooker=$idUser;";
       $user=$this->db->query($req);
-      if (getClass($user)==PDOStatement) {
+      if (getClass($user)!=PDOStatement) {
         $req="select * from Groupe where idGroupe=$idUser;";
         $user=$this->db->query($req);
-        if (getClass($user)==PDOStatement) {
+        if (getClass($user)!=PDOStatement) {
           $req="select * from Organisateur where idOrga=$idUser;";
           $user=$this->db->query($req);
-          if (getClass($user)==PDOStatement) {
+          if (getClass($user)!=PDOStatement) {
             $tab= $user->fetchAll(PDO::FETCH_CLASS,'Organisateur');
             return $tab[0];
           } else return false;
