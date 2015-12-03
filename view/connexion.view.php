@@ -2,7 +2,7 @@
 
 <html>
   <head>
-    <title>MOLPE - Moteur d'Organisation, Listing et Partage d'Evénementiels </title>
+    <title>MOLPE - Moteur d'Organisation, Listing et Partage d'EvÃ©nementiels </title>
 	 <link rel="stylesheet" href="style/style.css"> 
   </head>
   
@@ -19,7 +19,7 @@
 				<p>Mot de passe</p>
 				<input type="password" name="mdp"/>
 				
-				<p><a href="#">Mot de passe oublié ?</a></p>
+				<p><a href="#">Mot de passe oubliÃ© ?</a></p>
 				
 				<input type="submit" value="Submit">
 			</form>
