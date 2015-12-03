@@ -150,24 +150,39 @@
 // Methodes -> Utilisateur ///////////////////////////////////////////////////////////////////////////////////////////////
     // Cardinalité : * //
     function getContactsFromUserID($idUser) {
-      $req = "select Utilisateur.idUser,Utilisateur.libelle,Utilisateur.description,Utilisateur.siteWeb,Utilisateur.tel,Utilisateur.mail
-                  from Contact,Utilisateur where Contact.idUser2=Utilisateur=idUser and Contact.idUser1=$idUser;";
-      $contacts = $this->db->query($req);
-      $tab = $contacts->fetchAll(PDO::FETCH_CLASS,'Utilisateur');
+      $req="select idUser2 from Contact where idUser1=$idUser;";
+      $contactsID= $this->db->query($req);
+      $ids=$contactsID->fetch();
+      $i=0;
+      foreach ($ids as $contact) {
+        $tab[$i]=getUserFromID($contact);
+        $i++;
+      }
       return $tab;
     }
 
-    function getContactsFromUserID($idUser) {
-      $req = "select Utilisateur.idUser,Utilisateur.libelle,description,siteWeb,tel,mail
-                  from Utilisateur where idUser=$idUser;";
-      $contacts = $this->db->query($req);
-      $tab = $contacts->fetchAll(PDO::FETCH_CLASS,'Utilisateur');
-      return $tab;
-
-
-
-
-
+    function getUserFromID($idUser) {
+      $req="select * from Booker where idBooker=$idUser;";
+      $user=$this->db->query($req);
+      if (getClass($user)==PDOStatement) {
+        $req="select * from Groupe where idGroupe=$idUser;";
+        $user=$this->db->query($req);
+        if (getClass($user)==PDOStatement) {
+          $req="select * from Organisateur where idOrga=$idUser;";
+          $user=$this->db->query($req);
+          if (getClass($user)==PDOStatement) {
+            $tab= $user->fetchAll(PDO::FETCH_CLASS,'Organisateur');
+            return $tab[0];
+          } else return false;
+        } else {
+          $tab= $user->fetchAll(PDO::FETCH_CLASS,'Groupe');
+          return $tab[0];
+        }
+      } else {
+        $tab= $user->fetchAll(PDO::FETCH_CLASS,'Booker');
+        return $tab[0];
+      }
+    }
 
 
 
