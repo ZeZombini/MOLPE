@@ -162,6 +162,7 @@
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     function getUserFromUserID($idUser) {
       $req = "select Utilisateur.idUser,Utilisateur.libelle,description,siteWeb,tel,mail
                   from Utilisateur where idUser=$idUser;";
@@ -174,6 +175,8 @@
 
 
 =======
+=======
+>>>>>>> origin/master
     function getUserFromID($idUser) {
       $req="select * from Booker where idBooker=$idUser;";
       $user=$this->db->query($req);
@@ -196,6 +199,9 @@
         return $tab[0];
       }
     }
+<<<<<<< HEAD
+>>>>>>> origin/master
+=======
 >>>>>>> origin/master
 
 

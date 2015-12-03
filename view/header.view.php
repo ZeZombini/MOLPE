@@ -12,6 +12,7 @@
 				<p>Ouverture de la programmation pour "Musilac"</p>
 				<p>La musique donne une âme à nos coeurs et des ailes à la pensée. - Platon"</p>
 <<<<<<< HEAD
+<<<<<<< HEAD
 			</div>
 			<div id="header-right">
 				<?php
@@ -26,6 +27,8 @@
 					echo "<span><a href=\"" . $config['project_path'] . "connexion/\">Connexion</a> | <a href=\"" . $config['project_path'] . "inscription/\">Inscription</a></span>\n";
 					echo "</div>\n";
 				}?>
+=======
+>>>>>>> origin/master
 =======
 >>>>>>> origin/master
 			</div>
@@ -53,6 +56,7 @@
 					--><li><a href="#">Mon compte</a></li>
 				</ul>
 			</nav>
+<<<<<<< HEAD
 		</div>
 		<div id="header-bottom">
 			<nav>
@@ -63,6 +67,8 @@
 			--><li><a href="#">Mon compte</a></li>
 				</ul>
 			</nav>
+=======
+>>>>>>> origin/master
 		</div>
 	</div>
 </header>
