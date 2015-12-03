@@ -31,4 +31,5 @@ $app->get("/inscription/", function() use ($app,$config) {
   include("controler/header.ctrl.php");
 $app->run();
 
+
  ?>

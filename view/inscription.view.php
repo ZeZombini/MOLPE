@@ -64,6 +64,7 @@
 				<td><input type="password" name="conf_mdp"/></td>
 			</tr>
 			</table>
+			
 
 			<h3>Adresse</h3>
 			<hr>
