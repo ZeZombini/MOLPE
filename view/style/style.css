@@ -11,7 +11,7 @@ header{
 	background-color: rgb(140, 133, 186);
 	color: white;
 	padding-top: 15px;
-	height: 120px;
+	height: 122px;
 	position: fixed;
 	width:100%;
 	top: 0px;
@@ -29,6 +29,7 @@ header{
 	float: left;
 	position: relative;
 	top: -25px;
+	z-index: 5;
 }
 
 /* Header-Top */
@@ -38,6 +39,7 @@ header{
 	height: 70px;
 	margin-left: 125px;
 	padding-top: 10px;
+	position: relative;
 }
 
 /* Le #news est dans le #header-top */
@@ -55,6 +57,39 @@ header{
 	left: -20px;
 	margin-bottom: 10px;
 }
+
+/* Le #account est dans le #header-top */
+#account{
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	height: 80px;
+	width: 
+}
+
+#account > *{
+	display: inline-block;
+	vertical-align: top;
+	text-align: right;
+}
+
+#account-left > p{
+	margin: 0px;
+	font-size: 1.3em;
+}
+
+#account-left a{
+	font-size: 0.9em;
+	color: #DDD;
+	font-style: italic;
+}
+
+
+#account > img{
+	width: 80px;
+}
+
+
 
 /* Affichage des news */
 

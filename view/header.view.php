@@ -15,6 +15,12 @@
 			<?php 
 				if ($data['connecte'] == true){
 					echo "<div id=\"account\">";
+					echo "    <div id=\"account-left\">";
+					echo "    <p>Jean-Edouard</p>";
+					echo "	  <p>de Beaurepaire</p>";
+					echo "	  <a href=\"#\">Déconnexion</a>";
+					echo "    </div>";
+					echo "    <img src=\"style/img/noimage.jpg\">";
 					echo "</div>";
 				} else {
 					
