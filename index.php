@@ -20,6 +20,8 @@ $app->get("/connexion/", function() use ($app) {
 
 
 
+  include("controler/head.ctrl.php");
+  include("controler/header.ctrl.php");
 $app->run();
 
  ?>

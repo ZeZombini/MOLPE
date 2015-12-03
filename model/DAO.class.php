@@ -157,7 +157,7 @@
       return $tab;
     }
 
-    function getContactsFromUserID($idUser) {
+    function getUserFromUserID($idUser) {
       $req = "select Utilisateur.idUser,Utilisateur.libelle,description,siteWeb,tel,mail
                   from Utilisateur where idUser=$idUser;";
       $contacts = $this->db->query($req);
