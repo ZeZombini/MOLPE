@@ -1,6 +1,6 @@
 <header>
 	<div id="header-content">
-		<img id="logo" src="view/style/img/logo.png" />
+		<img id="logo" src="<?= $config['project_path']?>view/style/img/logo.png" />
 		<div id="header-top">
 			<div id="news">
 				<p>Ouverture de la programmation pour "Musilac"</p>
@@ -16,7 +16,7 @@
 					echo "<img class=\"img-profil\" src=\"../view/style/img/noimage.jpg\"/>\n";
 				} else {
 					echo "<div id=\"account\">";
-					echo "<span><a href=\"../connexion/\">Connexion</a> | <a href=\"#\">Inscription</a></span>\n";
+					echo "<span><a href=\"" . $config['project_path'] . "connexion/\">Connexion</a> | <a href=\"" . $config['project_path'] . "inscription/\">Inscription</a></span>\n";
 					echo "</div>\n";
 				}?>
 			</div>
@@ -28,13 +28,8 @@
 					--><li><a href="#">Rechercher</a></li><!--
 				--><li><a href="#">Mes contacts</a></li><!--
 			--><li><a href="#">Mon compte</a></li>
-		</ul>
-	</nav>
-</div>
-
-
-</div>
-
-</div>
-</div>
+				</ul>
+			</nav>
+		</div>
+	</div>
 </header>

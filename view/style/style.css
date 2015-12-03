@@ -56,7 +56,7 @@ header{
 /* Affichage des news */
 
 #header-top > #news{
-	text-align: left;	
+	text-align: left;
 }
 
 /*	Header bottom */
@@ -68,7 +68,7 @@ nav ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-} 
+}
 
 nav li{
     display: inline;
@@ -103,7 +103,8 @@ nav a:hover{
 /* CORPS DU SITE */
 
 #content{
-	width: 60%;
+	max-width: 800px;
+	width: 90%;
 	box-sizing: border-box;
 	border: 1px solid black;
 	padding: 20px;
