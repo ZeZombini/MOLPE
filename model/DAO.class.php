@@ -183,13 +183,16 @@
         return $tab[0];
       }
     }
-
-
-
-
-
-
-
+// Methodes Utilitaires //////////////////////////////////////////////////////////////////////////////////////////////
+  function checkLogin($mail,$mdp) {
+    $req="select idUser from Utilisateur where mail=$mail and mdp=$mdp;";
+    $res = $this->db->query($req);
+    if (getClass($res)!=PDOStatement) return 0;
+    else {
+      $id = $res->fetch();
+      return $id;
+    }
+  }
 
 
 
