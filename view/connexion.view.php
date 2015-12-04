@@ -1,14 +1,3 @@
-
-<html>
-  <head>
-    <title>MOLPE - Moteur d'Organisation, Listing et Partage d'Evénementiels </title>
-	 <link rel="stylesheet" href="style/style.css">
-  </head>
-
-  <body>
-   <?php include("header.view.php") ; ?>
-
->>>>>>> origin/master
 	<div id="content">
 		<div id="content-connexion">
 			<h2>Connexion</h2>
@@ -23,10 +12,5 @@
 			</form>
 		</div>
 	</div>
-
-	<footer>
-
-
-	</footer>
-  </body>
+</body>
 </html>

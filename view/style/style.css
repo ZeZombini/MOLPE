@@ -34,7 +34,7 @@ header{
 	top: -25px;
 	z-index: 5;
 	background-repeat: no-repeat;
-	background-image: url("./img/logo.png");
+	background-image: url("img/logo.png");
 	background-size: 100%;
 	-webkit-transition: width 0.5s; /* Safari */
     transition: width 0.5s;
@@ -121,7 +121,7 @@ header{
 
 /*	Header bottom */
 nav{
-	margin-left: 250px;
+	margin-left: 0px;
 }
 
 nav ul {
