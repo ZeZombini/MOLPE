@@ -162,7 +162,7 @@
     function getUserFromID($idUser) {
       $req="select * from Utilisateur where idUser=$idUser;";
       $user=$this->db->query($req);
-      $tab = $user->fetchAll(PDO::FETCH_CLASS,'Utilisateur');
+      $tab = $user->fetchAll();
       return $tab[0];
     }
 
