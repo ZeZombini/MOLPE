@@ -115,6 +115,14 @@
       return $tab;
     }
 // Methodes -> Booker //////////////////////////////////////////////////////////////////////////////////////////////////
+    // Cardinalité: 1 //
+    function getBookerFromID($idBooker) {
+      $req="select * from Booker where idBooker=$idBooker;";
+      $booker = $this->db->query($req);
+      $tab = $booker->fetchAll(PDO::FETCH_CLASS,'Booker');
+      return $tab[0];
+    }
+
     // Cardinalité : * //
     function getBookersFromGroupeID($idGroupe) {
       $req = "select Booker.idBooker,Booker.pourceCom,Booker.tailleGrp,Booker.stylePref
@@ -150,6 +158,14 @@
       return $tab;
     }
 // Methodes -> Utilisateur ///////////////////////////////////////////////////////////////////////////////////////////////
+    // Cardinalité: 1 //
+    function getUserFromID($idUser) {
+      $req="select * from Utilisateur where idUser=$idUser;";
+      $user=$this->db->query($req);
+      $tab = $user->fetchAll(PDO::FETCH_CLASS,'Utilisateur');
+      return $tab[0];
+    }
+
     // Cardinalité : * //
     function getContactsFromUserID($idUser) {
       $req="select idUser2 from Contact where idUser1=$idUser;";
@@ -157,13 +173,13 @@
       $ids=$contactsID->fetch();
       $i=0;
       foreach ($ids as $contact) {
-        $tab[$i]=getUserFromID($contact);
+        $tab[$i]=getClassUserFromID($contact);
         $i++;
       }
       return $tab;
     }
 
-    function getUserFromID($idUser) {
+    function getClassUserFromID($idUser) {
       $req="select * from Booker where idBooker=$idUser;";
       $user=$this->db->query($req);
       if (getClass($user)!=PDOStatement) {
