@@ -28,10 +28,14 @@ header{
 
 #logo{
 	width: 250px;
+	height: 250px;
 	float: left;
 	position: relative;
 	top: -25px;
 	z-index: 5;
+	background-repeat: no-repeat;
+	background-image: url("./img/logo.png");
+	background-size: 100%;
 	-webkit-transition: width 1s; /* Safari */
     transition: width 1s;
 }
@@ -50,6 +54,8 @@ header{
 #news{
 	display: inline;
 	vertical-align: middle;
+	-webkit-transition: height 1s;
+    transition: height 1s;
 }
 
 #news *{
@@ -236,16 +242,20 @@ nav a:hover{
 
 .fixHeader{
  height: 30px;
- -webkit-transition: height 1s; / Safari /
+ -webkit-transition: height 1s;
     transition: height 1s;
 }
 
 #logo-mini{
  width: 100px;
+ height: 100px;
  float: left;
  position: relative;
  top: -20px;
-  -webkit-transition: width 1s; / Safari /
+ 	background-repeat: no-repeat;
+	background-image: url("./img/minilogo.png");
+	background-size: 100%;
+  -webkit-transition: width 1s;
     transition: width 1s;
 }
 
@@ -253,6 +263,8 @@ nav a:hover{
  position: fixed;
  top: 0px;
  margin-left: 120px;
+ -webkit-transition: width 1s;
+ transition: width 1s;
 }
 
 .nav-mini a{
