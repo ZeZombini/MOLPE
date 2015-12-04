@@ -1,8 +1,9 @@
+--TODO: refaire le MCD et create.sql en fonction 
 DROP TABLE Utilisateur;
 DROP TABLE Contact;
 DROP TABLE Booker;
 DROP TABLE Groupe;
-DROP TABLE BooGroupe;
+DROP TABLE Booke;
 DROP TABLE Organisateur;
 DROP TABLE Evenement;
 DROP TABLE Lieu;
@@ -13,14 +14,14 @@ DROP TABLE SceneUtilise;
 
 CREATE TABLE Utilisateur(
 	idUser  	INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+	motDePasse		VARCHAR(100),
+	imageProfil   VARCHAR(100),
 	libelle 	VARCHAR(100) NOT NULL,
 	description	VARCHAR(100),
+	zoneGeo VARCHAR(100),
 	siteWeb 	VARCHAR(100),
 	tel			VARCHAR(10),
-	mail 		VARCHAR(100),
-	image   VARCHAR(100),
-	mdp		VARCHAR(100),
-	zoneGeo VARCHAR(100)
+	mail 		VARCHAR(100)
 );
 
 CREATE TABLE Contact(
@@ -33,7 +34,7 @@ CREATE TABLE Contact(
 
 CREATE TABLE Booker(
 	idBooker	INT PRIMARY KEY NOT NULL,
-	pourceCom	INTEGER,
+	pourcentageCom	INTEGER,
 	tailleGrp	VARCHAR(100),
 	stylePref	VARCHAR(100),
 	FOREIGN KEY (idBooker) REFERENCES Utilisateur(idUser)
@@ -47,7 +48,7 @@ CREATE TABLE Groupe(
 	FOREIGN KEY (idGroupe) REFERENCES Utilisateur(idUser)
 );
 
-CREATE TABLE BooGroupe(
+CREATE TABLE Booke(
 	idGroupe	INTEGER,
 	idBooker	INTEGER,
 	PRIMARY KEY (idGroupe, idBooker),
@@ -68,10 +69,11 @@ CREATE TABLE Evenement (
 	nom			VARCHAR(100),
 	dateDeb		DATE,
 	dateFin		DATE,
-	periodeProg VARCHAR(100),
+	periodeProgDeb DATE,
+	periodeProgFin DATE,
 	hebergement	VARCHAR(100),
 	catering	VARCHAR(100),
-	remunerer 	BOOLEAN,
+	remunere 	BOOLEAN,
 	matosDispo	VARCHAR(100)
 	FOREIGN KEY (idOrga) REFERENCES Organisateur(idOrga)
 );
