@@ -9,7 +9,7 @@
 
 <header>
 	<div id="header-content">
-		<img id="logo" src="<?= $config['project_path']?>view/style/img/logo.png" />
+		<div id="logo"></div>
 		<div id="header-top">
 			<div id="news">
 				<p>Ouverture de la programmation pour "Musilac"</p>

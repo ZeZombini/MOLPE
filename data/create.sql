@@ -16,11 +16,11 @@ CREATE TABLE Utilisateur(
 	libelle 	VARCHAR(100) NOT NULL,
 	description	VARCHAR(100),
 	siteWeb 	VARCHAR(100),
-	tel			VARCHAR(100),
+	tel			VARCHAR(10),
 	mail 		VARCHAR(100),
 	image   VARCHAR(100),
-	mdp		VARCHAR(100)
-	-- zoneGeo
+	mdp		VARCHAR(100),
+	zoneGeo VARCHAR(100)
 );
 
 CREATE TABLE Contact(

@@ -15,6 +15,8 @@ header{
 	position: fixed;
 	width:100%;
 	top: 0px;
+	-webkit-transition: height 0.5s; /* Safari */
+    transition: height 0.5s;
 }
 
 #header-content{
@@ -26,10 +28,16 @@ header{
 
 #logo{
 	width: 250px;
+	height: 230px;
 	float: left;
 	position: relative;
 	top: -25px;
 	z-index: 5;
+	background-repeat: no-repeat;
+	background-image: url("./img/logo.png");
+	background-size: 100%;
+	-webkit-transition: width 0.5s; /* Safari */
+    transition: width 0.5s;
 }
 
 /* Header-Top */
@@ -40,6 +48,20 @@ header{
 	margin-left: 125px;
 	padding-top: 10px;
 	position: relative;
+	-webkit-transition: height 0.5s; /* Safari */
+    transition: height 0.5s;
+}
+
+
+#header-top-mini{
+	height: 0px;
+	background-color: rgb(165, 158, 211);
+	margin-left: 125px;
+	padding-top: 0px;
+	position: relative;
+	-webkit-transition: height 0.5s; /* Safari */
+    transition: height 0.5s;
+    overflow: hidden;
 }
 
 /* Le #news est dans le #header-top */
@@ -219,4 +241,46 @@ nav a:hover{
 	text-align: center;
 	padding: 10px;
 	padding-bottom: 30px;
+}
+
+/* Grosse brouette */
+.hide{
+ visibility: hidden;
+}
+
+.show{
+ visibility: visible;
+}
+
+.fixHeader{
+ height: 25px;
+ -webkit-transition: height 0.5s;
+    transition: height 0.5s;
+}
+
+#logo-mini{
+ width: 100px;
+ height: 230px;
+ float: left;
+ position: relative;
+ top: -20px;
+ 	background-repeat: no-repeat;
+	background-image: url("./img/minilogo.png");
+	background-size: 90%;
+  -webkit-transition: width 0.5s;
+    transition: width 0.5s;
+}
+
+.nav-mini{
+ position: fixed;
+ top: 0px;
+ margin-left: 120px;
+ -webkit-transition: top 0.5s;
+ transition: top 0.5s;
+}
+
+.nav-mini a{
+ width: auto;
+ padding-left: 10px;
+ padding-right: 10px;
 }
