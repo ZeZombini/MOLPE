@@ -9,7 +9,6 @@
   require_once("scene.class.php");
   require_once("utilisateur.class.php");
 
-
   class DAO {
     private $db;
 // Constructeur ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -184,7 +183,6 @@
         return $tab[0];
       }
     }
-<<<<<<< HEAD
 // Methodes Utilitaires //////////////////////////////////////////////////////////////////////////////////////////////
   function checkLogin($mail,$mdp) {
     $req="select idUser from Utilisateur where mail=$mail and mdp=$mdp;";
@@ -196,16 +194,4 @@
     }
   }
 }
-=======
-
-
-
-
-
-
-
-
->>>>>>> parent of cd06f97... DAO.class.php > checkLogin()
-
-
 ?>
