@@ -2,6 +2,7 @@
 	$data['connecte'] = true;
 	$data['prenom'] = "Jean-Edouard";
 	$data['nom'] = "De baurepaire";
+	$data['img'] = "noimage.jpg";
 
 ?>
 
@@ -22,7 +23,7 @@
 					echo "	  <p>" . $data['prenom'] . "</p>";
 					echo "	  <a href=\"#\">Déconnexion</a>";
 					echo "    </div>";
-					echo "    <img src=\"" . $config['project_path'] . "/view/style/img/noimage.jpg\">";
+					echo "    <img src=\"" . $config['project_path'] . "/view/style/img/" . $data['img'] . "\">";
 					echo "</div>";
 				}
 			?>

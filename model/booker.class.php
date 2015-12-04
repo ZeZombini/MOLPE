@@ -15,6 +15,7 @@ class Booker extends Utilisateur {
   include("getter/booker.getter.php");
 
   function __construct() {
+    parent::__construct($this->idBooker);
     $dao = new DAO();
     $groupes = $dao->getGroupesFromBookerID($this->idBooker);
   }

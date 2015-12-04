@@ -32,4 +32,5 @@ $app->get("/inscription/", function() use ($app,$config) {
 $app->run();
 
 
+
  ?>

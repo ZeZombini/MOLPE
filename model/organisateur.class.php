@@ -9,8 +9,6 @@ require_once("DAO.class.php");
 class Organisateur extends Utilisateur {
   // Variables deorganisateur
   var $idOrga;
-  var $nom;
-  var $prenom;
 
   // Association avec Scene
   var $scenes; // Cardinalité : *
@@ -20,10 +18,12 @@ class Organisateur extends Utilisateur {
   var $lieux; // Cardinalité : *
 
   function __construct() {
+    parent::__construct($this->idOrga);
     $dao = new DAO();
     $this->scenes     = $dao->getScenesFromOrganisateurID($this->idOrga);
     $this->evenements = $dao->getEvenementsFromOrganisateurID($this->idOrga);
     $this->lieux      = $dao->getLieuxFromOrganisateurID($this->idOrga);
   }
+
 }
  ?>

@@ -11,7 +11,8 @@ if ($session_secure) {
 
   // On construit le data en fonction de l'utilisateur retourné
   $data = array('connecte' => $session_secure,
-                'nom' => $user[0]->getNom()
+                'nom' => $user[0]->getNom(),
+                'img' => $user[0]->getImage()
               );
 } else {
   $data = array('connecte' => $session_secure);
