@@ -220,3 +220,39 @@ nav a:hover{
 	padding: 10px;
 	padding-bottom: 30px;
 }
+
+/* Grosse brouette */
+.hide{
+ visibility: hidden;
+}
+
+.show{
+ visibility: visible;
+}
+
+.fixHeader{
+ height: 30px;
+ -webkit-transition: height 1s; / Safari /
+    transition: height 1s;
+}
+
+#logo-mini{
+ width: 100px;
+ float: left;
+ position: relative;
+ top: -20px;
+  -webkit-transition: width 1s; / Safari /
+    transition: width 1s;
+}
+
+.nav-mini{
+ position: fixed;
+ top: 0px;
+ margin-left: 120px;
+}
+
+.nav-mini a{
+ width: auto;
+ padding-left: 10px;
+ padding-right: 10px;
+}
