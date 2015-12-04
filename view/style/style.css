@@ -48,14 +48,26 @@ header{
 	margin-left: 125px;
 	padding-top: 10px;
 	position: relative;
+	-webkit-transition: height 1s; /* Safari */
+    transition: height 1s;
+}
+
+
+#header-top-mini{
+	height: 0px;
+	background-color: rgb(165, 158, 211);
+	margin-left: 125px;
+	padding-top: 0px;
+	position: relative;
+	-webkit-transition: height 1s; /* Safari */
+    transition: height 1s;
+    overflow: hidden;
 }
 
 /* Le #news est dans le #header-top */
 #news{
 	display: inline;
 	vertical-align: middle;
-	-webkit-transition: height 1s;
-    transition: height 1s;
 }
 
 #news *{
@@ -110,6 +122,8 @@ header{
 /*	Header bottom */
 nav{
 	margin-left: 250px;
+	-webkit-transition: visibility 1s; /* Safari */
+    transition: visibility 1s;
 }
 
 nav ul {
@@ -241,7 +255,7 @@ nav a:hover{
 }
 
 .fixHeader{
- height: 30px;
+ height: 25px;
  -webkit-transition: height 1s;
     transition: height 1s;
 }
