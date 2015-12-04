@@ -5,12 +5,12 @@ $(function(){ $(window).scroll(function () {
 			$('#logo').attr('id', 'logo-mini');
 			$('nav').addClass("nav-mini");
 
-	 		$("#logo-mini").attr('src', '../view/style/img/minilogo.png');
+	 		// $("#logo-mini").attr('src', '../view/style/img/minilogo.png');
 
 	 	} else{
 	 		$('nav').removeClass("nav-mini");
 
-	 		$("#logo").attr('src', '../view/style/img/logo.png');
+	 		// $("#logo").attr('src', '../view/style/img/logo.png');
 
 
 	 		$('#logo-mini').attr('id', 'logo');
