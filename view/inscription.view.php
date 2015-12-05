@@ -1,18 +1,18 @@
 	<div id="content">
+	<h2>Inscription</h2>
 	<div id="inscription">
-		<h2>Inscription</h2>
 		<form>
 			<h3>Informations personnelles</h3>
 			<hr>
 
 			<table><!-- INFO PERSO -->
-			<tr class="ligne_checkbox">
-				<td>Vous �tes un</td>
+			<tr class="ligne_radio">
+				<td>Vous êtes un</td>
 				<td></td>
 				<td>
-					<span class="checkbox"><input type="radio" name="type" value="booker"/>Booker</span>
-					<span class="checkbox"><input type="radio" name="type" value="groupe"/>Groupe</span>
-					<span class="checkbox"><input type="radio" name="type" value="orga"/>Organisateur</span>
+					<input type="radio" name="type" value="booker" id="radio_booker" checked/><label for="radio_booker">Booker</label>
+					<input type="radio" name="type" value="groupe" id="radio_groupe"/><label for="radio_groupe">Groupe</label>
+					<input type="radio" name="type" value="orga" id="radio_orga"/><label for="radio_orga">Organisateur</label>
 				</td>
 			</tr>
 

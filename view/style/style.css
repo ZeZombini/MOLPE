@@ -2,13 +2,14 @@ body{
 	width:100%;
 	margin: auto;
 	font-family: "Myriad Pro",  Verdana, "DejaVu Sans", "Bitstream Vera Sans", Geneva, sans-serif;
-	background-color: white;
+	background-color: rgb(218,217,228);
 	padding-bottom: 50px;
 }
 
 /* HEADER */
 header{
-	background-color: rgb(140, 133, 186);
+	/*background-color: rgb(140, 133, 186);*/
+	background-color: rgb(127, 90, 181);
 	color: white;
 	padding-top: 15px;
 	height: 122px;
@@ -121,7 +122,7 @@ header{
 
 /*	Header bottom */
 nav{
-	margin-left: 0px;
+	margin-left: 250px;
 }
 
 nav ul {
@@ -155,8 +156,7 @@ nav a:visited{
 
 nav a:hover{
 	color: white;
-	background-color: white;
-	opacity: 0.5;
+	background-color: rgb(144, 109, 195);
 }
 
 
@@ -167,16 +167,30 @@ nav a:hover{
 	max-width: 1000px;
 	width: 90%;
 	box-sizing: border-box;
-	border: 1px solid black;
-	padding: 20px;
 	margin-top: 220px;
 	margin-left: auto;
 	margin-right: auto;
 	height: auto;
-	padding-bottom: 50px;
+	background: white;
+
+	
 }
 
+#content > div{
 
+	padding: 0px 20px 50px 20px;
+}
+
+#content > h2{
+	background-color: rgb(127, 90, 181);
+	margin: 0px;
+	height: 1.5em;	
+	color: white;
+	padding: 10px 10px 0px 10px;
+	font-weight: normal;
+	font-size: 2em;
+
+}
 
 /* ------------------------------------------- */
 /*                                             */
@@ -201,11 +215,29 @@ nav a:hover{
 	width: 25px;
 }
 
-/* Les trois checkbox */
-#inscription .ligne_checkbox span{
-	display: inline-block;
-	width: 30%;
+/* Les trois radio button */
+#inscription .ligne_radio input{
+	display: none;
 }
+
+#inscription .ligne_radio input + label{
+	display: inline-block;
+	box-sizing: border-box;
+    margin: -1px;
+    padding: 4px 12px;
+    width: 33%;
+    text-align: center;
+    box-shadow: 1px 1px 1px rgb(127, 90, 181);;
+    border: solid silver 1px;
+    height: 30px;
+}
+
+#inscription .ligne_radio input:checked + label{
+    box-shadow: 0 0 4px rgb(127, 90, 181) inset;
+    height: 31px;
+}
+
+
 
 /* L'input d'une ligne simple */
 #inscription .ligne_simple td:last-child input{
