@@ -18,6 +18,7 @@ header{
 	top: 0px;
 	-webkit-transition: height 0.5s; /* Safari */
     transition: height 0.5s;
+    z-index: 2;
 }
 
 #header-content{
@@ -301,11 +302,13 @@ nav a:hover{
 	background-size: 30px;
     background-position: 40% 80%;
 	background-repeat: no-repeat;
+	z-index: 0;
 }
 
 
 /* Le boutton pour envoyer le formulaire */
 #inscription input[type="submit"]{
+	font-size: 1.2em;
     width: 50%;
     text-align: center;
     box-shadow: 1px 1px 0px rgb(127, 90, 181);
