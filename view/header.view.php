@@ -2,7 +2,7 @@
 	$data['connecte'] = true;
 	$data['prenom'] = "Jean-Edouard";
 	$data['nom'] = "De baurepaire";
-	$data['img'] =  $config['project_path'] . "view/style/img/noimage.jpg";
+	$data['img'] =  "view/style/img/noimage.jpg";
 ?>
 
 
