@@ -1,4 +1,4 @@
-<DOCTYPE html>
+<!DOCTYPE html>
 <html>
   <head>
     <title>MOLPE - Moteur d'Organisation, Listing et Partage d'Evénementiels </title>
