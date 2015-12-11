@@ -9,8 +9,8 @@
   require_once("scene.class.php");
   require_once("utilisateur.class.php");
 
-//TODO: Adapter les methodes qui renvoient une sous-classe d'utilisateur pour renvoyer tous les bons attributs (need MCD)
-//TODO: Plus a jour par rapport au MCD
+//TODO: Mettre a jour le MCD
+//TODO: checkMailUtilise()
 
   class DAO {
     private $db;

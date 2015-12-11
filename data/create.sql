@@ -1,131 +1,150 @@
---TODO: refaire le MCD et create.sql en fonction 
 DROP TABLE Utilisateur;
 DROP TABLE Contact;
 DROP TABLE Booker;
 DROP TABLE Groupe;
-DROP TABLE Booke;
+DROP TABLE BookerGroupe;
 DROP TABLE Organisateur;
 DROP TABLE Evenement;
 DROP TABLE Lieu;
 DROP TABLE Salle;
 DROP TABLE Scene;
 DROP TABLE Passage;
-DROP TABLE SceneUtilise;
+DROP TABLE Possede;
+DROP TABLE Organise;
+DROP TABLE SePasseraA;
+DROP TABLE EstComposeDe;
 
 CREATE TABLE Utilisateur(
-	idUser  	INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-	motDePasse		VARCHAR(100),
-	imageProfil   VARCHAR(100),
-	libelle 	VARCHAR(100) NOT NULL,
-	description	VARCHAR(100),
-	zoneGeo VARCHAR(100),
+	idUser  	INTEGER(10) PRIMARY KEY AUTOINCREMENT NOT NULL,
+	mail	VARCHAR(100) NOT NULL,	--UNIQUE
+	motDePasse		VARCHAR(255) NOT NULL,
+	imageProfil   VARCHAR(255) NOT NULL,
+	prenom		VARCHAR(255) NOT NULL,
+	nom		VARCHAR(255),
+	description		VARCHAR(255),
 	siteWeb 	VARCHAR(100),
-	tel			VARCHAR(10),
-	mail 		VARCHAR(100)
+	tel		VARCHAR(10),
+	adresse		VARCHAR(100),
+	codePostal		VARCHAR(5),
+	ville		VARCHAR(100),
+	pays		VARCHAR(100)
 );
 
 CREATE TABLE Contact(
-	idUser1		INTEGER,
-	idUser2		INTEGER,
+	idUser1		INTEGER(10) NOT NULL,
+	idUser2		INTEGER(10) NOT NULL,
 	PRIMARY KEY (idUser1, idUser2),
 	FOREIGN KEY (idUser1) REFERENCES Utilisateur(idUser),
 	FOREIGN KEY (idUser2) REFERENCES Utilisateur(idUser)
 );
 
 CREATE TABLE Booker(
-	idBooker	INT PRIMARY KEY NOT NULL,
-	pourcentageCom	INTEGER,
-	tailleGrp	VARCHAR(100),
-	stylePref	VARCHAR(100),
-	FOREIGN KEY (idBooker) REFERENCES Utilisateur(idUser)
+	idUser_Booker	INTEGER(100) PRIMARY KEY NOT NULL,
+	pourcentageCom	INTEGER(3),
+	tailleGrp	VARCHAR(50),
+	stylePref	VARCHAR(255),
+	FOREIGN KEY (idUser_Booker) REFERENCES Utilisateur(idUser)
 );
 
 CREATE TABLE Groupe(
-	idGroupe	INT PRIMARY KEY NOT NULL,
-	style 		VARCHAR(100),
-	taille 		VARCHAR(100),
-	matDispo	VARCHAR(100),
-	FOREIGN KEY (idGroupe) REFERENCES Utilisateur(idUser)
+	idUser_Groupe	INTEGER(10) PRIMARY KEY NOT NULL,
+	style 		VARCHAR(255) NOT NULL,
+	taille 		VARCHAR(255) NOT NULL,
+	matDispo	VARCHAR(255) NOT NULL,
+	FOREIGN KEY (idUser_Groupe) REFERENCES Utilisateur(idUser)
 );
 
-CREATE TABLE Booke(
-	idGroupe	INTEGER,
-	idBooker	INTEGER,
+CREATE TABLE BookerGroupe(
+	idGroupe	INTEGER(10) NOT NULL,
+	idBooker	INTEGER(10) NOT NULL,
 	PRIMARY KEY (idGroupe, idBooker),
-	FOREIGN KEY (idGroupe) REFERENCES Groupe(idGroupe),
-	FOREIGN KEY (idBooker) REFERENCES Booker(idBooker)
+	FOREIGN KEY (idGroupe) REFERENCES Groupe(idUser_Groupe),
+	FOREIGN KEY (idBooker) REFERENCES Booker(idUser_Booker)
 );
 
 CREATE TABLE Organisateur(
-	idOrga 		INTEGER PRIMARY KEY NOT NULL,
-	nom			VARCHAR(100),
-	prenom		VARCHAR(100),
-	FOREIGN KEY (idOrga) REFERENCES Utilisateur(idUser)
+	idUser_Organisateur 		INTEGER PRIMARY KEY NOT NULL,
+	FOREIGN KEY (idUser_Organisateur) REFERENCES Utilisateur(idUser)
 );
 
 CREATE TABLE Evenement (
-	idEvenement	INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-	idOrga		INTEGER NOT NULL,
-	nom			VARCHAR(100),
-	dateDeb		DATE,
-	dateFin		DATE,
+	idEvenement	INTEGER(10) PRIMARY KEY AUTOINCREMENT NOT NULL,
+	nom			VARCHAR(255) NOT NULL,
+	dateDeb		DATE NOT NULL,
+	dateFin		DATE NOT NULL,
 	periodeProgDeb DATE,
 	periodeProgFin DATE,
-	hebergement	VARCHAR(100),
-	catering	VARCHAR(100),
-	remunere 	BOOLEAN,
-	matosDispo	VARCHAR(100)
-	FOREIGN KEY (idOrga) REFERENCES Organisateur(idOrga)
+	hebergement	VARCHAR(255),
+	catering	VARCHAR(255),
+	remunerer 	BOOLEAN NOT NULL,
+	matosDispo	VARCHAR(255)
 );
 
 CREATE TABLE Lieu(
-	idLieu 		INTEGER,
-	bar			  BOOLEAN,
-	adresse		VARCHAR(100),
-	idProprioLieu	INTEGER,
-	FOREIGN KEY (idProprio) REFERENCES Organisateur(idOrga),
+	idLieu 		INTEGER(20) PRIMARY KEY AUTOINCREMENT NOT NULL,
+	bar			  BOOLEAN NOT NULL,
+	adresse		VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE Salle(
-	idDuLieu	INTEGER,
-	idProprio	INTEGER,
-	carte 		VARCHAR(100),
-	description	VARCHAR(100),
-	FOREIGN KEY (idProprio) REFERENCES Organisateur(idOrga),
-	FOREIGN KEY (idDuLieu) REFERENCES Lieu(idLieu)
-);
-
-CREATE TABLE Scene(
-	idScene 	INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-	idProprio	INTEGER,
-	idLieu		INTEGER,
-	nomScene	VARCHAR(100),
-	largeur		INTEGER,
-	hauteur		INTEGER,
-	longueur 	INTEGER,
-	avantScene	BOOLEAN,
-	plan		VARCHAR(100),
-	capaPub		INTEGER,
-	FOREIGN KEY (idProprio) REFERENCES Organisateur(idOrga),
+	idLieu INTEGER(20) NOT NULL,
+	idSalle INTEGER(20) NOT NULL,
+	description VARCHAR(255),
+	PRIMARY KEY (idLieu, idSalle),
 	FOREIGN KEY (idLieu) REFERENCES Lieu(idLieu)
 );
 
+CREATE TABLE Scene(
+	idScene 	INTEGER(20) PRIMARY KEY AUTOINCREMENT NOT NULL,
+	nom VARCHAR(255),
+	largeur INTEGER(4) NOT NULL,
+	hauteur INTEGER(4) NOT NULL,
+	longueur INTEGER(4) NOT NULL,
+	avantScene BOOLEAN NOT NULL,
+	plan VARCHAR(255),
+	capacitePublic INTEGER(10)
+);
+
 CREATE TABLE Passage(
-	idGroupe	INTEGER,
-	idEvenement	INTEGER,
-	idScene		INTEGER,
+	idEvenement INTEGER(20) NOT NULL,
+	idScene INTEGER(20) NOT NULL,
+	idGroupe INTEGER(10) NOT NULL
 	datePassage	DATE,
-	dateBalance DATE,
-	PRIMARY KEY(idGroupe, idEvenement, idScene),
-	FOREIGN KEY (idGroupe) REFERENCES Groupe(idGroupe),
+	dateBalances DATE,
+	PRIMARY KEY(idEvenement,idScene,isGroupe),
+	FOREIGN KEY (idGroupe) REFERENCES Groupe(idUser_Groupe),
 	FOREIGN KEY (idEvenement) REFERENCES Evenement(idEvenement),
 	FOREIGN KEY (idScene) REFERENCES Scene(idScene)
 );
 
-CREATE TABLE SceneUtilise(
-	idScene	INTEGER,
-	idEvenement	INTEGER,
-	PRIMARY KEY (idScene, idEvenement),
-	FOREIGN KEY (idScene) REFERENCES Scene(idScene),
+CREATE TABLE Possede(
+	idOrganisateur INTEGER(10) NOT NULL,
+	idLieu INTEGER(20) NOT NULL,
+	PRIMARY KEY (idOrganisateur,vidLieu),
+	FOREIGN KEY (idOrganisateur) REFERENCES Organisateur(idUser_Organisateur),
+	FOREIGN KEY (idLieu) REFERENCES Lieu(idLieu)
+);
+
+CREATE TABLE Organise(
+	idOrganisateur INTEGER(10) NOT NULL,
+	idEvenement INTEGER(20) NOT NULL,
+	PRIMARY KEY (idOrganisateur, idEvenement),
+	FOREIGN KEY (idOrganisateur) REFERENCES Organisateur(idUser_Organisateur),
 	FOREIGN KEY (idEvenement) REFERENCES Evenement(idEvenement)
+);
+
+CREATE TABLE SePasseraA(
+	idEvenement INTEGER(20) NOT NULL,
+	idLieu INTEGER(20) NOT NULL,
+	PRIMARY KEY (idEvenement, idLieu),
+	FOREIGN KEY (idEvenement) REFERENCES Evenement(idEvenement),
+	FOREIGN KEY (idLieu) REFERENCES Lieu(idLieu)
+);
+
+CREATE TABLE EstComposeDe(
+	idScene INTEGER(20) NOT NULL,
+	idLieu INTEGER(20) NOT NULL,
+	PRIMARY KEY (idScene, idLieu),
+	FOREIGN KEY (idScene) REFERENCES Scene(idScene),
+	FOREIGN KEY (idLieu) REFERENCES Lieu(idLieu)
 );
