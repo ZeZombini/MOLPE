@@ -237,7 +237,7 @@ nav a:hover{
 	background-repeat: no-repeat;
 }
 
-#inscription #disable{
+#inscription .disable{
 	opacity: 0.8;
 }
 
