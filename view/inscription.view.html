@@ -1,7 +1,7 @@
 	<div id="content">
 	<h2>Inscription</h2>
 	<div id="inscription">
-		<form>
+		<form id="form1">
 			<h3>Informations personnelles</h3>
 			<hr>
 
@@ -19,7 +19,7 @@
 			<tr class="ligne_simple">
 				<td>Pseudonyme *</td>
 				<td></td>
-				<td><input id="switch1" type="text" name="libelle" disabled/></td>
+				<td><input id="switch1" type="text" name="libelle"/></td>
 			</tr>
 
 			<tr class="ligne_double">
@@ -46,7 +46,7 @@
 			<tr class="ligne_simple">
 				<td>Adresse e-mail *</td>
 				<td></td>
-				<td><input id="email" type="email" name="email" required/></td>
+				<td><input type="email" name="email" required/></td>
 			</tr>
 			<tr class="ligne_simple">
 				<td>Confirmer *</td>
@@ -96,7 +96,7 @@
 			</tr>
 			</table>
 
-			<input type="submit" value="Valider l'inscription" onclick="checkEmail();">
+			<input type="submit" value="Valider l'inscription" onclick="checkEmail();" >
 
 		</form>
 	</div>
@@ -136,5 +136,6 @@
 		     return status;
 		}
 	</script>
+
   </body>
 </html>
