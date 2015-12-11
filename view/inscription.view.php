@@ -113,14 +113,14 @@
 				document.getElementById('switch1').disabled = true;
 				document.getElementById('switch2').disabled = false;
 				document.getElementById('switch3').disabled = false;
-				$('pseudo').addClass("opacity");
-				$('prenomnom').removeClass("opacity");
+				$('.pseudo').addClass('opacity');
+				$('.prenomnom').removeClass('opacity');
 			} else {
 				document.getElementById('switch1').disabled = false;
 				document.getElementById('switch2').disabled = true;
 				document.getElementById('switch3').disabled = true;
-				$('prenomnom').addClass("opacity");
-				$('pseudo').removeClass("opacity");
+				$('.prenomnom').addClass('opacity');
+				$('.pseudo').removeClass('opacity');
 			}
 		}
 	</script>
