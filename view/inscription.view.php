@@ -25,18 +25,18 @@
 			<tr class="ligne_double">
 				<td><input type="button" id="img_opposite" onclick="switchbutton()">Prénom *</td>
 				<td></td>
-				<td><input id="switch2" type="text" name="prenom"><span>Nom* </span><input id="switch3" type="text" name="prenom"></td>
+				<td><input id="switch2" type="text" name="nom"><span>Nom* </span><input id="switch3" type="text" name="prenom"></td>
 			</tr>
 
 			<tr class="ligne_petite">
 				<td>Telephone mobile &nbsp</td>
 				<td></td>
-				<td><input type="tel" name="mobile"/></td>
+				<td><input type="tel" name="tel_mobile"/></td>
 			</tr>
 			<tr class="ligne_petite">
 				<td>Telephone fixe &nbsp</td>
 				<td></td>
-				<td><input type="tel" name="fix"/></td>
+				<td><input type="tel" name="tel_fix"/></td>
 			</tr>
 			</table>
 
@@ -77,22 +77,22 @@
 			<tr class="ligne_simple">
 				<td>Libellé de la voie</td>
 				<td></td>
-				<td><input type="text" name="libelle_voie"/></td>
+				<td><input type="text" name="libel_voie"/></td>
 			</tr>
 			<tr class="ligne_petite">
 				<td>Ville</td>
 				<td></td>
-				<td><input type="text" name="libelle"></td>
+				<td><input type="text" name="ville"></td>
 			</tr>
 			<tr class="ligne_petite">
 				<td>Code postal</td>
 				<td></td>
-				<td><input type="text" name="code postal"></td>
+				<td><input type="text" name="code_postal"></td>
 			</tr>
 			<tr class="ligne_petite">
 				<td>Pays</td>
 				<td></td>
-				<td><input type="text" name="libelle"></td>
+				<td><input type="text" name="pays"></td>
 			</tr>
 			</table>
 
