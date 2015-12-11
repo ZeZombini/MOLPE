@@ -16,16 +16,16 @@
 				</td>
 			</tr>
 
-			<tr class="ligne_simple">
+			<tr class="ligne_simple pseudo">
 				<td>Pseudonyme *</td>
 				<td></td>
 				<td><input id="switch1" type="text" name="libelle" disabled/></td>
 			</tr>
 
-			<tr class="ligne_double">
+			<tr class="ligne_double prenomnom">
 				<td><input type="button" id="img_opposite" onclick="switchbutton()">Prénom *</td>
 				<td></td>
-				<td><input id="switch2" type="text" name="nom"><span>Nom* </span><input id="switch3" type="text" name="prenom"></td>
+				<td><input id="switch2" type="text" name="nom" required><span>Nom* </span><input id="switch3" type="text" name="prenom" required></td>
 			</tr>
 
 			<tr class="ligne_petite">
@@ -113,10 +113,14 @@
 				document.getElementById('switch1').disabled = true;
 				document.getElementById('switch2').disabled = false;
 				document.getElementById('switch3').disabled = false;
+				$('pseudo').addClass("opacity");
+				$('prenomnom').removeClass("opacity");
 			} else {
 				document.getElementById('switch1').disabled = false;
 				document.getElementById('switch2').disabled = true;
 				document.getElementById('switch3').disabled = true;
+				$('prenomnom').addClass("opacity");
+				$('pseudo').removeClass("opacity");
 			}
 		}
 	</script>
