@@ -16,7 +16,7 @@
 				</td>
 			</tr>
 
-			<tr class="ligne_simple pseudo">
+			<tr class="ligne_simple pseudo disable">
 				<td>Pseudonyme *</td>
 				<td></td>
 				<td><input id="switch1" type="text" name="libelle" disabled/></td>
