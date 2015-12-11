@@ -1,8 +1,8 @@
 <?php
 
-require_once("vendor/slim/slim/slim/slim.php");
+require_once("vendor/slim/slim/Slim/Slim.php");
 require("vendor/autoload.php");
-$config = parse_ini_file("../config.ini", FALSE);
+$config = parse_ini_file("config.ini", FALSE);
 
 $app = new \Slim\Slim();
 

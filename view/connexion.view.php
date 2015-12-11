@@ -13,10 +13,5 @@
 			</form>
 		</div>
 	</div>
-
-	<footer>
-
-
-	</footer>
-  </body>
+</body>
 </html>

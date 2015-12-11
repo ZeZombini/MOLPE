@@ -28,16 +28,13 @@
 				}
 			?>
 		</div>
-		</div>
-		<div id="header-bottom">
-			<nav>
-				<ul>
-					<li><a href="<?=$config['project_path']?>">Accueil</a></li><!--
-					--><li><a href="#">Rechercher</a></li><!--
-				--><li><a href="#">Mes contacts</a></li><!--
-			--><li><a href="#">Mon compte</a></li>
-				</ul>
-			</nav>
-		</div>
+		<nav>
+			<ul>
+				<li><a href="<?=$config['project_path']?>">Accueil</a></li><!--
+				--><li><a href="#">Rechercher</a></li><!--
+			--><li><a href="#">Mes contacts</a></li><!--
+		--><li><a href="#">Mon compte</a></li>
+			</ul>
+		</nav>
 	</div>
 </header>
