@@ -237,6 +237,10 @@ nav a:hover{
 	background-repeat: no-repeat;
 }
 
+#inscription #disable{
+	opacity: 0.8;
+}
+
 /* Les trois radio button */
 #inscription .ligne_radio input{
 	display: none;
