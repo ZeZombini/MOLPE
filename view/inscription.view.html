@@ -16,27 +16,27 @@
 				</td>
 			</tr>
 
-			<tr class="ligne_simple pseudo disable">
+			<tr class="ligne_simple">
 				<td>Pseudonyme *</td>
 				<td></td>
-				<td><input id="switch1" type="text" name="libelle" disabled/></td>
+				<td><input id="switch1" type="text" name="libelle"/></td>
 			</tr>
 
-			<tr class="ligne_double prenomnom">
+			<tr class="ligne_double">
 				<td><input type="button" id="img_opposite" onclick="switchbutton()">Prénom *</td>
 				<td></td>
-				<td><input id="switch2" type="text" name="nom" required><span>Nom* </span><input id="switch3" type="text" name="prenom" required></td>
+				<td><input id="switch2" type="text" name="prenom"><span>Nom* </span><input id="switch3" type="text" name="prenom"></td>
 			</tr>
 
 			<tr class="ligne_petite">
 				<td>Telephone mobile &nbsp</td>
 				<td></td>
-				<td><input type="tel" name="tel_mobile"/></td>
+				<td><input type="tel" name="mobile"/></td>
 			</tr>
 			<tr class="ligne_petite">
 				<td>Telephone fixe &nbsp</td>
 				<td></td>
-				<td><input type="tel" name="tel_fix"/></td>
+				<td><input type="tel" name="fix"/></td>
 			</tr>
 			</table>
 
@@ -46,7 +46,7 @@
 			<tr class="ligne_simple">
 				<td>Adresse e-mail *</td>
 				<td></td>
-				<td><input id="email" type="email" name="email" required/></td>
+				<td><input type="email" name="email" required/></td>
 			</tr>
 			<tr class="ligne_simple">
 				<td>Confirmer *</td>
@@ -77,22 +77,22 @@
 			<tr class="ligne_simple">
 				<td>Libellé de la voie</td>
 				<td></td>
-				<td><input type="text" name="libel_voie"/></td>
+				<td><input type="text" name="libelle_voie"/></td>
 			</tr>
 			<tr class="ligne_petite">
 				<td>Ville</td>
 				<td></td>
-				<td><input type="text" name="ville"></td>
+				<td><input type="text" name="libelle"></td>
 			</tr>
 			<tr class="ligne_petite">
 				<td>Code postal</td>
 				<td></td>
-				<td><input type="text" name="code_postal"></td>
+				<td><input type="text" name="code postal"></td>
 			</tr>
 			<tr class="ligne_petite">
 				<td>Pays</td>
 				<td></td>
-				<td><input type="text" name="pays"></td>
+				<td><input type="text" name="libelle"></td>
 			</tr>
 			</table>
 
@@ -113,16 +113,13 @@
 				document.getElementById('switch1').disabled = true;
 				document.getElementById('switch2').disabled = false;
 				document.getElementById('switch3').disabled = false;
-				$('.pseudo').addClass('disable');
-				$('.prenomnom').removeClass('disable');
 			} else {
 				document.getElementById('switch1').disabled = false;
 				document.getElementById('switch2').disabled = true;
 				document.getElementById('switch3').disabled = true;
-				$('.prenomnom').addClass('disable');
-				$('.pseudo').removeClass('disable');
 			}
 		}
 	</script>
+
   </body>
 </html>
