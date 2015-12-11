@@ -19,7 +19,7 @@
 			<tr class="ligne_simple">
 				<td>Pseudonyme *</td>
 				<td></td>
-				<td><input id="switch1" type="text" name="libelle"/></td>
+				<td><input id="switch1" type="text" name="libelle" disabled/></td>
 			</tr>
 
 			<tr class="ligne_double">
