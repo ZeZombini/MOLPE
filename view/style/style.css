@@ -146,6 +146,7 @@ nav a{
 	text-align: center;
 	width: 25%;
 	font-size: 1.1em;
+	height: 42px;
 	text-decoration: none;
 	/* Couleur */
 	color: white;
@@ -345,6 +346,7 @@ nav a:hover{
 	padding-bottom: 30px;
 }
 
+/* MINI HEADER */
 .hide{
  visibility: hidden;
 }
@@ -381,6 +383,7 @@ nav a:hover{
 }
 
 .nav-mini a{
+ height: 40px;
  width: auto;
  padding-left: 10px;
  padding-right: 10px;

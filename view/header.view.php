@@ -30,10 +30,26 @@
 		</div>
 		<nav>
 			<ul>
-				<li><a href="<?=$config['project_path']?>">Accueil</a></li><!--
-				--><li><a href="#">Rechercher</a></li><!--
-			--><li><a href="#">Mes contacts</a></li><!--
-		--><li><a href="#">Mon compte</a></li>
+				<?php
+					if ($data['connecte'] == true){
+echo <<<EOT
+					<li><a href="{$config['project_path']}">Accueil</a></li><!--
+					--><li><a href="#">Recherche</a></li><!--
+					--><li><a href="#">Mes contacts</a></li><!--
+					--><li><a href="#">Mon compte</a></li>
+EOT;
+
+					} else {
+echo <<<EOT
+					<li><a href="{$config['project_path']}">Accueil</a></li><!--
+					--><li><a href="#">Recherche</a></li><!--
+					--><li><a href="{$config['project_path']}/inscription">Inscription</a></li><!--
+					--><li><a href="{$config['project_path']}/connexion">Connexion</a></li>
+EOT;
+					
+					}?>
+
+
 			</ul>
 		</nav>
 	</div>
