@@ -11,8 +11,7 @@
 	$data['telephone']				= "06.02.03.05.09";
 	$data['site']					= "http://www.youtube.com/channel/notbadrecords";
 	$data['email'] 					= "notbadrecords38@gmail.com";
-	/*$data['zoneGeo']
-	$data['zoneGeo']*/
+
 
 ?>
 
@@ -36,51 +35,21 @@
 
 	<div id="content">
 		<div id="fiche-contact">
-			<img class="img-profil" src="../view/style/img/noimage.jpg"/>
-			<h2><?php echo $data['nom']; ?></h2>
-
-			<h3>Informations</h3>
-			<hr>
-			<?php
-				if ($data['zoneGeo'] != null)
-					echo "<p>Zone g�ographique : ".$data['zoneGeo']."</p>\n";
-				if ($data['style'] != null){
-					if ($data['acteur'] == "booker"){
-						echo "<p>Style musical pr�f�r� : ".$data['style']."</p>\n";
-					} else {
-						echo "<p>Style musical : ".$data['style']."</p>\n";
-					}
-				}
-				if ($data['groupePref'] != null)
-					echo "<p>Site web : ".$data['groupePref']."</p>\n";
-				if ($data['pourcentageCommission'] != null)
-					echo "<p>Site web : ".$data['pourcentageCommission']."</p>\n";
-				if ($data['desc'] != null)
-					echo "<p>Site web : ".$data['desc']."</p>\n";
-				if ($data['matosDispo'] != null){
-					echo "<p>Mat�riel disponible pour d�placement :</p>\n<ul>\n";
-					foreach ((array)$data['matosDispo'] as $matos) {
-						echo "    <li>".$matos."</li>\n";
-					}
-					echo "</ul>";
-				}
-				
-
-				if ($data['matosDispo'] != null)
-
-				?>
-
-				<h3>Contact</h3>
+			<img class="banniere_profil" src="$config['project_path']/view/style/img/">;
+			<div id="fiche-contact-top">
+				<img class="img-profil" src="../view/style/img/noimage.jpg"/>
+				<h3>Lorem Ipsum</h3>
+				<p>Groupe</p>
+				<p>Vous êtes booker de ce groupe</p>
+			</div>
+			<div id="fiche-contact-info">
+				<h4>Informations</h4>
 				<hr>
-				<?php
-				if ($data['telephone'] != null)
-					echo "<p>Telephone : ".$data['telephone']."</p>\n";
-				if ($data['site'] != null)
-					echo "<p>Site web : <a href=\"".$data['site']."\">".$data['site']."</a></p>\n";
-				if ($data['email'] != null)
-					echo "<p>E-mail : <a href=\"mailto:".$data['email']."\">".$data['email']."</p>\n";
+				<p>Zone géographique : Grenoble (+- 10km)</p>
+				<p>Style musical préféré : Jazz</p>
+				<p>Site web : <a href="#"
 
-				?>
+
 		</div>
 	</div>
 
