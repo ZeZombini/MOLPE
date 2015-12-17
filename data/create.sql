@@ -49,9 +49,10 @@ CREATE TABLE Booker(
 
 CREATE TABLE Groupe(
 	idUser_Groupe	INTEGER(10) PRIMARY KEY NOT NULL,
-	style 		VARCHAR(255) NOT NULL,
-	taille 		VARCHAR(255) NOT NULL,
-	matDispo	VARCHAR(255) NOT NULL,
+	style 		VARCHAR(255),
+	taille 		VARCHAR(255),
+	matDispo	VARCHAR(255),
+	ficheTech		VARCHAR(255),
 	FOREIGN KEY (idUser_Groupe) REFERENCES Utilisateur(idUser)
 );
 
