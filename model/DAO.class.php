@@ -9,8 +9,8 @@
   require_once("scene.class.php");
   require_once("utilisateur.class.php");
 
-//TODO: Adapter les methodes qui renvoient une sous-classe d'utilisateur pour renvoyer tous les bons attributs (need MCD)
-//TODO: Plus a jour par rapport au MCD
+//TODO: Mettre a jour apres getScenesFromOrganisateurID()
+//TODO: checkMailUtilise()
 
   class DAO {
     private $db;
@@ -26,7 +26,7 @@
 // Methodes -> Groupe //////////////////////////////////////////////////////////////////////////////////////////////////
     // Cardinalité : 1 //
     function getGroupeFromID($idGroupe) {
-      $req = "select * from groupe where idGroupe=$idGroupe;";
+      $req = "select * from Groupe where idUser_Groupe=$idGroupe;";
       $groupe = $this->db->query($req);
       $tab = $groupe->fetchAll(PDO::FETCH_CLASS,'Groupe');
       return $tab[0];
@@ -34,8 +34,8 @@
 
     // Cardinalité : * //
     function getGroupesFromBookerID($idBooker) {
-      $req = "select Groupe.idGroupe,Groupe.style,Groupe.taille,Groupe.matDispo
-                  from BooGroupe,Groupe where Groupe.idGroupe=BooGroupe.idGroupe and idBooker=$idBooker;";
+      $req = "select Groupe.idUser_Groupe,Groupe.style,Groupe.taille,Groupe.matDispo
+                  from BookerGroupe,Groupe where Groupe.idUser_Groupe=BookerGroupe.idGroupe and idBooker=$idBooker;";
       $groupes = $this->db->query($req);
       $tab = $groupes->fetchAll(PDO::FETCH_CLASS,'Groupe');
       return $tab;
@@ -45,7 +45,7 @@
 // Methodes -> Organisateur ////////////////////////////////////////////////////////////////////////////////////////////
     // Cardinalité : 1 //
     function getOrganisateurFromID($idOrga) {
-      $req = "select * from Organisateur where idOrga=$idOrga;";
+      $req = "select * from Organisateur where idUser_Organisateur=$idOrga;";
       $orga = $this->db->query($req);
       $tab = $orga->fetchAll(PDO::FETCH_CLASS,'Organisateur');
       return $tab[0];
@@ -61,8 +61,8 @@
 
     // Cardinalité : * //
     function getScenesFromEvenementID($idEvenement) {
-      $req = "select Scene.idScene,Scene.idProprio,Scene.idLieu,Scene.nomScene,Scene.largeur,Scene.hauteur,Scene.longueur,Scene.avantScene,Scene.plan,Scene.capaPub
-                  from SceneUtilise,Scene where Scene.idScene=SceneUtilise.idScene and SceneUtilise.idEvenement=$idEvenement;";
+      $req = "select distinct Scene.idScene,Scene.nom,Scene.largeur,Scene.hauteur,Scene.longueur,Scene.avantScene,Scene.plan,Scene.capacitePublic
+                  from Scene,Passage where Scene.idScene=Passage.idScene and Passage.idEvenement=$idEvenement;";
       $scenes = $this->db->query($req);
       $tab = $scenes->fetchAll(PDO::FETCH_CLASS,'Scene');
       return $tab;
@@ -78,7 +78,7 @@
 
     // Cardinalité : * //
     function getScenesFromOrganisateurID($idOrga) {
-      $req = "select * from Scene where idProprio=$idOrga;";
+      $req = "select * from Scene where idOrganisateur=$idOrga;";
       $scenes = $this->db->query($req);
       $tab = $scenes->fetchAll(PDO::FETCH_CLASS,'Scene');
       return $tab;

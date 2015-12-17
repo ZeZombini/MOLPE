@@ -1,7 +1,7 @@
 	<div id="content">
 	<h2>Inscription</h2>
 	<div id="inscription">
-		<form>
+		<form method="post">
 			<h3>Informations personnelles</h3>
 			<hr>
 
@@ -16,16 +16,16 @@
 				</td>
 			</tr>
 
-			<tr class="ligne_simple">
+			<tr class="ligne_simple pseudo disable">
 				<td>Pseudonyme *</td>
 				<td></td>
 				<td><input id="switch1" type="text" name="libelle" disabled/></td>
 			</tr>
 
-			<tr class="ligne_double">
+			<tr class="ligne_double prenomnom">
 				<td><input type="button" id="img_opposite" onclick="switchbutton()">Prénom *</td>
 				<td></td>
-				<td><input id="switch2" type="text" name="nom"><span>Nom* </span><input id="switch3" type="text" name="prenom"></td>
+				<td><input id="switch2" type="text" name="nom" required><span>Nom* </span><input id="switch3" type="text" name="prenom" required></td>
 			</tr>
 
 			<tr class="ligne_petite">
@@ -113,13 +113,22 @@
 				document.getElementById('switch1').disabled = true;
 				document.getElementById('switch2').disabled = false;
 				document.getElementById('switch3').disabled = false;
+				document.getElementById('switch1').required = true;
+				document.getElementById('switch2').required = false;
+				document.getElementById('switch3').required = false;
+				$('pseudo').addClass('disable');
+				$('prenomnom').removeClass('disable');
 			} else {
 				document.getElementById('switch1').disabled = false;
 				document.getElementById('switch2').disabled = true;
 				document.getElementById('switch3').disabled = true;
+				document.getElementById('switch1').required = false;
+				document.getElementById('switch2').required = true;
+				document.getElementById('switch3').required = true;
+				$('prenomnom').addClass('disable');
+				$('pseudo').removeClass('disable');
 			}
 		}
-
 	</script>
   </body>
 </html>
