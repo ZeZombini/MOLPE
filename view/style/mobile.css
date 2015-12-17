@@ -1,15 +1,17 @@
 @media screen and (max-width: 480px) {
 	header {
-		height: 50px;
+		height: 25px;
 	}
 	#logo {
 		width: 100px;
+ 		height: 230px;
 		background-image: url("./img/minilogo.png");
 	}
-	#news {
+	#header-top {
 		visibility: hidden;
 	}
 	nav {
 		visibility: hidden;
 	}
 }
+
