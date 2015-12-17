@@ -2,17 +2,25 @@
 // Ok avec la V1
   require_once("DAO.class.php");
 class Utilisateur {
-
+  // Descriptifs primaires
   var $idUser;
   var $nom;
   var $prenom;
+  // infos complémentaires
   var $description;
   var $siteWeb;
   var $tel;
+  // utilisé pour connexion
   var $mail;
-  var $mdp;
-  var $zone;
-  var $image;
+  var $motDePasse;
+  // location
+  var $adresse;
+  var $codePostal;
+  var $ville;
+  var $pays;
+  //image
+  var $imageProfil;
+  var bannière;
 
   // Association avec lui-même avec les contacts
   var $contacts;
