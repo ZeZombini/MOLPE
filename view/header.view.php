@@ -35,8 +35,8 @@
 echo <<<EOT
 					<li><a href="{$config['project_path']}">Accueil</a></li><!--
 					--><li><a href="#">Recherche</a></li><!--
-					--><li><a href="#">Mes contacts</a></li><!--
-					--><li><a href="#">Mon compte</a></li>
+					--><li><a href="#">Contacts</a></li><!--
+					--><li><a href="#">Compte</a></li>
 EOT;
 
 					} else {
