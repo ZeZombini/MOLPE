@@ -12,7 +12,7 @@
 	<div id="content">
 		<h2>Accueil</h2>
 
-		<p>Bonjour et bienvenu sur Molpe.</p>
+		<p>Bonjour et bienvenue sur Molpe.</p>
 		<p><a href="#">Inscription</a> | <a href="#">Connexion</a></p>
 	</div>
 
