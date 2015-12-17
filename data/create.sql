@@ -19,6 +19,7 @@ CREATE TABLE Utilisateur(
 	mail	VARCHAR(100) NOT NULL,	--UNIQUE
 	motDePasse		VARCHAR(255) NOT NULL,
 	imageProfil   VARCHAR(255) NOT NULL,
+	banniere		VARCHAR(100) NOT NULL,
 	prenom		VARCHAR(255) NOT NULL,
 	nom		VARCHAR(255),
 	description		VARCHAR(255),
