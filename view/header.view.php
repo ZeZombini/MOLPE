@@ -23,7 +23,7 @@
 					echo "	  <p>" . $data['prenom'] . "</p>";
 					echo "	  <a href=\"#\">Déconnexion</a>";
 					echo "    </div>";
-					echo "    <img src=\"" . $config['project_path'] . "/view/style/img/" . $data['img'] . "\">";
+					echo "    <img src=\"" . $config['project_path'] . "data/style/img/" . $data['img'] . "\">";
 					echo "</div>";
 				}
 			?>

@@ -6,12 +6,12 @@ $config = parse_ini_file("config.ini", FALSE);
 
 $app = new \Slim\Slim();
 
-$app->notFound(function () use ($app) {
-    $app->redirect('./');
-});
+/*$app->notFound(function () use ($app,$config) {
+    $app->redirect($config['project_path']);
+});*/
 
-$app->get('/', function() {
-    echo("<h1>Page index.php</h1>");
+$app->get('/', function() use ($app,$config){
+    //$app->redirect($config['project_path'] . "index.php");
 });
 
 $app->get("/connexion/", function() use ($app,$config) {

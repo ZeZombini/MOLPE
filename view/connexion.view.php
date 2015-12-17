@@ -1,8 +1,8 @@
-	<div id="content">
+<div id="content">
 		<div id="content-connexion">
 			<h2>Connexion</h2>
 
-			<form action="<?= $config['project_path' ?>controler/check_login.ctrl.php" method="get" onSub>
+			<form action="<?= $config['project_path'] ?>controler/check_login.ctrl.php" method="get" onSubmit="">
 				<p>Adresse e-mail :</p>
 				<input type="text" name="email"/>
 				<p>Mot de passe</p>

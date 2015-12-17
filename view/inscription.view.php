@@ -120,21 +120,6 @@
 			}
 		}
 
-		function checkEmail() {
-		    var status = false;     
-			var emailRegEx = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-		     if (document.form1.email.value.search(emailRegEx) == -1) {
-		          alert("Email faux.");
-		     }
-		     else if (document.form1.email.value != document.form1.conf_email.value) {
-		          alert("Email addresses do not match.  Please retype them to make sure they are the same.");
-		     }
-		     else {
-		          alert("Woohoo!  The email address is in the correct format and they are the same.");
-		          status = true;
-		     }
-		     return status;
-		}
 	</script>
   </body>
 </html>
