@@ -10,9 +10,9 @@
 				<td>Vous êtes un &nbsp</td>
 				<td></td>
 				<td>
-					<input type="radio" name="type" value="booker" id="radio_booker" checked/><label for="radio_booker">Booker</label>
-					<input type="radio" name="type" value="groupe" id="radio_groupe"/><label for="radio_groupe">Groupe</label>
-					<input type="radio" name="type" value="orga" id="radio_orga"/><label for="radio_orga">Organisateur</label>
+					<input type="radio" name="type" value="Booker" id="radio_booker" checked/><label for="radio_booker">Booker</label>
+					<input type="radio" name="type" value="Groupe" id="radio_groupe"/><label for="radio_groupe">Groupe</label>
+					<input type="radio" name="type" value="Organisateur" id="radio_orga"/><label for="radio_orga">Organisateur</label>
 				</td>
 			</tr>
 
@@ -69,7 +69,7 @@
 				<td><input type="password" name="conf_mdp" required/></td>
 			</tr>
 			</table>
-			
+
 
 			<h3>Adresse</h3>
 			<hr>

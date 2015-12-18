@@ -9,7 +9,7 @@
   require_once("scene.class.php");
   require_once("utilisateur.class.php");
 
-//TODO: Mettre a jour apres getScenesFromOrganisateurID()
+//TODO: Mettre a jour toutes les methodes pour adapter aux classes PHP
 //TODO: checkMailUtilise()
 
   class DAO {
@@ -213,16 +213,21 @@
     }
   }
 }
-=======
-
-
-
-
-
-
-
-
->>>>>>> parent of cd06f97... DAO.class.php > checkLogin()
-
-
+  // Ajoute un utilisateur dans la base de donnees
+  // Renvoie 0 si une erreur a eu lieu, 1 sinon
+  function inscription($type,$prenom,$nom,$tel_mobile,$tel_fixe,$mail,$mdp,$libelle_voie,$ville,$code_postal,$pays) {
+    $req = "insert into Utilisateur(mail,motDePasse,imageProfil,banniere,prenom,nom,tel_mobile,tel_fixe,adresse,codePostal,ville,pays)
+                values ($mail,$mdp,'0_profil','0_banniere',$prenom,$nom,$tel_mobile,$tel_fixe,$libelle_voie,$codePostal,$ville$pays);"
+    $res=$this->db->exec($req);
+    if ($res==0) return 0;
+    else {
+      $req = "select idUser from Utilisateur where mail=$mail;"
+      $res = $this->db->query($req);
+      $id = $user->fetch();
+      $req = "insert into $type(idUser_$type) values ($id);"
+      $res=$this->db->exec($req);
+      if ($res==0) return 0;
+      else return 1;
+    }
+  }
 ?>
