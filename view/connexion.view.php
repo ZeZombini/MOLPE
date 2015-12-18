@@ -1,5 +1,5 @@
 <?php $data['email'] = "blbl";
-$data['fail']="Erreur : Blblpbjskenknekjfjqfsjeb jqbdsejegoshfbqkf jsmojs rgl idrg djhg srd";?>
+$data['fail']="Erreur : BIIIIIIIIIIIITE";?>
 <div id="content">
 <h2>Connexion</h2>
 	<div id="content-connexion">
