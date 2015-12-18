@@ -100,35 +100,28 @@
 
 		</form>
 	</div>
-	</div>
+</div>
 
-	<footer>
-
-
-	</footer>
-
-	<script>
-		function switchbutton() {
-			if(document.getElementById('switch1').disabled == false) {
-				document.getElementById('switch1').disabled = true;
-				document.getElementById('switch2').disabled = false;
-				document.getElementById('switch3').disabled = false;
-				document.getElementById('switch1').required = true;
-				document.getElementById('switch2').required = false;
-				document.getElementById('switch3').required = false;
-				$('pseudo').addClass('disable');
-				$('prenomnom').removeClass('disable');
-			} else {
-				document.getElementById('switch1').disabled = false;
-				document.getElementById('switch2').disabled = true;
-				document.getElementById('switch3').disabled = true;
-				document.getElementById('switch1').required = false;
-				document.getElementById('switch2').required = true;
-				document.getElementById('switch3').required = true;
-				$('prenomnom').addClass('disable');
-				$('pseudo').removeClass('disable');
-			}
+<script>
+	function switchbutton() {
+		if(document.getElementById('switch1').disabled == false) {
+			document.getElementById('switch1').disabled = true;
+			document.getElementById('switch2').disabled = false;
+			document.getElementById('switch3').disabled = false;
+			document.getElementById('switch1').required = true;
+			document.getElementById('switch2').required = false;
+			document.getElementById('switch3').required = false;
+			$('pseudo').addClass('disable');
+			$('prenomnom').removeClass('disable');
+		} else {
+			document.getElementById('switch1').disabled = false;
+			document.getElementById('switch2').disabled = true;
+			document.getElementById('switch3').disabled = true;
+			document.getElementById('switch1').required = false;
+			document.getElementById('switch2').required = true;
+			document.getElementById('switch3').required = true;
+			$('prenomnom').addClass('disable');
+			$('pseudo').removeClass('disable');
 		}
-	</script>
-  </body>
-</html>
+	}
+</script>
