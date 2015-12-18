@@ -1,9 +1,11 @@
 <?php $data['email'] = "blbl";
-$data['fail']="Erreur : BIIIIIIIIIIIITE";?>
+$data['fail']="Erreur : ";?>
 <div id="content">
 <h2>Connexion</h2>
 	<div id="content-connexion">
+		<?php if ($data['fail'] == "") :?>
 		<p class="error"><?=$data['fail']?></p>
+		<?php endif?>
 
 		<form action="<?= $config['project_path'] ?>controler/check_login.ctrl.php" method="get" onSubmit="">
 			<p>Adresse e-mail :</p>

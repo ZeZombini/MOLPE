@@ -13,21 +13,23 @@
 	nav {
 		position: absolute;
 		right: 0px;
-		height: 100%;
+		top: 25px;
+		height: 100vh;
 		width: 90%;
-		background-color: rgb(127, 90, 181);
 		/* visibility: hidden; */
 	}
 
 	nav ul {
 		width: 100%;
+		background-color: rgb(127, 90, 181);
 	}
 	nav li {
 		display: block;
 	}
 	nav a {
 		width: 100%;
-		text-align: right;
+		text-align: left;
+		padding-left: 10px;
 	}
 	#content {
 		width: 100%;
