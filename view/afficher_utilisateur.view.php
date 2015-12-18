@@ -47,7 +47,21 @@
 				<hr>
 				<p>Zone géographique : Grenoble (+- 10km)</p>
 				<p>Style musical préféré : Jazz</p>
-				<p>Site web : <a href="#"
+				<p>Site web : <a href="#"></a></p>
+			</div>
+			<div>
+
+			</div>
+
+
+
+			<div id="fiche-contact-contact">
+				<h4>Contact</h4>
+				<hr>
+				<p>Telephone 1:</p>
+				<p>Telephone 2:</p>
+				<p>Email : </p>
+			</div>
 
 
 		</div>
