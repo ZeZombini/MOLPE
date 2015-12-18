@@ -26,6 +26,13 @@ header{
 	margin: auto;
 }
 
+#mobile-header-button {
+	visibility: hidden;
+	position: absolute;
+	top: 2px;
+	right: 2px;
+}
+
 /* Header left */
 
 #logo{

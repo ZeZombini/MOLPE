@@ -10,6 +10,7 @@
 <header>
 	<div id="header-content">
 		<div id="logo"></div>
+		<div id="mobile-header-button"></div>
 		<div id="header-top">
 			<div id="news">
 				<p>Ouverture de la programmation pour "Musilac"</p>

@@ -8,19 +8,24 @@
 		background-image: url("../../data/img/minilogo.png");
 	}
 	#header-top {
-		visibility: hidden;
+		position: absolute;
+		top: 40px;
+		right: 0px;
+		width: 70%;
+		height: calc(50vh-20px);
 	}
 	nav {
 		position: absolute;
 		right: 0px;
-		top: 25px;
-		height: 100vh;
-		width: 90%;
+		top: calc(50vh+40px);
+		height: calc(50vh-20px);
+		width: 80%;
 		/* visibility: hidden; */
 	}
 
 	nav ul {
 		width: 100%;
+		height: 100vh;
 		background-color: rgb(127, 90, 181);
 	}
 	nav li {
@@ -34,6 +39,9 @@
 	#content {
 		width: 100%;
 		margin-top: 100px;
+	}
+	#mobile-header-button {
+		visibility: visible;
 	}
 }
 
