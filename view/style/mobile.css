@@ -1,17 +1,37 @@
-@media screen and (max-width: 480px) {
+@media all and (max-width: 480px) {
 	header {
 		height: 25px;
 	}
 	#logo {
-		width: 100px;
+		width: 60px;
  		height: 230px;
-		background-image: url("./img/minilogo.png");
+		background-image: url("../../data/img/minilogo.png");
 	}
 	#header-top {
 		visibility: hidden;
 	}
 	nav {
-		visibility: hidden;
+		position: absolute;
+		right: 0px;
+		height: 100%;
+		width: 90%;
+		background-color: rgb(127, 90, 181);
+		/* visibility: hidden; */
+	}
+
+	nav ul {
+		width: 100%;
+	}
+	nav li {
+		display: block;
+	}
+	nav a {
+		width: 100%;
+		text-align: right;
+	}
+	#content {
+		width: 100%;
+		margin-top: 100px;
 	}
 }
 

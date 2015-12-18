@@ -9,7 +9,7 @@
   require_once("scene.class.php");
   require_once("utilisateur.class.php");
 
-//TODO: Mettre a jour apres getScenesFromOrganisateurID()
+//TODO: Mettre a jour toutes les methodes pour adapter aux classes PHP
 //TODO: checkMailUtilise()
 
   class DAO {
@@ -213,16 +213,30 @@
     }
   }
 }
-=======
+  // Verifie si l'utilisateur qui veut s'inscrire a entre un mail deja utilise
+  // Renvoie faux si le mail est deja utilise, et true sinon
+  function checkInscription($mail) {
+    $req = "select * from Utilisateur where mail='$mail';"
+    $res = $this->db->query($req);
+    if (getClass($req)==PDOStatement) return false;
+    else return true;
+  }
 
-
-
-
-
-
-
-
->>>>>>> parent of cd06f97... DAO.class.php > checkLogin()
-
-
+  // Ajoute un utilisateur dans la base de donnees
+  // Renvoie false si une erreur a eu lieu, true sinon
+  function inscription($type,$prenom,$nom,$tel_mobile,$tel_fixe,$mail,$mdp,$libelle_voie,$ville,$code_postal,$pays) {
+    $req = "insert into Utilisateur(mail,motDePasse,imageProfil,banniere,prenom,nom,tel_mobile,tel_fixe,adresse,codePostal,ville,pays)
+                values ('$mail','$mdp','0_profil','0_banniere','$prenom','$nom','$tel_mobile','$tel_fixe','$libelle_voie','$codePostal','$ville','$pays');"
+    $res=$this->db->exec($req);
+    if ($res==0) return false;
+    else {
+      $req = "select idUser from Utilisateur where mail=$mail;"
+      $res = $this->db->query($req);
+      $id = $user->fetch();
+      $req = "insert into $type(idUser_$type) values ($id);"
+      $res=$this->db->exec($req);
+      if ($res==0) return false;
+      else return true;
+    }
+  }
 ?>

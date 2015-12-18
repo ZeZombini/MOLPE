@@ -24,7 +24,8 @@ CREATE TABLE Utilisateur(
 	nom		VARCHAR(255),
 	description		VARCHAR(255),
 	siteWeb 	VARCHAR(100),
-	tel		VARCHAR(10),
+	tel_mobile		VARCHAR(10),
+	tel_fixe		VARCHAR(10),
 	adresse		VARCHAR(100),
 	codePostal		VARCHAR(5),
 	ville		VARCHAR(100),
@@ -49,9 +50,10 @@ CREATE TABLE Booker(
 
 CREATE TABLE Groupe(
 	idUser_Groupe	INTEGER(10) PRIMARY KEY NOT NULL,
-	style 		VARCHAR(255) NOT NULL,
-	taille 		VARCHAR(255) NOT NULL,
-	matDispo	VARCHAR(255) NOT NULL,
+	style 		VARCHAR(255),
+	taille 		VARCHAR(255),
+	matDispo	VARCHAR(255),
+	ficheTech		VARCHAR(255),
 	FOREIGN KEY (idUser_Groupe) REFERENCES Utilisateur(idUser)
 );
 
@@ -84,15 +86,9 @@ CREATE TABLE Evenement (
 CREATE TABLE Lieu(
 	idLieu 		INTEGER(20) PRIMARY KEY AUTOINCREMENT NOT NULL,
 	bar			  BOOLEAN NOT NULL,
-	adresse		VARCHAR(255) NOT NULL
-);
-
-CREATE TABLE Salle(
-	idLieu INTEGER(20) NOT NULL,
-	idSalle INTEGER(20) NOT NULL,
-	description VARCHAR(255),
-	PRIMARY KEY (idLieu, idSalle),
-	FOREIGN KEY (idLieu) REFERENCES Lieu(idLieu)
+	adresse		VARCHAR(255) NOT NULL,
+	salle		BOOLEAN NOT NULL,
+	description		VARCHAR(255)
 );
 
 CREATE TABLE Scene(

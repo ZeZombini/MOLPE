@@ -10,9 +10,9 @@
 				<td>Vous êtes un &nbsp</td>
 				<td></td>
 				<td>
-					<input type="radio" name="type" value="booker" id="radio_booker" checked/><label for="radio_booker">Booker</label>
-					<input type="radio" name="type" value="groupe" id="radio_groupe"/><label for="radio_groupe">Groupe</label>
-					<input type="radio" name="type" value="orga" id="radio_orga"/><label for="radio_orga">Organisateur</label>
+					<input type="radio" name="type" value="Booker" id="radio_booker" checked/><label for="radio_booker">Booker</label>
+					<input type="radio" name="type" value="Groupe" id="radio_groupe"/><label for="radio_groupe">Groupe</label>
+					<input type="radio" name="type" value="Organisateur" id="radio_orga"/><label for="radio_orga">Organisateur</label>
 				</td>
 			</tr>
 
@@ -69,7 +69,7 @@
 				<td><input type="password" name="conf_mdp" required/></td>
 			</tr>
 			</table>
-			
+
 
 			<h3>Adresse</h3>
 			<hr>
@@ -100,35 +100,31 @@
 
 		</form>
 	</div>
-	</div>
+</div>
 
-	<footer>
-
-
-	</footer>
-
-	<script>
-		function switchbutton() {
-			if(document.getElementById('switch1').disabled == false) {
-				document.getElementById('switch1').disabled = true;
-				document.getElementById('switch2').disabled = false;
-				document.getElementById('switch3').disabled = false;
-				document.getElementById('switch1').required = true;
-				document.getElementById('switch2').required = false;
-				document.getElementById('switch3').required = false;
-				$('pseudo').addClass('disable');
-				$('prenomnom').removeClass('disable');
-			} else {
-				document.getElementById('switch1').disabled = false;
-				document.getElementById('switch2').disabled = true;
-				document.getElementById('switch3').disabled = true;
-				document.getElementById('switch1').required = false;
-				document.getElementById('switch2').required = true;
-				document.getElementById('switch3').required = true;
-				$('prenomnom').addClass('disable');
-				$('pseudo').removeClass('disable');
-			}
+<script>
+	function switchbutton() {
+		if(document.getElementById('switch1').disabled == false) {
+			document.getElementById('switch1').disabled = true;
+			document.getElementById('switch2').disabled = false;
+			document.getElementById('switch3').disabled = false;
+			document.getElementById('switch1').required = true;
+			document.getElementById('switch2').required = false;
+			document.getElementById('switch3').required = false;
+			document.getElementById('switch1').value = '';
+			$('pseudo').addClass('disable');
+			$('prenomnom').removeClass('disable');
+		} else {
+			document.getElementById('switch1').disabled = false;
+			document.getElementById('switch2').disabled = true;
+			document.getElementById('switch3').disabled = true;
+			document.getElementById('switch1').required = false;
+			document.getElementById('switch2').required = true;
+			document.getElementById('switch3').required = true;
+			document.getElementById('switch2').value = '';
+			document.getElementById('switch3').value = '';
+			$('prenomnom').addClass('disable');
+			$('pseudo').removeClass('disable');
 		}
-	</script>
-  </body>
-</html>
+	}
+</script>
