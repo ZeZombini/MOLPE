@@ -111,6 +111,8 @@
 			document.getElementById('switch1').required = true;
 			document.getElementById('switch2').required = false;
 			document.getElementById('switch3').required = false;
+			document.getElementById('switch2').value = '';
+			document.getElementById('switch3').value = '';
 			$('pseudo').addClass('disable');
 			$('prenomnom').removeClass('disable');
 		} else {
@@ -120,6 +122,7 @@
 			document.getElementById('switch1').required = false;
 			document.getElementById('switch2').required = true;
 			document.getElementById('switch3').required = true;
+			document.getElementById('switch1').value = '';
 			$('prenomnom').addClass('disable');
 			$('pseudo').removeClass('disable');
 		}
