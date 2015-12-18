@@ -13,6 +13,7 @@ DROP TABLE Possede;
 DROP TABLE Organise;
 DROP TABLE SePasseraA;
 DROP TABLE EstComposeDe;
+DROP TABLE VerifMail;
 
 CREATE TABLE Utilisateur(
 	idUser  	INTEGER(10) PRIMARY KEY AUTOINCREMENT NOT NULL,
@@ -144,4 +145,10 @@ CREATE TABLE EstComposeDe(
 	PRIMARY KEY (idScene, idLieu),
 	FOREIGN KEY (idScene) REFERENCES Scene(idScene),
 	FOREIGN KEY (idLieu) REFERENCES Lieu(idLieu)
+);
+
+CREATE TABLE VerifMail(
+	mail VARCHAR(100) PRIMARY KEY NOT NULL,
+	code VARCHAR(32) NOT NULL,
+	FOREIGN KEY (mail) REFERENCES Utilisateur(mail)
 );

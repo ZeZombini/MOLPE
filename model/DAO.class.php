@@ -10,7 +10,6 @@
   require_once("utilisateur.class.php");
 
 //TODO: Mettre a jour toutes les methodes pour adapter aux classes PHP
-//TODO: checkMailUtilise()
 
   class DAO {
     private $db;
@@ -203,13 +202,20 @@
       }
     }
 // Methodes Utilitaires //////////////////////////////////////////////////////////////////////////////////////////////
+  // Verifie si le mail correspond au mot de passe, et verifie si la validation du mail a eu lieu
+  // Renvoie 0 si le mail ne correspond pas au mot de passe, -1 si l'utilisateur n'a pas valide son mail et son id si tout va bien
   function checkLogin($mail,$mdp) {
-    $req="select idUser from Utilisateur where mail=$mail and mdp=$mdp;";
+    $req="select idUser from Utilisateur where mail=$mail and mdp='$mdp';";
     $res = $this->db->query($req);
     if (getClass($res)!=PDOStatement) return 0;
     else {
-      $id = $res->fetch();
-      return $id;
+      $req="select * from VerifMail where mail='$mail';";
+      $res2 = $this->db->query($req);
+      if (getClass($res2)!=PDOStatement) return -1;
+      else {
+        $id = $res->fetch();
+        return $id;
+      }
     }
   }
 }
