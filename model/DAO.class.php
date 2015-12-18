@@ -245,4 +245,19 @@
       else return true;
     }
   }
+
+  // Valide le mail d'un utilisateur si sa cle correspond
+  // Renvoie true si tout va bien, false si la cle ne correspond pas ou si la suppression de la BD a echoue
+  function valider_compte($mail,$code) {
+    $req="select code from VerifMail where mail='$mail';";
+    $res = $this->db->query($req);
+    $key = $res->fetch();
+    if ($code!=$key) return false;
+    else {
+      $req="delete from VerifMail where mail='$mail;'";
+      $check = $this->db->exec($req);
+      if ($check==1) return true;
+      else return false;
+    }
+  }
 ?>
