@@ -15,6 +15,7 @@
 		right: 0px;
 		height: 100%;
 		width: 90%;
+		background-color: rgb(127, 90, 181);
 		/* visibility: hidden; */
 	}
 
@@ -23,7 +24,10 @@
 	}
 	nav li {
 		display: block;
+	}
+	nav a {
 		width: 100%;
+		text-align: right;
 	}
 	#content {
 		width: 100%;
