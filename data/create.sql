@@ -85,15 +85,9 @@ CREATE TABLE Evenement (
 CREATE TABLE Lieu(
 	idLieu 		INTEGER(20) PRIMARY KEY AUTOINCREMENT NOT NULL,
 	bar			  BOOLEAN NOT NULL,
-	adresse		VARCHAR(255) NOT NULL
-);
-
-CREATE TABLE Salle(
-	idLieu INTEGER(20) NOT NULL,
-	idSalle INTEGER(20) NOT NULL,
-	description VARCHAR(255),
-	PRIMARY KEY (idLieu, idSalle),
-	FOREIGN KEY (idLieu) REFERENCES Lieu(idLieu)
+	adresse		VARCHAR(255) NOT NULL,
+	salle		BOOLEAN NOT NULL,
+	description		VARCHAR(255)
 );
 
 CREATE TABLE Scene(
