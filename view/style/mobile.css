@@ -5,7 +5,7 @@
 	#logo {
 		width: 100px;
  		height: 230px;
-		background-image: url("./img/minilogo.png");
+		background-image: url("../../data/img/minilogo.png");
 	}
 	#header-top {
 		visibility: hidden;

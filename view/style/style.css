@@ -36,7 +36,7 @@ header{
 	top: -25px;
 	z-index: 5;
 	background-repeat: no-repeat;
-	background-image: url("img/logo.png");
+	background-image: url("../../data/img/logo.png");
 	background-size: 100%;
 	-webkit-transition: width 0.5s; /* Safari */
     transition: width 0.5s;
@@ -232,7 +232,7 @@ nav a:hover{
 #inscription table td:nth-child(2){
 	width: 25px;
 	padding-right: 10px;
-	background-image: url("img/question58-1.png");
+	background-image: url("../../data/img/question58-1.png");
 	background-size: 20px;
     background-position: 40% 80%;
 	background-repeat: no-repeat;
@@ -302,7 +302,7 @@ nav a:hover{
 	position : relative;
 	right: 10px;
 	bottom: 20px;
-	background-image: url("img/opposite5.png");
+	background-image: url("../../data/img/opposite5.png");
 	background-size: 30px;
     background-position: 40% 80%;
 	background-repeat: no-repeat;
@@ -368,7 +368,7 @@ nav a:hover{
  position: relative;
  top: -20px;
  	background-repeat: no-repeat;
-	background-image: url("./img/minilogo.png");
+	background-image: url("../../data/img/minilogo.png");
 	background-size: 90%;
   -webkit-transition: width 0.5s;
     transition: width 0.5s;
