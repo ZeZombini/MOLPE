@@ -16,7 +16,7 @@ header{
 	position: fixed;
 	width:100%;
 	top: 0px;
-	-webkit-transition: height 0.5s; /* Safari */
+	-webkit-transition: height 0.5s;
     transition: height 0.5s;
     z-index: 2;
 }
@@ -38,7 +38,7 @@ header{
 	background-repeat: no-repeat;
 	background-image: url("../../data/img/logo.png");
 	background-size: 100%;
-	-webkit-transition: width 0.5s; /* Safari */
+	-webkit-transition: width 0.5s;
     transition: width 0.5s;
 }
 
@@ -50,7 +50,7 @@ header{
 	margin-left: 125px;
 	padding-top: 10px;
 	position: relative;
-	-webkit-transition: height 0.5s; /* Safari */
+	-webkit-transition: height 0.5s;
     transition: height 0.5s;
 }
 
@@ -61,7 +61,7 @@ header{
 	margin-left: 125px;
 	padding-top: 0px;
 	position: relative;
-	-webkit-transition: height 0.5s; /* Safari */
+	-webkit-transition: height 0.5s;
     transition: height 0.5s;
     overflow: hidden;
 }
@@ -348,43 +348,68 @@ nav a:hover{
 
 /* MINI HEADER */
 .hide{
- visibility: hidden;
+ 	visibility: hidden;
 }
 
 .show{
- visibility: visible;
+ 	visibility: visible;
 }
 
 .fixHeader{
  height: 25px;
- -webkit-transition: height 0.5s;
+ 	-webkit-transition: height 0.5s;
     transition: height 0.5s;
 }
 
 #logo-mini{
- width: 100px;
- height: 230px;
- float: left;
- position: relative;
- top: -20px;
- 	background-repeat: no-repeat;
+ 	width: 100px;
+ 	height: 230px;
+ 	float: left;
+	position: relative;
+	top: -20px;
+	background-repeat: no-repeat;
 	background-image: url("../../data/img/minilogo.png");
 	background-size: 90%;
-  -webkit-transition: width 0.5s;
+	-webkit-transition: width 0.5s;
     transition: width 0.5s;
 }
 
 .nav-mini{
- position: fixed;
- top: 0px;
- margin-left: 120px;
- -webkit-transition: top 0.5s;
- transition: top 0.5s;
+	 position: fixed;
+	 top: 0px;
+	 margin-left: 120px;
+	 -webkit-transition: top 0.5s;
+	 transition: top 0.5s;
 }
 
 .nav-mini a{
- height: 40px;
- width: auto;
- padding-left: 10px;
- padding-right: 10px;
+	 height: 40px;
+	 width: auto;
+	 padding-left: 10px;
+	 padding-right: 10px;
 }
+
+
+
+/* SCROLLBAR */
+::-webkit-scrollbar {
+     width: 10px;
+}
+
+::-webkit-scrollbar-track {
+     background-color: rgb(127, 90, 181);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3); 
+}
+
+::-webkit-scrollbar-button {
+    background-color: rgb(127, 90, 181);
+    height: 50px;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: rgb(165, 158, 211);
+}
+
