@@ -1,4 +1,4 @@
-@media screen and (max-width: 480px) {
+@media all and (max-width: 480px) {
 	header {
 		height: 25px;
 	}
@@ -11,7 +11,19 @@
 		visibility: hidden;
 	}
 	nav {
-		visibility: hidden;
+		position: absolute;
+		right: 0px;
+		height: 100%;
+		width: 90%;
+		/* visibility: hidden; */
+	}
+
+	nav ul {
+		width: 100%;
+	}
+	nav li {
+		display: block;
+		width: 100%;
 	}
 	#content {
 		width: 100%;
