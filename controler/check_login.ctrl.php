@@ -4,6 +4,7 @@ require_once("../model/DAO.class.php");
 // renvoie vers connexion avec code fail
 // fail = 1 : e-mail non renseigné
 // fail = 2 : e-mail non validé
+// aucun : l'utilisateur est connecté
 
 
 if(!isset($_POST['email'])) { // email non renseigné
@@ -24,7 +25,7 @@ if(!isset($_POST['email'])) { // email non renseigné
 
   switch $validation :
     case 0 :
-      header("Location: ". $config['project_path'] . "connexion?fail=1&email=$_POST['email']");
+      header("Location: ". $config['project_path'] . "connexion?fail=1&email=$_POST['email']"); // Pas dans la BD
       break;
     case -1 :
       header("Location: ". $config['project_path'] . "connexion?fail=2&email=$_POST['email']"); // retourne page avec message d'erreur et e-mail pré rentrée.
