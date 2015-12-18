@@ -9,12 +9,15 @@ class Lieu {
   // Variables de lieu
   var $idLieu;
   var $adresse;
+  var $description;
   var $bar;
   // Association avec scene
   var $scenes; // Cardialité : *
   // Association avec organisateur
   var $idProprio; // id de la BD
   var $proprietaire; // Cardialité : 1
+
+  var $lieu; // bool
 
 
   include("getter/lieu.getter.php");

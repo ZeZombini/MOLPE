@@ -1,13 +1,13 @@
 <?php
-// Ok avec la V1
+// Ok avec le MDC final
 require_once("utilisateur.class.php");
 require_once("DAO.class.php");
 class Booker extends Utilisateur {
 
   // Variables de booker
-  var $idBooker;
+  var $idUser_Booker;
   var $stylePref;
-  var $pourceCom;
+  var $pourcentageCom;
   var $tailleGrp;
   // Association avec groupe
   var $groupes; // Cardinalité : *

@@ -1,5 +1,5 @@
 <?php
-// Ok avec la V1
+// Ok avec le MDC final
 require_once("organisateur.class.php");
 require_once("DAO.class.php");
 
@@ -10,10 +10,11 @@ class Evenement {
   var $nom;
   var $dateDeb;
   var $dateFin;
-  var $periodeProg;
+  var $periodeProgDeb;
+  var $periodeProgFin;
   var $hebergement;
   var $catering;
-  var $remunerer;
+  var $remuneration;
   var $matosDispo;
 
   include("getter/evenement.getter.php");
@@ -22,9 +23,10 @@ class Evenement {
   var $idOrga; // id de la BD
   var $organisateur; // Cardinalité : 1
 
-  // Association avec Scene
+  // En débat
+  /*// Association avec Scene
   var $scenes; // Cardinalité *
-
+  */
   // Association avec Passage
   var $passages; // Cardinalité *
 

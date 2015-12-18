@@ -1,5 +1,5 @@
 <?php
-// Ok avec la V1
+// OK avec MCD final
   require_once("DAO.class.php");
 class Utilisateur {
   // Descriptifs primaires
@@ -9,7 +9,8 @@ class Utilisateur {
   // infos complémentaires
   var $description;
   var $siteWeb;
-  var $tel;
+  var $telFix;
+  var $telMobile;
   // utilisé pour connexion
   var $mail;
   var $motDePasse;
@@ -20,7 +21,7 @@ class Utilisateur {
   var $pays;
   //image
   var $imageProfil;
-  var bannière;
+  var $bannière;
 
   // Association avec lui-même avec les contacts
   var $contacts;
@@ -32,16 +33,26 @@ class Utilisateur {
   }
 
   function init($array) {
-    $this->idUser = $array[0]['idUser'];
-    $this->nom = $array[0]['nom'];
-    $this->prenom = $array[0]['prenom'];
-    $this->description = $array[0]['description'];
-    $this->siteWeb = $array[0]['siteWeb'];
-    $this->tel = $array[0]['tel'];
-    $this->mail = $array[0]['mail'];
-    $this->mdp = $array[0]['mdp'];
-    $this->zone = $array[0]['zone'];
-    $this->image = $array[0]['image'];
+    // Descriptifs primaires
+    $this->idUser = $array['idUser'];
+    $this->nom = $array['nom'];
+    $this->prenom = $array['prenom'];
+    // infos complémentaires
+    $this->description = $array['description'];
+    $this->siteWeb = $array['siteWeb'];
+    $this->telFix = $array['telFix'];
+    $this->telMobile = $array['telMobile'];
+    // utilisé pour connexion
+    $this->mail = $array['mail'];
+    $this->motDePasse = $array['motDePasse'];
+    // location
+    $this->adresse = $array['adresse'];
+    $this->ville = $array['ville'];
+    $this->codePostal = $array['codePostal'];
+    $this->pays = $array['pays'];
+    //image
+    $this->imageProfil = $array['imageProfil'];
+    $this->bannière = $array['bannière'];
   }
 
 

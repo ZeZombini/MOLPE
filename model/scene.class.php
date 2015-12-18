@@ -3,15 +3,15 @@
 class Scene {
 
   var $idScene;
-  var $nomScene;
+  var $nom;
 
   var $largeur;
   var $hauteur;
-  var $longeur;
+  var $longueur;
 
   var $plan;
   var $avantScene;
-  var $capaPub;
+  var $capacitePublic;
 
   // Association avec Organisateur (proprietaire)
   var $idProprio;

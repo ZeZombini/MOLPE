@@ -8,10 +8,15 @@ require_once("DAO.class.php");
 
 class Organisateur extends Utilisateur {
   // Variables deorganisateur
-  var $idOrga;
+  var $idUser_Organisateur;
 
-  // Association avec Scene
-  var $scenes; // Cardinalité : *
+
+  // En débat
+  /*// Association avec Scene
+  var $scenes; // Cardinalité : **/
+
+
+
   // Association avec Evenement
   var $evenements; // Cardinalité : *
   // Association avec Lieu

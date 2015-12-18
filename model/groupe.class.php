@@ -1,5 +1,5 @@
 <?php
-// Ok avec la V1
+// Ok avec le MDC final
 require_once("utilisateur.class.php");
 require_once("passage.class.php");
 require_once("DAO.class.php");
@@ -7,7 +7,7 @@ require_once("DAO.class.php");
 class Groupe extends Utilisateur {
 
   // Variables de groupe
-  var $idGroupe;
+  var $idUser_Groupe;
   var $style;
   var $taille;
   var $matDispo;

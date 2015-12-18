@@ -8,7 +8,7 @@ require_once("DAO.class.php");
 
 class Passage {
     // Variables deorganisateur
-  var $dateBalance;
+  var $dateBalances;
   var $datePassage;
     // Association avec Groupe
   var $idGroupe;          // pour récupérer idGroupe groupe du fetchClass en private
