@@ -16,8 +16,8 @@ DROP TABLE EstComposeDe;
 DROP TABLE VerifMail;
 
 CREATE TABLE Utilisateur(
-	idUser  	INTEGER(10) PRIMARY KEY AUTOINCREMENT NOT NULL,
-	mail	VARCHAR(100) NOT NULL,	--UNIQUE
+	idUser  	INTEGER(10) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+	mail	VARCHAR(100) NOT NULL,
 	motDePasse		VARCHAR(255) NOT NULL,
 	imageProfil   VARCHAR(255) NOT NULL,
 	banniere		VARCHAR(100) NOT NULL,
@@ -30,7 +30,8 @@ CREATE TABLE Utilisateur(
 	adresse		VARCHAR(100),
 	codePostal		VARCHAR(5),
 	ville		VARCHAR(100),
-	pays		VARCHAR(100)
+	pays		VARCHAR(100),
+	UNIQUE(mail)
 );
 
 CREATE TABLE Contact(
@@ -72,7 +73,7 @@ CREATE TABLE Organisateur(
 );
 
 CREATE TABLE Evenement (
-	idEvenement	INTEGER(10) PRIMARY KEY AUTOINCREMENT NOT NULL,
+	idEvenement	INTEGER(10) PRIMARY KEY AUTO_INCREMENT NOT NULL,
 	nom			VARCHAR(255) NOT NULL,
 	dateDeb		DATE NOT NULL,
 	dateFin		DATE NOT NULL,
@@ -85,7 +86,7 @@ CREATE TABLE Evenement (
 );
 
 CREATE TABLE Lieu(
-	idLieu 		INTEGER(20) PRIMARY KEY AUTOINCREMENT NOT NULL,
+	idLieu 		INTEGER(20) PRIMARY KEY AUTO_INCREMENT NOT NULL,
 	bar			  BOOLEAN NOT NULL,
 	adresse		VARCHAR(255) NOT NULL,
 	salle		BOOLEAN NOT NULL,
@@ -93,7 +94,7 @@ CREATE TABLE Lieu(
 );
 
 CREATE TABLE Scene(
-	idScene 	INTEGER(20) PRIMARY KEY AUTOINCREMENT NOT NULL,
+	idScene 	INTEGER(20) PRIMARY KEY AUTO_INCREMENT NOT NULL,
 	nom VARCHAR(255),
 	largeur INTEGER(4) NOT NULL,
 	hauteur INTEGER(4) NOT NULL,
@@ -106,10 +107,10 @@ CREATE TABLE Scene(
 CREATE TABLE Passage(
 	idEvenement INTEGER(20) NOT NULL,
 	idScene INTEGER(20) NOT NULL,
-	idGroupe INTEGER(10) NOT NULL
+	idGroupe INTEGER(10) NOT NULL,
 	datePassage	DATE,
 	dateBalances DATE,
-	PRIMARY KEY(idEvenement,idScene,isGroupe),
+	PRIMARY KEY(idEvenement,idScene,idGroupe),
 	FOREIGN KEY (idGroupe) REFERENCES Groupe(idUser_Groupe),
 	FOREIGN KEY (idEvenement) REFERENCES Evenement(idEvenement),
 	FOREIGN KEY (idScene) REFERENCES Scene(idScene)
@@ -118,7 +119,7 @@ CREATE TABLE Passage(
 CREATE TABLE Possede(
 	idOrganisateur INTEGER(10) NOT NULL,
 	idLieu INTEGER(20) NOT NULL,
-	PRIMARY KEY (idOrganisateur,vidLieu),
+	PRIMARY KEY (idOrganisateur,idLieu),
 	FOREIGN KEY (idOrganisateur) REFERENCES Organisateur(idUser_Organisateur),
 	FOREIGN KEY (idLieu) REFERENCES Lieu(idLieu)
 );
