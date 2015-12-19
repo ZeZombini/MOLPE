@@ -1,17 +1,18 @@
 <?php
-// OK avec MCD final
-  require_once("DAO.class.php");
+
+require_once("DAO.class.php");
+
 class Utilisateur {
   // Descriptifs primaires
   var $idUser;
   var $nom;
   var $prenom;
-  // infos complémentaires
+  // infos complementaires
   var $description;
   var $siteWeb;
-  var $telFix;
-  var $telMobile;
-  // utilisé pour connexion
+  var $tel_fixe;
+  var $te_mobile;
+  // utilise pour connexion
   var $mail;
   var $motDePasse;
   // location
@@ -21,14 +22,15 @@ class Utilisateur {
   var $pays;
   //image
   var $imageProfil;
-  var $bannière;
+  var $banniere;
 
-  // Association avec lui-même avec les contacts
-  var $contacts;
+  // Association avec lui-meme avec les contacts
+  var $contacts; // Cardinalité : * //
 
   function __construct($idUser) {
     $dao = new DAO();
-    $this->init($dao->getUserFromID($idUser));
+    $this = $dao->getUserFromID($idUser); // A TESTER !
+    //$this->init($dao->getUserFromID($idUser));
     $this->contacts = $dao->getContactsFromUserID($this->idUser);
   }
 
@@ -37,12 +39,12 @@ class Utilisateur {
     $this->idUser = $array['idUser'];
     $this->nom = $array['nom'];
     $this->prenom = $array['prenom'];
-    // infos complémentaires
+    // infos complementaires
     $this->description = $array['description'];
     $this->siteWeb = $array['siteWeb'];
-    $this->telFix = $array['telFix'];
-    $this->telMobile = $array['telMobile'];
-    // utilisé pour connexion
+    $this->tel_fixe = $array['tel_fixe'];
+    $this->tel_mobile = $array['tel_mobile'];
+    // utilise pour connexion
     $this->mail = $array['mail'];
     $this->motDePasse = $array['motDePasse'];
     // location
@@ -52,7 +54,7 @@ class Utilisateur {
     $this->pays = $array['pays'];
     //image
     $this->imageProfil = $array['imageProfil'];
-    $this->bannière = $array['bannière'];
+    $this->banniere = $array['banniere'];
   }
 
 

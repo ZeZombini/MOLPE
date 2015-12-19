@@ -7,27 +7,19 @@ require_once("lieu.class.php");
 require_once("DAO.class.php");
 
 class Organisateur extends Utilisateur {
-  // Variables deorganisateur
+  // Variables d'organisateur
   var $idUser_Organisateur;
-
-
-  // En débat
-  /*// Association avec Scene
-  var $scenes; // Cardinalité : **/
-
-
-
   // Association avec Evenement
-  var $evenements; // Cardinalité : *
+  var $evenements; // Cardinalité : * //
   // Association avec Lieu
-  var $lieux; // Cardinalité : *
+  var $lieux; // Cardinalité : * //
 
-  function __construct() {
-    parent::__construct($this->idOrga);
+  function __construct($idOrga) {
+    $this->idUser_Organisateur = $idOrga;
+    parent::__construct($this->idUser_Organisateur);
     $dao = new DAO();
-    $this->scenes     = $dao->getScenesFromOrganisateurID($this->idOrga);
-    $this->evenements = $dao->getEvenementsFromOrganisateurID($this->idOrga);
-    $this->lieux      = $dao->getLieuxFromOrganisateurID($this->idOrga);
+    $this->evenements = $dao->getEvenementsFromOrganisateurID($this->idUser_Organisateur);
+    $this->lieux      = $dao->getLieuxFromOrganisateurID($this->idUser_Organisateur);
   }
 
 }
