@@ -15,13 +15,6 @@
 
 ?>
 
-
-
-
-
-
-
-
 <div id="content">
 	<div id="fiche-contact">
 		<img class="banniere_profil" src="$config['project_path']/view/style/img/">;
@@ -55,15 +48,22 @@
 					<p>Adresse : <?=$data['evenement']['nom']?></p>
 				</div>
 			</div>
-		<?php endif; if ($data['type'] == "organisateur" && $data['scene'] != null) : ?>
-
-
-
+		<?php endif; if ($data['type'] == "organisateur" && $data['lieu'] != null) : ?>
+			<div>
+				<h4>Scène</h4>
+				<hr>
+				<div class="scene">
+					<p><?=$data['scene']['nom']?></p>
+					<p class="data"><?=$data['scene']['date']?>, à <?=$data['scene']['ville']?></p>
+					<p>Description : <?=$data['scene']['desc']?></p>
+				</div>
+			</div>
 
 		<?php endif; if ($data['type'] == "booker" && $data['groupeGéré'] != null: ?>
 			<?php foreach ($data['groupeGéré'] as $grp) {
 				echo "<img href=\"".$grp['img']"\"/>";
 			} ?>
+		<?php endif;?>
 
 
 			<div id="fiche-contact-contact">
