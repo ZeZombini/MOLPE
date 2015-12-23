@@ -13,9 +13,8 @@
     private $db;
 // Constructeur ////////////////////////////////////////////////////////////////////////////////////////////////////////////
     function __construct() {
-      $dsn = 'sqlite:../data/molpe.db';
       try {
-        $this->db = new PDO($dsn);
+        $this->db = new PDO('mysql:host=localhost;dbname=molpe;charset=utf8', 'molpe', 'esirn');
       } catch (PDOException $e) {
         exit("Erreur ouverture BD : ".$e.getMessage());
       }
