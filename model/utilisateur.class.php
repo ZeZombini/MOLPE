@@ -1,62 +1,52 @@
 <?php
-
 require_once("DAO.class.php");
 
 class Utilisateur {
-  // Descriptifs primaires
+// Attributs /////////////////////////////////////////////////////////////////////////////////////////////////
   var $idUser;
-  var $nom;
-  var $prenom;
-  // infos complementaires
-  var $description;
-  var $siteWeb;
-  var $tel_fixe;
-  var $te_mobile;
-  // utilise pour connexion
   var $mail;
   var $motDePasse;
-  // location
+  var $imageProfil;
+  var $banniere;
+  var $prenom;
+  var $nom;
+  var $description;
+  var $siteWeb;
+  var $tel_mobile;
+  var $tel_fixe;
   var $adresse;
   var $codePostal;
   var $ville;
   var $pays;
-  //image
-  var $imageProfil;
-  var $banniere;
 
-  // Association avec lui-meme avec les contacts
-  var $contacts; // Cardinalité : * //
+  // Association avec les contacts de l'utilisateur
+  var $contacts; // Cardinalite : * //
 
+// Constructeur ////////////////////////////////////////////////////////////////////////////////////////////
   function __construct($idUser) {
     $dao = new DAO();
-    $this = $dao->getUserFromID($idUser); // A TESTER !
-    //$this->init($dao->getUserFromID($idUser));
-    $this->contacts = $dao->getContactsFromUserID($this->idUser);
+    $this->init($dao->getUserFromID(DAO::R_ARRAY,$idUser));
+    $this->contacts = $dao->getContactsFromUserID(DAO::R_CLASS,$this->idUser);
   }
 
+// Methodes ////////////////////////////////////////////////////////////////////////////////////////////////
+  // Initialise chaque attribut de la classe avec sa valeur dans le array
   function init($array) {
-    // Descriptifs primaires
     $this->idUser = $array['idUser'];
     $this->nom = $array['nom'];
     $this->prenom = $array['prenom'];
-    // infos complementaires
     $this->description = $array['description'];
     $this->siteWeb = $array['siteWeb'];
     $this->tel_fixe = $array['tel_fixe'];
     $this->tel_mobile = $array['tel_mobile'];
-    // utilise pour connexion
     $this->mail = $array['mail'];
     $this->motDePasse = $array['motDePasse'];
-    // location
     $this->adresse = $array['adresse'];
     $this->ville = $array['ville'];
     $this->codePostal = $array['codePostal'];
     $this->pays = $array['pays'];
-    //image
     $this->imageProfil = $array['imageProfil'];
     $this->banniere = $array['banniere'];
   }
-
-
 }
  ?>

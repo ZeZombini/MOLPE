@@ -11,6 +11,8 @@
 
   class DAO {
     private $db;
+    const R_ARRAY = 1;
+    const R_CLASS = 0;
 // Constructeur ////////////////////////////////////////////////////////////////////////////////////////////////////////////
     function __construct() {
       try {
@@ -79,11 +81,31 @@
     }
   }
 // Methodes -> Utilisateur ///////////////////////////////////////////////////////////////////////////////////////////////
-      // Cardinalité: 1 //
-      function getUserFromID($idUser) {
+      // Cardinalité : 1 //
+      function getUserFromID($r_type,$idUser) {
         $req="select * from Utilisateur where idUser='$idUser';";
         $user=$this->db->query($req);
-        $tab = $user->fetchAll(PDO::FETCH_CLASS,'Utilisateur');
-        return $tab[0];
+        if ($r_type==self::R_CLASS) {
+          $tab = $user->fetch(PDO::FETCH_CLASS,'Utilisateur');
+          return $tab;
+        } elseif ($r_type==self::R_ARRAY) {
+          $tab = $user->fetch();
+          return $tab;
+        } else return false;
       }
+
+      // Cardinalité : * //
+      function getContactsFromUserID($r_type,$idUser) {
+        $req="select * from Utilisateur where idUser in (select idUser2 from Contact where idUser1=$idUser);";
+        $users=$this->db->query($req);
+        if ($r_type==self::R_CLASS) {
+          $tab = $users->fetchAll(PDO::FETCH_CLASS,'Utilisateur');
+          return $tab;
+        } elseif ($r_type==self::R_ARRAY) {
+          $tab = $user->fetchAll();
+          return $tab;
+        } else return false;
+      }
+
+
 ?>
