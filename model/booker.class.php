@@ -1,23 +1,32 @@
 <?php
-// Ok avec le MDC final
-require_once("utilisateur.class.php");
-require_once("DAO.class.php");
-class Booker extends Utilisateur {
+  require_once("utilisateur.class.php");
+  require_once("DAO.class.php");
 
-  // Variables de booker
-  var $idUser_Booker;
-  var $stylePref;
-  var $pourcentageCom;
-  var $tailleGrp;
-  // Association avec groupe
-  var $groupes; // Cardinalité : *
+  class Booker extends Utilisateur {
+// Attributs /////////////////////////////////////////////////////////////////////////////////////////////////
+    var $idUser_Booker;
+    var $pourcentageCom;
+    var $tailleGrp;
+    var $stylePref;
 
-  include("getter/booker.getter.php");
+    // Association avec groupe
+    var $groupes; // Cardinalite : * //
 
-  function __construct() {
-    parent::__construct($this->idBooker);
-    $dao = new DAO();
-    $groupes = $dao->getGroupesFromBookerID($this->idBooker);
+// Constructeur ////////////////////////////////////////////////////////////////////////////////////////////
+    function __construct($idUser) {
+      parent::__construct($idUser);
+      $dao = new DAO();
+      $this->init($dao->getBookerFromID(DAO::R_ARRAY,$idUser));
+      $groupes = $dao->getGroupesFromBookerID(DAO::R_CLASS,$this->idBooker);
+    }
+
+// Methodes ////////////////////////////////////////////////////////////////////////////////////////////////
+    // Initialise chaque attribut de la classe avec sa valeur dans le array
+    function init($array) {
+      $this->idUser_Booker = $array['idUser_Booker'];
+      $this->pourcentageCom = $array['pourcentageCom'];
+      $this->tailleGrp = $array['tailleGrp'];
+      $this->stylePref = $array['stylePref'];
+    }
   }
-}
  ?>
