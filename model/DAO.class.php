@@ -118,7 +118,33 @@
         return $tab;
       } else return false;
     }
+
+    // Cardinalite : * //
+    function getBookersFromGroupeID($r_type,$idGroupe) {
+      $req = "select * from Booker where idUser_Booker in (select idUser_Booker from BookerGroupe where idUser_Groupe=$idGroupe);";
+      $bookers = $this->db->query($req);
+      if ($r_type==self::R_CLASS) {
+        $tab = $bookers->fetchAll(PDO::FETCH_CLASS,'Booker');
+        return $tab;
+      } elseif ($r_type==self::R_ARRAY) {
+        $tab = $bookers->fetchAll();
+        return $tab;
+      } else return false;
+    }
 // Methodes -> Groupe //////////////////////////////////////////////////////////////////////////////////////////////////
+    // Cardinalite : 1 //
+    function getGroupeFromID($r_type,$idGroupe) {
+      $req = "select * from Groupe where idUser_Groupe=$idGroupe;";
+      $groupe = $this->db->query($req);
+      if ($r_type==self::R_CLASS) {
+        $tab = $groupe->fetch(PDO::FETCH_CLASS,'Groupe');
+        return $tab;
+      } elseif ($r_type==self::R_ARRAY) {
+        $tab = $groupe->fetch();
+        return $tab;
+      } else return false;
+    }
+
     // Cardinalite : * //
     function getGroupesFromBookerID($r_type,$idBooker) {
       $req = "select * from Groupe where idUser_Groupe in (select idUser_Groupe from BookerGroupe where idUser_Booker=$idBooker);";
@@ -131,6 +157,25 @@
         return $tab;
       } else return false;
     }
+// Methodes -> Passage ////////////////////////////////////////////////////////////////////////////////////////////////
+    // Cardinalite : * //
+    function getPassagesFromGroupeID($r_type,$idGroupe) {
+      $req = "select * from Passage where idGroupe=$idGroupe;";
+      $passages = $this->db->query($req);
+      if ($r_type==self::R_CLASS) {
+        $tab = $passages->fetchAll(PDO::FETCH_CLASS,'Passage');
+        return $tab;
+      } elseif ($r_type==self::R_ARRAY) {
+        $tab = $passages->fetchAll();
+        return $tab;
+      } else return false;
+    }
+
+
+
+
+
+
 
 }
 ?>

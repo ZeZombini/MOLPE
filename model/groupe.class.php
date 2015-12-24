@@ -1,31 +1,39 @@
 <?php
-// Ok avec le MDC final
-require_once("utilisateur.class.php");
-require_once("passage.class.php");
-require_once("DAO.class.php");
+  require_once("utilisateur.class.php");
+  require_once("passage.class.php");
+  require_once("DAO.class.php");
 
-class Groupe extends Utilisateur {
+  class Groupe extends Utilisateur {
+// Attributs /////////////////////////////////////////////////////////////////////////////////////////////////
+    var $idUser_Groupe;
+    var $style;
+    var $taille;
+    var $matDispo;
+    var $ficheTech;
 
-  // Variables de groupe
-  var $idUser_Groupe;
-  var $style;
-  var $taille;
-  var $matDispo;
+    // Association avec booker
+    var $bookers; // Cardinalite : * //
 
-  // Association avec booker
-  var $bookers; // Cardinalité : *
+    // Association avec Evenement et scene via passage
+    var $passages; // Cardinalite : * //
 
-  // Association avec Evenement et scene via heure de passage
-  var $passages; // Cardinalité : *
+// Constructeur ////////////////////////////////////////////////////////////////////////////////////////////
+    function __construct($idUser) {
+      parent::__construct($idUser);
+      $dao = new DAO();
+      $this->init($dao->getGroupeFromID(DAO::R_ARRAY,$idUser));
+      $bookers = $dao->getBookersFromGroupeID(DAO::R_CLASS,$this->idGroupe);
+      $passages = $dao->getPassagesFromGroupeID(DAO::R_CLASS,$this->idGroupe);
+    }
 
-  include("getter/groupe.getter.php");
-
-  function __construct() {
-    parent::__construct($this->idGroupe);
-    $dao = new DAO();
-    $bookers = $dao->getBookersFromGroupeID($this->idGroupe);
-    $passages = $dao->getPassagesFromGroupeID($this->idGroupe);
+// Methodes ////////////////////////////////////////////////////////////////////////////////////////////////
+    // Initialise chaque attribut de la classe avec sa valeur dans le array
+    function init($array) {
+      $this->idUser_Groupe = $array['idUser_Groupe'];
+      $this->style = $array['style'];
+      $this->taille = $array['taille'];
+      $this->matDispo = $array['matDispo'];
+      $this->ficheTech = $array['ficheTech'];
+    }    
   }
-
-}
  ?>
