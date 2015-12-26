@@ -170,7 +170,33 @@
         return $tab;
       } else return false;
     }
-// Methodes -> Evenements ////////////////////////////////////////////////////////////////////////////////////////////
+
+    // Cardinalite : * //
+    function getOrganisateursFromEvenementID($r_type,$idEvent) {
+      $req = "select * from Organisateur where idUser_Organisateur in (select idOrganisateur from Organise where idEvenement=$idEvent);";
+      $orgas = $this->db->query($req);
+      if ($r_type==self::R_CLASS) {
+        $tab = $orgas->fetchAll(PDO::FETCH_CLASS,'Organisateur');
+        return $tab;
+      } elseif ($r_type==self::R_ARRAY) {
+        $tab = $orgas->fetchAll();
+        return $tab;
+      } else return false;
+    }
+// Methodes -> Evenement ////////////////////////////////////////////////////////////////////////////////////////////
+      // Cardinalite : 1 //
+      function getEvenementFromID($r_type,$idEvent) {
+        $req = "select * from Evenement where idEvenement=$idEvent;";
+        $event = $this->db->query($req);
+        if ($r_type==self::R_CLASS) {
+          $tab = $event->fetch(PDO::FETCH_CLASS,'Evenement');
+          return $tab;
+        } elseif ($r_type==self::R_ARRAY) {
+          $tab = $event->fetch();
+          return $tab;
+        } else return false;
+      }
+
       // Cardinalite : * //
       function getEvenementsFromOrganisateurID($r_type,$idOrga) {
         $req = "select * from Evenement where idEvenement in (select idEvenement from Organise where idOrganisateur=$idOrga);";
@@ -185,6 +211,19 @@
       }
 // Methodes -> Lieu //////////////////////////////////////////////////////////////////////////////////////////////////////
     // Cardinalite : * //
+    function getLieuxFromEvenementID($r_type,$idEvent) {
+        $req = "select * from Lieu where idLieu in (select idLieu from SePasseraA where idEvenement=$idEvent);";
+        $lieux = $this->db->query($req);
+        if ($r_type==self::R_CLASS) {
+          $tab = $lieux->fetchAll(PDO::FETCH_CLASS,'Lieu');
+          return $tab;
+        } elseif ($r_type==self::R_ARRAY) {
+          $tab = $lieux->fetchAll();
+          return $tab;
+        } else return false;
+    }
+
+    // Cardinalite : * //
     function getLieuxFromOrganisateurID($r_type,$idOrga) {
       $req = "select * from Lieu where idLieu in (select idLieu from Possede where idOrganisateur=$idOrga);";
       $lieux = $this->db->query($req);
@@ -196,11 +235,23 @@
         return $tab;
       } else return false;
     }
-
 // Methodes -> Passage ////////////////////////////////////////////////////////////////////////////////////////////////
     // Cardinalite : * //
     function getPassagesFromGroupeID($r_type,$idGroupe) {
       $req = "select * from Passage where idGroupe=$idGroupe;";
+      $passages = $this->db->query($req);
+      if ($r_type==self::R_CLASS) {
+        $tab = $passages->fetchAll(PDO::FETCH_CLASS,'Passage');
+        return $tab;
+      } elseif ($r_type==self::R_ARRAY) {
+        $tab = $passages->fetchAll();
+        return $tab;
+      } else return false;
+    }
+
+    // Cardinalite : * //
+    function getPassagesFromEvenementID($r_type,$idEvent) {
+      $req = "select * from Passage where idEvenement=$idEvent;";
       $passages = $this->db->query($req);
       if ($r_type==self::R_CLASS) {
         $tab = $passages->fetchAll(PDO::FETCH_CLASS,'Passage');

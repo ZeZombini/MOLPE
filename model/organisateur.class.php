@@ -23,6 +23,7 @@
       $evenements = $dao->getEvenementsFromOrganisateurID(DAO::R_CLASS,$this->idUser_Organisateur);
       $lieux = $dao->getLieuxFromOrganisateurID(DAO::R_CLASS,$this->idUser_Organisateur);
     }
+    
 // Methodes ////////////////////////////////////////////////////////////////////////////////////////////////
     // Initialise chaque attribut de la classe avec sa valeur dans le array
     function init($array) {
