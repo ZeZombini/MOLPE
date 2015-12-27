@@ -17,7 +17,7 @@ class Evenement {
   var $remuneration;
   var $matosDispo;
 
-  include("getter/evenement.getter.php");
+
 
   // Association avec organisateur
   var $idOrga; // id de la BD
@@ -31,6 +31,7 @@ class Evenement {
   var $passages; // Cardinalité *
 
   function __construct() {
+    //include("getter/evenement.getter.php");
     $dao = new DAO();
     $this->organisateur = $dao->getOrganisateurFromID($this->idOrga);
     $this->scene        = $dao->getScenesFromEvenementID($this->idEvenement);
