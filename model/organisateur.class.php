@@ -1,26 +1,33 @@
 <?php
-// Ok avec la V1
-require_once("utilisateur.class.php");
-require_once("evenement.class.php");
-require_once("scene.class.php");
-require_once("lieu.class.php");
-require_once("DAO.class.php");
+  require_once("utilisateur.class.php");
+  require_once("evenement.class.php");
+  require_once("scene.class.php");
+  require_once("lieu.class.php");
+  require_once("DAO.class.php");
 
-class Organisateur extends Utilisateur {
-  // Variables d'organisateur
-  var $idUser_Organisateur;
-  // Association avec Evenement
-  var $evenements; // Cardinalité : * //
-  // Association avec Lieu
-  var $lieux; // Cardinalité : * //
+  class Organisateur extends Utilisateur {
+// Attributs /////////////////////////////////////////////////////////////////////////////////////////////////
+    var $idUser_Organisateur;
 
-  function __construct($idOrga) {
-    $this->idUser_Organisateur = $idOrga;
-    parent::__construct($this->idUser_Organisateur);
-    $dao = new DAO();
-    $this->evenements = $dao->getEvenementsFromOrganisateurID($this->idUser_Organisateur);
-    $this->lieux      = $dao->getLieuxFromOrganisateurID($this->idUser_Organisateur);
+    // Association avec Evenement
+    var $evenements; // Cardinalite : * //
+
+    // Association avec Lieu
+    var $lieux; // Cardinalite : * //
+
+// Constructeur ////////////////////////////////////////////////////////////////////////////////////////////
+    function __construct($idUser) {
+      parent::__construct($idUser);
+      $dao = new DAO();
+      $this->init($dao->getOrganisateurFromID(DAO::R_ARRAY,$idUser));
+      $evenements = $dao->getEvenementsFromOrganisateurID(DAO::R_CLASS,$this->idUser_Organisateur);
+      $lieux = $dao->getLieuxFromOrganisateurID(DAO::R_CLASS,$this->idUser_Organisateur);
+    }
+    
+// Methodes ////////////////////////////////////////////////////////////////////////////////////////////////
+    // Initialise chaque attribut de la classe avec sa valeur dans le array
+    function init($array) {
+      $this->idUser_Organisateur = $array['idUser_Organisateur'];
+    }
   }
-
-}
  ?>
