@@ -12,7 +12,7 @@ class Salle extends Lieu {
   var $carte;
   var $description;
 
-  include("getter/salle.getter.php");
+  //include("getter/salle.getter.php");
 
   function __construct() {
 
