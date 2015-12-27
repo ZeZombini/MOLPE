@@ -20,7 +20,7 @@ class Passage {
   var $idScene;       // pour récupérer idGroupe groupe du fetchClass en private
   var $scene;         // Cardinalité : 1
 
-  include("getter/passage.getter.php");
+  //include("getter/passage.getter.php");
 
   function __construct() {
     $dao = new DAO();

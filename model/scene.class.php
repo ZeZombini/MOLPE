@@ -22,9 +22,10 @@ class Scene {
   var $idLieu;
   var $lieu; // Cardinalité : 1
 
-  include("getter/scene.getter.php");
+
 
   function __construct() {
+    //include("getter/scene.getter.php");
     $dao = new DAO();
     $this->evenements   = $dao->getEvenementFromSceneID($this->idScene);
     $this->proprietaire = $dao->getOrganisateurFromID($idProprio);

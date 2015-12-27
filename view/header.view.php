@@ -1,8 +1,8 @@
 <?php
-	$data['connecte'] = true;
+	/*$data['connecte'] = true;
 	$data['prenom'] = "Jean-Edouard";
 	$data['nom'] = "De baurepaire";
-	$data['img'] = "noimage.jpg";
+	$data['img'] = "noimage.jpg";*/
 
 ?>
 
@@ -47,7 +47,7 @@ echo <<<EOT
 					--><li><a href="{$config['project_path']}/inscription">Inscription</a></li><!--
 					--><li><a href="{$config['project_path']}/connexion">Connexion</a></li>
 EOT;
-					
+
 					}?>
 
 

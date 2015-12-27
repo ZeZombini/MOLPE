@@ -1,7 +1,7 @@
 	<div id="content">
 	<h2>Inscription</h2>
 	<div id="inscription">
-		<form method="post">
+		<form method="post" onsubmit="encrypt(this->mdp,this->mdp_encoded)">
 			<h3>Informations personnelles</h3>
 			<hr>
 
@@ -96,7 +96,9 @@
 			</tr>
 			</table>
 
-			<input type="submit" value="Valider l'inscription" onclick="checkEmail();">
+			<input type="submit" value="Valider l'inscription">
+
+			<input type="hidden" name="mdp_encoded" disabled/>
 
 		</form>
 	</div>

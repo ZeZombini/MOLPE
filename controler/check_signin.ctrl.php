@@ -1,7 +1,7 @@
 <?php
 require_once("../model/DAO.class.php");
 
-//retourne à inscription avec le parametre fail
+//retourne ï¿½ inscription avec le parametre fail
 // fail = 0 pas d'erreur, afficher message valider l'e-mail
 
 function random_string($length) {
@@ -18,7 +18,7 @@ if(isset($_POST['email'])) {
 
     $dao = new DAO();
 
-    if($dao->checkInscription($mail)) { // vérifie dans la BD si l'email existe
+    if($dao->checkInscription($mail)) { // vï¿½rifie dans la BD si l'email existe
         if ($_POST['libelle'] != "") {
             $_POST['prenom'] = $_POST['libelle'];
         }
@@ -43,7 +43,8 @@ if(isset($_POST['email'])) {
             "Bonjour ". $_POST['prenom'] .
             "Bienvenue sur MOLPE.
             Pour activer votre compte, cliquez sur le lien suivant ou si le lien marche pas, copiez le dans votre navigateur :
-            http://149.91.81.185/check_email?email=$mail&key=$key
+            <a href=\"http://149.91.81.185/check_email?email=$mail&key=$key\"><b>Activer le compte</b></a>
+            " . $config['project_path']  . "check_email?email=$mail&key=$key
 
             MOLPE
             Moteur d'Organisation et Listing de Eartage d'Evenementiel");

@@ -20,7 +20,7 @@ class Lieu {
   var $lieu; // bool
 
 
-  include("getter/lieu.getter.php");
+  //include("getter/lieu.getter.php");
 
   function __construct() {
     $dao = new DAO();
