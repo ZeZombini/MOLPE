@@ -1,33 +1,41 @@
 <?php
-// Ok avec la V1
-require_once("organisateur.class.php");
-require_once("scene.class.php");
-require_once("DAO.class.php");
+  require_once("organisateur.class.php");
+  require_once("scene.class.php");
+  require_once("DAO.class.php");
 
-class Lieu {
+  class Lieu {
+// Attributs /////////////////////////////////////////////////////////////////////////////////////////////////
+    var $idLieu;
+    var $bar;
+    var $adresse;
+    var $salle;
+    var $description;
 
-  // Variables de lieu
-  var $idLieu;
-  var $adresse;
-  var $description;
-  var $bar;
-  // Association avec scene
-  var $scenes; // Cardialité : *
-  // Association avec organisateur
-  var $idProprio; // id de la BD
-  var $proprietaire; // Cardialité : 1
+    // Association avec scene
+    var $scenes; // Cardinalite : * //
 
-  var $lieu; // bool
+    // Association avec Organisateur
+    var $proprietaire; // Cardinalite : 1 //
 
+    // Association avec Evenement
+    var $evenements; // Cardinalite : * //
 
-  //include("getter/lieu.getter.php");
+// Constructeur ////////////////////////////////////////////////////////////////////////////////////////////
+    function __construct($idL) {
+      $dao = new DAO();
+      $this->init($dao->getLieuFromID(DAO::R_ARRAY,$idL));
+      $this->scenes = $dao->getScenesFromLieuID(DAO::R_CLASS,$this->idLieu);
+      $this->proprietaire = $dao->getOrganisateurFromLieuID(DAO::R_CLASS,$this->idLieu);
+      $this->evenements = $dao->getEvenementsFromLieuID(DAO::R_CLASS,$this->idLieu);
+      }
 
-  function __construct() {
-    $dao = new DAO();
-    $this->scenes = $dao->getScenesFromLieuID($this->idLieu);
-    $this->scenes = $dao->getScenesFromLieuID($this->$idLieu);
-    $this->proprietaire = $dao->getOrganisateurFromID($this->idProprio);
+// Methodes ////////////////////////////////////////////////////////////////////////////////////////////////
+    function init($array) {
+      $this->idLieu = $array['idLieu'];
+      $this->bar = $array['bar'];
+      $this->adresse = $array['adresse'];
+      $this->salle = $array['salle'];
+      $this->description = $array['description'];
     }
-
-}
+  }
  ?>

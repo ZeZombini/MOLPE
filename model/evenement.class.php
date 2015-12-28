@@ -18,12 +18,8 @@
     // Association avec Organisateur
     var $organisateurs; // Cardinalite : * //
 
-<<<<<<< HEAD
-
-=======
     // Association avec Lieu
     var $lieux; // Cardinalite : * //
->>>>>>> 95cad6b17b43a9e33d49514654b7c2002396ed0f
 
     // Association avec Passage
     var $passages; // Cardinalite : * //
@@ -37,15 +33,6 @@
       $this->passages = $dao->getPassagesFromEvenementID(DAO::R_CLASS,$this->idEvenement);
     }
 
-<<<<<<< HEAD
-  function __construct() {
-    //include("getter/evenement.getter.php");
-    $dao = new DAO();
-    $this->organisateur = $dao->getOrganisateurFromID($this->idOrga);
-    $this->scene        = $dao->getScenesFromEvenementID($this->idEvenement);
-    $this->passages     = $dao->getPassagesFromEvenementID($this->idEvenement);
-  }
-=======
 // Methodes ////////////////////////////////////////////////////////////////////////////////////////////////
     // Initialise chaque attribut de la classe avec sa valeur dans le array
     function init($array) {
@@ -60,7 +47,6 @@
       $this->remunerer = $array['remunerer'];
       $this->matosDispo = $array['matosDispo'];
     }
->>>>>>> 95cad6b17b43a9e33d49514654b7c2002396ed0f
 
   }
  ?>
