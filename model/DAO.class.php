@@ -237,6 +237,19 @@
         } else return false;
       }
 // Methodes -> Scene ////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Cardinalite : 1 //
+    function getSceneFromID($r_type,$idScene) {
+      $req = "select * from Scene where idScene=$idScene;";
+      $scene = $this->db->query($req);
+      if ($r_type==self::R_CLASS) {
+        $tab = $scene->fetch(PDO::FETCH_CLASS,'Scene');
+        return $tab;
+      } elseif ($r_type==self::R_ARRAY) {
+        $tab = $scene->fetch();
+        return $tab;
+      } else return false;
+    }
+
     // Cardinalite : * //
     function getScenesFromLieuID($r_type,$idLieu) {
       $req = "select * from Scene where idScene in (select idScene from EstComposeDe where idLieu=$idLieu);";
@@ -254,6 +267,19 @@
     // Cardinalite : 1 //
     function getLieuFromID($r_type,$idLieu) {
       $req = "select * from Lieu where idLieu=$idLieu;";
+      $lieu = $this->db->query($req);
+      if ($r_type==self::R_CLASS) {
+        $tab = $lieu->fetch(PDO::FETCH_CLASS,'Lieu');
+        return $tab;
+      } elseif ($r_type==self::R_ARRAY) {
+        $tab = $lieu->fetch();
+        return $tab;
+      } else return false;
+    }
+
+    // Cardinalite : 1 //
+    function getLieuFromSceneID($r_type,$idScene) {
+      $req = "select * from Lieu where idLieu in (select idLieu from EstComposeDe where idScene=$idScene);";
       $lieu = $this->db->query($req);
       if ($r_type==self::R_CLASS) {
         $tab = $lieu->fetch(PDO::FETCH_CLASS,'Lieu');
@@ -291,6 +317,19 @@
       } else return false;
     }
 // Methodes -> Passage ////////////////////////////////////////////////////////////////////////////////////////////////
+    // Cardinalite : * //
+    function getPassagesFromSceneID($r_type,$idScene) {
+      $req = "select * from Passage where idScene=$idScene;";
+      $passages = $this->db->query($req);
+      if ($r_type==self::R_CLASS) {
+        $tab = $passages->fetchAll(PDO::FETCH_CLASS,'Passage');
+        return $tab;
+      } elseif ($r_type==self::R_ARRAY) {
+        $tab = $passages->fetchAll();
+        return $tab;
+      } else return false;
+    }
+
     // Cardinalite : * //
     function getPassagesFromGroupeID($r_type,$idGroupe) {
       $req = "select * from Passage where idGroupe=$idGroupe;";
