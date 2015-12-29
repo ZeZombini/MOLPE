@@ -44,7 +44,7 @@
     function checkInscription($mail) {
       $req = "select * from Utilisateur where mail='$mail';";
       $res = $this->db->query($req);
-      if (get_class($req)==PDOStatement) return false;
+      if (get_class($res)==PDOStatement) return false;
       else return true;
     }
 
