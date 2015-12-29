@@ -317,6 +317,19 @@
       } else return false;
     }
 // Methodes -> Passage ////////////////////////////////////////////////////////////////////////////////////////////////
+    // Cardinalite : 1 //
+    function getPassageFromIDs($idGrp,$idEvent,$idScene) {
+      $req = "select * from Passage where idGroupe=$idGrp and idEvenement=$idEvent and idScene=$idScene;";
+      $passage = $this->db->query($req);
+      if ($r_type==self::R_CLASS) {
+        $tab = $passage->fetch(PDO::FETCH_CLASS,'Passage');
+        return $tab;
+      } elseif ($r_type==self::R_ARRAY) {
+        $tab = $passage->fetch();
+        return $tab;
+      } else return false;
+    }
+
     // Cardinalite : * //
     function getPassagesFromSceneID($r_type,$idScene) {
       $req = "select * from Passage where idScene=$idScene;";
