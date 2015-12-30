@@ -28,15 +28,14 @@
     function checkLogin($mail,$mdp) {
       $req="select idUser from Utilisateur where mail='$mail' and mdp='$mdp';";
       $res = $this->db->query($req);
-      if (get_class($res)!="PDOStatement") return 0;
+      $id = $res->fetch();
+      if ($id == false) return 0;
       else {
         $req="select * from VerifMail where mail='$mail';";
         $res2 = $this->db->query($req);
-        if (get_class($res2)!="PDOStatement") return -1;
-        else {
-          $id = $res->fetch();
-          return $id;
-        }
+        $tab = $res2->fetch();
+        if ($tab != false) return -1;
+        else return $id;
       }
     }
     // Verifie si l'utilisateur qui veut s'inscrire a entre un mail deja utilise
@@ -45,7 +44,7 @@
       $req = "select * from Utilisateur where mail='$mail';";
       $res = $this->db->query($req);
       $resf = $res->fetch();
-      if (get_class($res)=="PDOStatement") {
+      if ($resf != false) {
         var_dump($resf);
         return false;
       } else {
