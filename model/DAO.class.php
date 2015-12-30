@@ -28,11 +28,11 @@
     function checkLogin($mail,$mdp) {
       $req="select idUser from Utilisateur where mail='$mail' and mdp='$mdp';";
       $res = $this->db->query($req);
-      if (get_class($res)!=PDOStatement) return 0;
+      if (get_class($res)!="PDOStatement") return 0;
       else {
         $req="select * from VerifMail where mail='$mail';";
         $res2 = $this->db->query($req);
-        if (get_class($res2)!=PDOStatement) return -1;
+        if (get_class($res2)!="PDOStatement") return -1;
         else {
           $id = $res->fetch();
           return $id;
@@ -44,15 +44,28 @@
     function checkInscription($mail) {
       $req = "select * from Utilisateur where mail='$mail';";
       $res = $this->db->query($req);
-      if (get_class($req)==PDOStatement) return false;
-      else return true;
+      $resf = $res->fetch();
+      if (get_class($res)=="PDOStatement") {
+        var_dump($resf);
+        return false;
+      } else {
+        return true;
+
     }
+
+    function creation_key_activation($mail,$key) {
+      $req = "insert into VerifMail values($mail,$key)"
+      $res = $this->db->exec();
+    }
+
+
+
 
     // Ajoute un utilisateur dans la base de donnees
     // Renvoie false si une erreur a eu lieu, true sinon
     function inscription($type,$prenom,$nom,$tel_mobile,$tel_fixe,$mail,$mdp,$libelle_voie,$ville,$code_postal,$pays) {
       $req = "insert into Utilisateur(mail,motDePasse,imageProfil,banniere,prenom,nom,tel_mobile,tel_fixe,adresse,codePostal,ville,pays)
-                  values ('$mail','$mdp','0_profil','0_banniere','$prenom','$nom','$tel_mobile','$tel_fixe','$libelle_voie','$codePostal','$ville','$pays');";
+                  values ('$mail','$mdp','0_profil','0_banniere','$prenom','$nom','$tel_mobile','$tel_fixe','$libelle_voie','$code_postal','$ville','$pays');";
       $res=$this->db->exec($req);
       if ($res==0) return false;
       else {

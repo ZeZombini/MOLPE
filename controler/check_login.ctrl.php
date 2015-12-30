@@ -2,11 +2,13 @@
 $config = parse_ini_file("../config.ini", FALSE);
 require_once("../model/DAO.class.php");
 // renvoie vers connexion avec code fail
-// fail = 0 : compte activ�, connexion possible
+
 // fail = 1 : e-mail non renseign�
 // fail = 2 : compte non valid�
 // fail = 3 : compte n'a pas pu �tre valid�
 // fail = 4 : e-mail ou mot de passe incorrecte
+// fail = 5 : compte activ�, connexion possible
+// fail = 6 : pas erreur mais demande validation compt par utilisateur
 // aucun : l'utilisateur est connecté
 
 

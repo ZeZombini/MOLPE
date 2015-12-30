@@ -1,7 +1,7 @@
 	<div id="content">
 	<h2>Inscription</h2>
 	<div id="inscription">
-		<form method="post" onsubmit="encrypt(this->mdp,this->mdp_encoded)">
+		<form action="controler/check_signin.ctrl.php" method="post" onsubmit="encrypt(this.mdp,this.mdp_encoded)">
 			<h3>Informations personnelles</h3>
 			<hr>
 

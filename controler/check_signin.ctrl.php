@@ -1,4 +1,6 @@
 <?php
+$config = parse_ini_file("../config.ini", FALSE);
+
 require_once("../model/DAO.class.php");
 
 //retourne � inscription avec le parametre fail
@@ -13,13 +15,10 @@ function random_string($length) {
     }
     return $string;
 }
-
 if(isset($_POST['email'])) {
-
     $dao = new DAO();
-
-    if($dao->checkInscription($mail)) { // v�rifie dans la BD si l'email existe
-        if ($_POST['libelle'] != "") {
+    if($dao->checkInscription($_POST['email'])) { // v�rifie dans la BD si l'email existe
+        if (isset($_POST['libelle'])) {
             $_POST['prenom'] = $_POST['libelle'];
         }
         $dao->inscription($_POST['type'],
@@ -27,9 +26,9 @@ if(isset($_POST['email'])) {
             $_POST['nom'],
             $_POST['tel_mobile'],
             $_POST['tel_fix'],
-            $_POST['mail'],
-            $_POST['mdp'],
-            $_POST['libelle_voie'],
+            $_POST['email'],
+            $_POST['mdp_encoded'],
+            $_POST['libel_voie'],
             $_POST['ville'],
             $_POST['code_postal'],
             $_POST['pays'])
@@ -49,28 +48,32 @@ if(isset($_POST['email'])) {
             MOLPE
             Moteur d'Organisation et Listing de Eartage d'Evenementiel");
 
+    header("Location : " . $config['project_path'] . "connexion?fail=6");
 
     } else {
+      if (!isset($_POST['libelle'])) {
+          $_POST['libelle'] = "";
+      }
         $return_url =
-            "type=$_POST['type']&
-            libelle=$_POST['libelle']&
-            prenom=$_POST['prenom']&
-            nom=$_POST['nom']&
-            tel_mobile=$_POST['tel_mobile']&
-            tel_fix=$_POST['tel_fix']&
-            email=$_POST['mail']&
-            conf_email=$_POST['conf_email']&
+            "type=".$_POST['type']."&
+            libelle=".$_POST['libelle']."&
+            prenom=".$_POST['prenom']."&
+            nom=".$_POST['nom']."&
+            tel_mobile=".$_POST['tel_mobile']."&
+            tel_fix=".$_POST['tel_fix']."&
+            email=".$_POST['email']."&
+            conf_email=".$_POST['conf_email']."&
             mdp=&
             conf_mdp=&
-            libel_voie=$_POST['libelle_voie']&
-            ville=$_POST['ville']&
-            code_postal=$_POST['code_postal']&
-            pays=$_POST['pays']"
+            libel_voie=".$_POST['libel_voie']."&
+            ville=".$_POST['ville']."&
+            code_postal=".$_POST['code_postal']."&
+            pays=".$_POST['pays']
         ;
-        header("location : " . $config['project_path'] . "inscription?$return_url");
+        header("Location : " . $config['project_path'] . "inscription?$return_url");
     }
 } else {
-    header("location : " . $config['project_path'] . "inscription?fail=1");
+    header("Location : " . $config['project_path'] . "inscription?fail=1");
 }
 
 ?>
