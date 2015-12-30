@@ -44,23 +44,21 @@
     function checkInscription($mail) {
       $req = "select * from Utilisateur where mail='$mail';";
       $res = $this->db->query($req);
-<<<<<<< HEAD
       $resf = $res->fetch();
       if (get_class($res)=="PDOStatement") {
         var_dump($resf);
         return false;
       } else {
         return true;
-
     }
 
+    // Insere un utilisateur qui vient de s'inscrire dans la table pour la verification des mails
+    // Renvoie false si une erreur a eu lieu, true sinon
     function creation_key_activation($mail,$key) {
-      $req = "insert into VerifMail values($mail,$key)"
-      $res = $this->db->exec();
-=======
-      if (get_class($res)==PDOStatement) return false;
+      $req = "insert into VerifMail values($mail,$key);";
+      $res = $this->db->exec($req);
+      if ($res==0) return false;
       else return true;
->>>>>>> 5a290f6dfe4d577aa7ec553e6fd71b53a6217570
     }
 
 
