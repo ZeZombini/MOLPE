@@ -1,32 +1,36 @@
-
 <?php
-// Ok avec la V1
-require_once("groupe.class.php");
-require_once("evenement.class.php");
-require_once("scene.class.php");
-require_once("DAO.class.php");
+  require_once("groupe.class.php");
+  require_once("evenement.class.php");
+  require_once("scene.class.php");
+  require_once("DAO.class.php");
 
-class Passage {
-    // Variables deorganisateur
-  var $dateBalances;
-  var $datePassage;
+  class Passage {
+// Attributs /////////////////////////////////////////////////////////////////////////////////////////////////
+    var $datePassage;
+    var $dateBalances;
+
     // Association avec Groupe
-  var $idGroupe;          // pour récupérer idGroupe groupe du fetchClass en private
-  var $groupe;           // Cardinalité : 1
-    // Association avec Evenement
-  var $idEvenement;       // pour récupérer idGroupe groupe du fetchClass en private
-  var $evenement;         // Cardinalité : 1
-    // Association avec Evenement
-  var $idScene;       // pour récupérer idGroupe groupe du fetchClass en private
-  var $scene;         // Cardinalité : 1
+    var $groupe;           // Cardinalite : 1 //
 
-  //include("getter/passage.getter.php");
+    // Association avec Evenement
+    var $evenement;         // Cardinalite : 1 //
 
-  function __construct() {
-    $dao = new DAO();
-    $this->groupe    = $dao->getGroupeFromID($this->idGroupe);
-    $this->evenement = $dao->getEvenementFromID($this->idEvenement);
-    $this->scene     = $dao->getSceneFromID($this->idScene);
+    // Association avec Scene
+    var $scene;         // Cardinalite : 1 //
+
+// Constructeur ////////////////////////////////////////////////////////////////////////////////////////////
+    function __construct($idGrp,$idEvent,$idScene) {
+      $dao = new DAO();
+      $this->init($dao->getPassageFromIDs($idGrp,$idEvent,$idScene));
+      $this->groupe = $dao->getGroupeFromID($idGrp);
+      $this->evenement = $dao->getEvenementFromID($idEvent);
+      $this->scene = $dao->getSceneFromID($idScene);
+    }
+
+// Methodes ////////////////////////////////////////////////////////////////////////////////////////////////
+    function init($array) {
+      $this->datePassage = $array['datePassage'];
+      $this->dateBalances = $array['dateBalances'];
+    }
   }
-}
- ?>
+?>

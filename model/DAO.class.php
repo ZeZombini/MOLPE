@@ -44,6 +44,7 @@
     function checkInscription($mail) {
       $req = "select * from Utilisateur where mail='$mail';";
       $res = $this->db->query($req);
+<<<<<<< HEAD
       $resf = $res->fetch();
       if (get_class($res)=="PDOStatement") {
         var_dump($resf);
@@ -56,6 +57,10 @@
     function creation_key_activation($mail,$key) {
       $req = "insert into VerifMail values($mail,$key)"
       $res = $this->db->exec();
+=======
+      if (get_class($res)==PDOStatement) return false;
+      else return true;
+>>>>>>> 5a290f6dfe4d577aa7ec553e6fd71b53a6217570
     }
 
 
@@ -185,6 +190,19 @@
       } else return false;
     }
 
+    // Cardinalite : 1 //
+    function getOrganisateurFromLieuID($r_type,$idLieu) {
+      $req = "select * from Organisateur where idUser_Organisateur in (select idOrganisateur from Possede where idLieu=$idLieu);";
+      $orga = $this->db->query($req);
+      if ($r_type==self::R_CLASS) {
+        $tab = $orga->fetch(PDO::FETCH_CLASS,'Organisateur');
+        return $tab;
+      } elseif ($r_type==self::R_ARRAY) {
+        $tab = $orga->fetch();
+        return $tab;
+      } else return false;
+    }
+
     // Cardinalite : * //
     function getOrganisateursFromEvenementID($r_type,$idEvent) {
       $req = "select * from Organisateur where idUser_Organisateur in (select idOrganisateur from Organise where idEvenement=$idEvent);";
@@ -223,7 +241,74 @@
           return $tab;
         } else return false;
       }
+
+      // Cardinalite : * //
+      function getEvenementsFromLieuID($r_type,$idLieu) {
+        $req = "select * from Evenement where idEvenement in (select idEvenement from SePasseraA where idLieu=$idLieu);";
+        $events = $this->db->query($req);
+        if ($r_type==self::R_CLASS) {
+          $tab = $events->fetchAll(PDO::FETCH_CLASS,'Evenement');
+          return $tab;
+        } elseif ($r_type==self::R_ARRAY) {
+          $tab = $events->fetchAll();
+          return $tab;
+        } else return false;
+      }
+// Methodes -> Scene ////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Cardinalite : 1 //
+    function getSceneFromID($r_type,$idScene) {
+      $req = "select * from Scene where idScene=$idScene;";
+      $scene = $this->db->query($req);
+      if ($r_type==self::R_CLASS) {
+        $tab = $scene->fetch(PDO::FETCH_CLASS,'Scene');
+        return $tab;
+      } elseif ($r_type==self::R_ARRAY) {
+        $tab = $scene->fetch();
+        return $tab;
+      } else return false;
+    }
+
+    // Cardinalite : * //
+    function getScenesFromLieuID($r_type,$idLieu) {
+      $req = "select * from Scene where idScene in (select idScene from EstComposeDe where idLieu=$idLieu);";
+      $scenes = $this->db->query($req);
+      if ($r_type==self::R_CLASS) {
+        $tab = $scenes->fetchAll(PDO::FETCH_CLASS,'Scene');
+        return $tab;
+      } elseif ($r_type==self::R_ARRAY) {
+        $tab = $scenes->fetchAll();
+        return $tab;
+      } else return false;
+    }
+
 // Methodes -> Lieu //////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Cardinalite : 1 //
+    function getLieuFromID($r_type,$idLieu) {
+      $req = "select * from Lieu where idLieu=$idLieu;";
+      $lieu = $this->db->query($req);
+      if ($r_type==self::R_CLASS) {
+        $tab = $lieu->fetch(PDO::FETCH_CLASS,'Lieu');
+        return $tab;
+      } elseif ($r_type==self::R_ARRAY) {
+        $tab = $lieu->fetch();
+        return $tab;
+      } else return false;
+    }
+
+    // Cardinalite : 1 //
+    function getLieuFromSceneID($r_type,$idScene) {
+      $req = "select * from Lieu where idLieu in (select idLieu from EstComposeDe where idScene=$idScene);";
+      $lieu = $this->db->query($req);
+      if ($r_type==self::R_CLASS) {
+        $tab = $lieu->fetch(PDO::FETCH_CLASS,'Lieu');
+        return $tab;
+      } elseif ($r_type==self::R_ARRAY) {
+        $tab = $lieu->fetch();
+        return $tab;
+      } else return false;
+    }
+
+
     // Cardinalite : * //
     function getLieuxFromEvenementID($r_type,$idEvent) {
         $req = "select * from Lieu where idLieu in (select idLieu from SePasseraA where idEvenement=$idEvent);";
@@ -250,6 +335,32 @@
       } else return false;
     }
 // Methodes -> Passage ////////////////////////////////////////////////////////////////////////////////////////////////
+    // Cardinalite : 1 //
+    function getPassageFromIDs($idGrp,$idEvent,$idScene) {
+      $req = "select * from Passage where idGroupe=$idGrp and idEvenement=$idEvent and idScene=$idScene;";
+      $passage = $this->db->query($req);
+      if ($r_type==self::R_CLASS) {
+        $tab = $passage->fetch(PDO::FETCH_CLASS,'Passage');
+        return $tab;
+      } elseif ($r_type==self::R_ARRAY) {
+        $tab = $passage->fetch();
+        return $tab;
+      } else return false;
+    }
+
+    // Cardinalite : * //
+    function getPassagesFromSceneID($r_type,$idScene) {
+      $req = "select * from Passage where idScene=$idScene;";
+      $passages = $this->db->query($req);
+      if ($r_type==self::R_CLASS) {
+        $tab = $passages->fetchAll(PDO::FETCH_CLASS,'Passage');
+        return $tab;
+      } elseif ($r_type==self::R_ARRAY) {
+        $tab = $passages->fetchAll();
+        return $tab;
+      } else return false;
+    }
+
     // Cardinalite : * //
     function getPassagesFromGroupeID($r_type,$idGroupe) {
       $req = "select * from Passage where idGroupe=$idGroupe;";
