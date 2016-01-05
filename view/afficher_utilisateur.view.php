@@ -34,7 +34,10 @@
 				<p>Style musical préféré : <?=$data['style']?></p>
 			<?php endif; if($data['site']) :?>
 				<p>Site web : <a href="<?=$data['site']?>"><?=$data['site']?></a></p>
+			<?php endif; if($data['desc']) :?>
+				<p>Description : <?=$data['desc']?></p>
 			<?php endif ?>
+			
 			</div>
 
 		<?php if ($data['type'] == "Organisateur" && $data['evenement'] != null) : ?>
@@ -69,9 +72,11 @@
 			<div id="fiche-contact-contact">
 				<h4>Contact</h4>
 				<hr>
-				<p>Telephone 1:</p>
-				<p>Telephone 2:</p>
-				<p>Email : </p>
+			<?php if($data['tel']) : ?>
+				<p>Telephone : <?=$data['tel']?></p>
+			<?php endif; if($data['mail']) : ?>
+				<p>Email : <?=$data['mail']?></p>
+			<?php endif; ?>
 			</div>
 
 		</div>

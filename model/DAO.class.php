@@ -18,7 +18,7 @@
         $this->db = new PDO('mysql:host=localhost;dbname=molpe;charset=utf8', 'molpe', 'esirn');
         //$this->db = new PDO("sqlite:../data/molpe.db");
       } catch (PDOException $e) {
-        exit("Erreur ouverture BD : ".$e.getMessage());
+        exit("Erreur ouverture BD : ".$e->getMessage());
       }
     }
 // Methodes Utilitaires ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -101,7 +101,8 @@
       $req="select * from Utilisateur where idUser='$idUser';";
       $user=$this->db->query($req);
       if ($r_type==self::R_CLASS) {
-        $tab = $user->fetch(PDO::FETCH_CLASS,'Utilisateur');
+        $user->setFetchMode(PDO::FETCH_CLASS,'Utilisateur');
+        $tab = $user->fetch();
         return $tab;
       } elseif ($r_type==self::R_ARRAY) {
         $tab = $user->fetch();
@@ -127,7 +128,8 @@
       $req = "select * from Booker where idUser_Booker=$idBooker;";
       $booker = $this->db->query($req);
       if ($r_type==self::R_CLASS) {
-        $tab = $booker->fetch(PDO::FETCH_CLASS,'Booker');
+        $booker->setFetchMode(PDO::FETCH_CLASS,'Booker');
+        $tab = $booker->fetch();
         return $tab;
       } elseif ($r_type==self::R_ARRAY) {
         $tab = $booker->fetch();
@@ -153,7 +155,8 @@
       $req = "select * from Groupe where idUser_Groupe=$idGroupe;";
       $groupe = $this->db->query($req);
       if ($r_type==self::R_CLASS) {
-        $tab = $groupe->fetch(PDO::FETCH_CLASS,'Groupe');
+        $groupe->setFetchMode(PDO::FETCH_CLASS,'Groupe');
+        $tab = $groupe->fetch();
         return $tab;
       } elseif ($r_type==self::R_ARRAY) {
         $tab = $groupe->fetch();
@@ -179,7 +182,8 @@
       $req = "select * from Organisateur where idUser_Organisateur=$idOrga;";
       $orga = $this->db->query($req);
       if ($r_type==self::R_CLASS) {
-        $tab = $orga->fetch(PDO::FETCH_CLASS,'Organisateur');
+        $orga->setFetchMode(PDO::FETCH_CLASS,'Organisateur');
+        $tab = $orga->fetch();
         return $tab;
       } elseif ($r_type==self::R_ARRAY) {
         $tab = $orga->fetch();
@@ -192,7 +196,8 @@
       $req = "select * from Organisateur where idUser_Organisateur in (select idOrganisateur from Possede where idLieu=$idLieu);";
       $orga = $this->db->query($req);
       if ($r_type==self::R_CLASS) {
-        $tab = $orga->fetch(PDO::FETCH_CLASS,'Organisateur');
+        $orga->setFetchMode(PDO::FETCH_CLASS,'Organisateur');
+        $tab = $orga->fetch();
         return $tab;
       } elseif ($r_type==self::R_ARRAY) {
         $tab = $orga->fetch();
@@ -214,50 +219,52 @@
     }
 // Methodes -> Evenement ////////////////////////////////////////////////////////////////////////////////////////////
       // Cardinalite : 1 //
-      function getEvenementFromID($r_type,$idEvent) {
-        $req = "select * from Evenement where idEvenement=$idEvent;";
-        $event = $this->db->query($req);
-        if ($r_type==self::R_CLASS) {
-          $tab = $event->fetch(PDO::FETCH_CLASS,'Evenement');
-          return $tab;
-        } elseif ($r_type==self::R_ARRAY) {
-          $tab = $event->fetch();
-          return $tab;
-        } else return false;
-      }
+    function getEvenementFromID($r_type,$idEvent) {
+      $req = "select * from Evenement where idEvenement=$idEvent;";
+      $event = $this->db->query($req);
+      if ($r_type==self::R_CLASS) {
+        $event->setFetchMode(PDO::FETCH_CLASS,'Evenement');
+        $tab = $event->fetch();
+        return $tab;
+      } elseif ($r_type==self::R_ARRAY) {
+        $tab = $event->fetch();
+        return $tab;
+      } else return false;
+    }
+
+    // Cardinalite : * //
+    function getEvenementsFromOrganisateurID($r_type,$idOrga) {
+      $req = "select * from Evenement where idEvenement in (select idEvenement from Organise where idOrganisateur=$idOrga);";
+      $events = $this->db->query($req);
+      if ($r_type==self::R_CLASS) {
+        $tab = $events->fetchAll(PDO::FETCH_CLASS,'Evenement');
+        return $tab;
+      } elseif ($r_type==self::R_ARRAY) {
+        $tab = $events->fetchAll();
+        return $tab;
+      } else return false;
+    }
 
       // Cardinalite : * //
-      function getEvenementsFromOrganisateurID($r_type,$idOrga) {
-        $req = "select * from Evenement where idEvenement in (select idEvenement from Organise where idOrganisateur=$idOrga);";
-        $events = $this->db->query($req);
-        if ($r_type==self::R_CLASS) {
-          $tab = $events->fetchAll(PDO::FETCH_CLASS,'Evenement');
-          return $tab;
-        } elseif ($r_type==self::R_ARRAY) {
-          $tab = $events->fetchAll();
-          return $tab;
-        } else return false;
-      }
-
-      // Cardinalite : * //
-      function getEvenementsFromLieuID($r_type,$idLieu) {
-        $req = "select * from Evenement where idEvenement in (select idEvenement from SePasseraA where idLieu=$idLieu);";
-        $events = $this->db->query($req);
-        if ($r_type==self::R_CLASS) {
-          $tab = $events->fetchAll(PDO::FETCH_CLASS,'Evenement');
-          return $tab;
-        } elseif ($r_type==self::R_ARRAY) {
-          $tab = $events->fetchAll();
-          return $tab;
-        } else return false;
-      }
+    function getEvenementsFromLieuID($r_type,$idLieu) {
+      $req = "select * from Evenement where idEvenement in (select idEvenement from SePasseraA where idLieu=$idLieu);";
+      $events = $this->db->query($req);
+      if ($r_type==self::R_CLASS) {
+        $tab = $events->fetchAll(PDO::FETCH_CLASS,'Evenement');
+        return $tab;
+      } elseif ($r_type==self::R_ARRAY) {
+        $tab = $events->fetchAll();
+        return $tab;
+      } else return false;
+    }
 // Methodes -> Scene ////////////////////////////////////////////////////////////////////////////////////////////////////
     // Cardinalite : 1 //
     function getSceneFromID($r_type,$idScene) {
       $req = "select * from Scene where idScene=$idScene;";
       $scene = $this->db->query($req);
       if ($r_type==self::R_CLASS) {
-        $tab = $scene->fetch(PDO::FETCH_CLASS,'Scene');
+        $scene ->setFetchMode(PDO::FETCH_CLASS,'Scene');
+        $tab = $scene->fetch();
         return $tab;
       } elseif ($r_type==self::R_ARRAY) {
         $tab = $scene->fetch();
@@ -284,7 +291,8 @@
       $req = "select * from Lieu where idLieu=$idLieu;";
       $lieu = $this->db->query($req);
       if ($r_type==self::R_CLASS) {
-        $tab = $lieu->fetch(PDO::FETCH_CLASS,'Lieu');
+        $lieu->setFetchMode(PDO::FETCH_CLASS,'Lieu');
+        $tab = $lieu->fetch();
         return $tab;
       } elseif ($r_type==self::R_ARRAY) {
         $tab = $lieu->fetch();
@@ -297,7 +305,8 @@
       $req = "select * from Lieu where idLieu in (select idLieu from EstComposeDe where idScene=$idScene);";
       $lieu = $this->db->query($req);
       if ($r_type==self::R_CLASS) {
-        $tab = $lieu->fetch(PDO::FETCH_CLASS,'Lieu');
+        $lieu->setFetchMode(PDO::FETCH_CLASS,'Lieu');
+        $tab = $lieu->fetch();
         return $tab;
       } elseif ($r_type==self::R_ARRAY) {
         $tab = $lieu->fetch();
@@ -349,7 +358,8 @@
       $req = "select * from Passage where idGroupe=$idGrp and idEvenement=$idEvent and idScene=$idScene;";
       $passage = $this->db->query($req);
       if ($r_type==self::R_CLASS) {
-        $tab = $passage->fetch(PDO::FETCH_CLASS,'Passage');
+        $passage->setFetchMode(PDO::FETCH_CLASS,'Passage');
+        $tab = $passage->fetch();
         return $tab;
       } elseif ($r_type==self::R_ARRAY) {
         $tab = $passage->fetch();
@@ -395,11 +405,6 @@
         return $tab;
       } else return false;
     }
-
-
-
-
-
 
 
 }
