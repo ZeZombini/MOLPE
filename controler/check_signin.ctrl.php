@@ -40,13 +40,14 @@ if(isset($_POST['email'])) {
 
         mail($mail,"Activation de votre compte MOLPE",
             "Bonjour ". $_POST['prenom'] .
-            "Bienvenue sur MOLPE.
-            Pour activer votre compte, cliquez sur le lien suivant ou si le lien marche pas, copiez le dans votre navigateur :
-            <a href=\"http://149.91.81.185/check_email?email=$mail&key=$key\"><b>Activer le compte</b></a>
-            " . $config['project_path']  . "check_email?email=$mail&key=$key
-
-            MOLPE
-            Moteur d'Organisation et Listing de Eartage d'Evenementiel");
+            "\r\nBienvenue sur MOLPE.
+            \r\nPour activer votre compte, cliquez sur le lien suivant ou,
+            \r\n si le lien marche pas, copiez le dans votre navigateur :
+            \r\nhttp://149.91.81.185/check_email?email=$mail&key=$key
+            \r\n" . $config['project_path']  . "check_email?email=$mail&key=$key
+            \r\n
+            \r\nMOLPE
+            \r\nMoteur d'Organisation et Listing de Eartage d'Evenementiel");
 
     header("Location : " . $config['project_path'] . "connexion?fail=6");
 
