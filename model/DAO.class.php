@@ -44,7 +44,6 @@
     function checkInscription($mail) {
       $req = "select * from Utilisateur where mail='$mail';";
       $res = $this->db->query($req);
-<<<<<<< HEAD
       $resf = $res->fetch();
       if (get_class($res)=="PDOStatement") {
         var_dump($resf);
@@ -55,12 +54,10 @@
     }
 
     function creation_key_activation($mail,$key) {
-      $req = "insert into VerifMail values($mail,$key)"
+      $req = "insert into VerifMail values($mail,$key)";
       $res = $this->db->exec();
-=======
       if (get_class($res)==PDOStatement) return false;
       else return true;
->>>>>>> 5a290f6dfe4d577aa7ec553e6fd71b53a6217570
     }
 
 
