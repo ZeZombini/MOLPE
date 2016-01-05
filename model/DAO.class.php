@@ -5,7 +5,6 @@
   require_once("lieu.class.php");
   require_once("organisateur.class.php");
   require_once("passage.class.php");
-  require_once("salle.class.php");
   require_once("scene.class.php");
   require_once("utilisateur.class.php");
 
@@ -49,6 +48,7 @@
         return false;
       } else {
         return true;
+      }
     }
 
     // Insere un utilisateur qui vient de s'inscrire dans la table pour la verification des mails
@@ -322,6 +322,18 @@
     // Cardinalite : * //
     function getLieuxFromOrganisateurID($r_type,$idOrga) {
       $req = "select * from Lieu where idLieu in (select idLieu from Possede where idOrganisateur=$idOrga);";
+      $lieux = $this->db->query($req);
+      if ($r_type==self::R_CLASS) {
+        $tab = $lieux->fetchAll(PDO::FETCH_CLASS,'Lieu');
+        return $tab;
+      } elseif ($r_type==self::R_ARRAY) {
+        $tab = $lieux->fetchAll();
+        return $tab;
+      } else return false;
+    }
+
+    function getSallesFromOrganisateurID($r_type,$idOrga) {
+      $req = "select * from Lieu where idLieu in (select idLieu from Possede where idOrganisateur=$idOrga) and salle=true;";
       $lieux = $this->db->query($req);
       if ($r_type==self::R_CLASS) {
         $tab = $lieux->fetchAll(PDO::FETCH_CLASS,'Lieu');
