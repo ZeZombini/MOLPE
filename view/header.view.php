@@ -14,7 +14,7 @@
 		<div id="header-top">
 			<div id="news">
 				<p>Ouverture de la programmation pour "Musilac"</p>
-				<p>La musique donne une âme à nos coeurs et des ailes à la pensée. - Platon"</p>
+				<p>"La musique donne une âme à nos coeurs et des ailes à la pensée." - Platon</p>
 			</div>
 			<?php
 				if ($data['connecte'] == true){
