@@ -28,19 +28,16 @@ if(!isset($_POST['email'])) { // email non renseigné
 //            -1 si compte non activé
 
   $validation = $dao->checkLogin($_POST['email'],$_POST['mdp_encoded']);
-  
+        echo("zerzerzenon");
 
   switch ($validation) :
     case 0 :
-      echo("fdjhdfkjhkdfshkjf");
       header("Location: ". $config['project_path'] . "/connexion?fail=4&email=" . $_POST['email']); // Pas dans la BD
       break;
     case -1 :
-      echo("non");
       header("Location: ". $config['project_path'] . "/connexion?fail=2&email=" . $_POST['email']); // Compte non validé
       break;
     default : // Si membre validé, on détruit la session en cours et on en commence une toute neuve
-    echo("coucou");
       session_destroy();
       session_start();
 
