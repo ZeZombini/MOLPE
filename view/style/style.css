@@ -183,7 +183,7 @@ nav a:hover{
 	height: auto;
 	background: white;
 
-	
+
 }
 
 #content > div{
@@ -194,7 +194,7 @@ nav a:hover{
 #content > h2{
 	background-color: rgb(127, 90, 181);
 	margin: 0px;
-	height: 1.5em;	
+	height: 1.5em;
 	color: white;
 	padding: 10px 10px 0px 10px;
 	font-weight: normal;
@@ -407,7 +407,7 @@ nav a:hover{
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, 0.3); 
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
 ::-webkit-scrollbar-button {
@@ -418,4 +418,3 @@ nav a:hover{
 ::-webkit-scrollbar-corner {
     background-color: rgb(165, 158, 211);
 }
-
