@@ -1,6 +1,6 @@
 <?php
 $config = parse_ini_file($config['project_path']."/config.ini", FALSE);
-require_once("../model/DAO.class.php"); echo("blblbl");
+require_once("../model/DAO.class.php");
 
 // renvoi vers connexion avec code fail :
 // fail = 1 : e-mail non renseigné
@@ -17,9 +17,9 @@ if(!isset($_POST['email'])) { // email non renseigné
 } else if (!isset($_POST['mdp_encoded'])) { // mot de passe non renseigné mais e-mail ok
   header("Location: ". $config['project_path'] . "/connexion?fail=1&email=" .$_POST['email']); // retourne page avec message d'erreur et e-mail pré rentrée.
 } else { // On  les 2 et on regarde si on le connecte ou pas
+ echo("blblbl");
   $dao = new DAO();
 
-echo("coucou théo");
 
 //     /\              /\
 //   //!\\ IMPORTANT //!\\
