@@ -19,7 +19,7 @@ if(!isset($_POST['email'])) { // email non renseigné
 } else { // On  les 2 et on regarde si on le connecte ou pas
  echo("blblbl");
   $dao = new DAO();
-
+ echo("blblbl le retour !!!");
 
 //     /\              /\
 //   //!\\ IMPORTANT //!\\
