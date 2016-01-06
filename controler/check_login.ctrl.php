@@ -1,4 +1,4 @@
-<?php
+<h1> LA PAGE des brouettes </h1><?php
 $config = parse_ini_file($config['project_path']."/config.ini", FALSE);
 require_once($config['project_path']."/model/DAO.class.php");
 // renvoie vers connexion avec code fail
