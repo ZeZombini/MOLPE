@@ -1,6 +1,6 @@
 <?php
-$config = parse_ini_file($config['project_path']."/config.ini", FALSE); echo("blblbl");
-require_once($config['project_path']."/model/DAO.class.php");
+$config = parse_ini_file($config['project_path']."/config.ini", FALSE);
+require_once($config['project_path']."/model/DAO.class.php"); echo("blblbl");
 // renvoie vers connexion avec code fail
 
 // fail = 1 : e-mail non renseign�
