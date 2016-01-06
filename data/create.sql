@@ -1,19 +1,19 @@
-DROP TABLE Utilisateur;
-DROP TABLE Contact;
-DROP TABLE Booker;
-DROP TABLE Groupe;
-DROP TABLE BookerGroupe;
-DROP TABLE Organisateur;
-DROP TABLE Evenement;
-DROP TABLE Lieu;
-DROP TABLE Salle;
-DROP TABLE Scene;
-DROP TABLE Passage;
-DROP TABLE Possede;
-DROP TABLE Organise;
-DROP TABLE SePasseraA;
-DROP TABLE EstComposeDe;
-DROP TABLE VerifMail;
+-- DROP TABLE Utilisateur;
+-- DROP TABLE Contact;
+-- DROP TABLE Booker;
+-- DROP TABLE Groupe;
+-- DROP TABLE BookerGroupe;
+-- DROP TABLE Organisateur;
+-- DROP TABLE Evenement;
+-- DROP TABLE Lieu;
+-- DROP TABLE Salle;
+-- DROP TABLE Scene;
+-- DROP TABLE Passage;
+-- DROP TABLE Possede;
+-- DROP TABLE Organise;
+-- DROP TABLE SePasseraA;
+-- DROP TABLE EstComposeDe;
+-- DROP TABLE VerifMail;
 
 CREATE TABLE Utilisateur(
 	idUser  	INTEGER(10) PRIMARY KEY AUTO_INCREMENT NOT NULL,

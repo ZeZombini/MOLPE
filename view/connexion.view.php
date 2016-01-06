@@ -7,7 +7,7 @@ $data['fail']="Erreur : ";*/?>
 		<p class="error"><?=$data['fail']?></p>
 		<?php endif?>
 
-		<form action="<?= $config['project_path'] ?>controler/check_login.ctrl.php" method="post" onSubmit="encrypt(this.mdp,this.mdp_encoded)">
+		<form action="<?= $config['project_path'] ?>/controler/check_login.ctrl.php" method="post" onSubmit="encrypt(this.mdp,this.mdp_encoded)">
 			<p>Adresse e-mail :</p>
 			<input type="text" name="email" value="<?=$data['email']; ?>" id="email"/>
 			<p>Mot de passe</p>
@@ -27,7 +27,7 @@ function SubmitForm(email,widgetclear, widgetcrypted) {
 
 	encrypt(widgetclear,widgetcrypted);
 
-  window.location.href='<= $config['project_path'] ?>/check_login?email=' + email + '&mdp_encoded=' + mdp_encoded;
+  window.location.href='<= $config['project_path'] ?>/controler/check_login?email=' + email + '&mdp_encoded=' + mdp_encoded;
   return false;
 }
 </script>
