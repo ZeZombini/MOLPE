@@ -30,12 +30,15 @@ if(!isset($_POST['email'])) { // email non renseigné
 
   switch ($validation) :
     case 0 :
+      echo ("pas dans la bédé");
       header("Location: ". $config['project_path'] . "/connexion?fail=4&email=" . $_POST['email']); // Pas dans la BD
       break;
     case -1 :
+      echo("compte non validé");
       header("Location: ". $config['project_path'] . "/connexion?fail=2&email=" . $_POST['email']); // Compte non validé
       break;
     default : // Si membre validé, on détruit la session en cours et on en commence une toute neuve
+      echo("oké");
       session_destroy();
       session_start();
 
