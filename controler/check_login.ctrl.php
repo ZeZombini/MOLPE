@@ -19,6 +19,8 @@ if(!isset($_POST['email'])) { // email non renseigné
 } else { // On  les 2 et on regarde si on le connecte ou pas
   $dao = new DAO();
 
+echo("coucou théo");
+
 //     /\              /\
 //   //!\\ IMPORTANT //!\\
 //  /=====\         /=====\
