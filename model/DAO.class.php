@@ -14,8 +14,11 @@
     const R_CLASS = 0;
 // Constructeur ////////////////////////////////////////////////////////////////////////////////////////////////////////////
     function __construct() {
+      echo("ici avant le try");
       try {
+        echo("le try a commencééééé");
         $this->db = new PDO('mysql:host=149.91.81.185;dbname=Molpe', 'molpe', 'esirn');
+        echo("connexion effectuée à la db");
         //$this->db = new PDO("sqlite:../data/molpe.db");
       } catch (PDOException $e) {
         exit("Erreur ouverture BD : ".$e->getMessage());
