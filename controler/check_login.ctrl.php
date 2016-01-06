@@ -1,14 +1,14 @@
 <?php
 $config = parse_ini_file($config['project_path']."/config.ini", FALSE);
-require_once($config['project_path']."/model/DAO.class.php"); echo("blblbl");
-// renvoie vers connexion avec code fail
+require_once("../model/DAO.class.php"); echo("blblbl");
 
-// fail = 1 : e-mail non renseign�
-// fail = 2 : compte non valid�
-// fail = 3 : compte n'a pas pu �tre valid�
-// fail = 4 : e-mail ou mot de passe incorrecte
-// fail = 5 : compte activ�, connexion possible
-// fail = 6 : pas erreur mais demande validation compt par utilisateur
+// renvoi vers connexion avec code fail :
+// fail = 1 : e-mail non renseigné
+// fail = 2 : compte non validé
+// fail = 3 : compte n'a pas pu être validé
+// fail = 4 : e-mail ou mot de passe incorrect
+// fail = 5 : compte activé, connexion possible
+// fail = 6 : pas erreur mais demande validation compte par utilisateur
 // aucun : l'utilisateur est connecté
 
 
