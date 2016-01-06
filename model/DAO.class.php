@@ -15,7 +15,7 @@
 // Constructeur ////////////////////////////////////////////////////////////////////////////////////////////////////////////
     function __construct() {
       try {
-        $this->db = new PDO('mysql:host=149.91.81.185;dbname=Molpe;charset=utf8', 'molpe', 'esirn');
+        $this->db = new PDO('mysql:host=149.91.81.185;dbname=Molpe', 'molpe', 'esirn');
         //$this->db = new PDO("sqlite:../data/molpe.db");
       } catch (PDOException $e) {
         exit("Erreur ouverture BD : ".$e->getMessage());
