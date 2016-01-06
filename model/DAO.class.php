@@ -14,11 +14,8 @@
     const R_CLASS = 0;
 // Constructeur ////////////////////////////////////////////////////////////////////////////////////////////////////////////
     function __construct() {
-      echo("ici avant le try");
       try {
-        echo("le try a commencééééé");
         $this->db = new PDO('mysql:host=localhost;dbname=Molpe;charset=utf8', 'molpe', 'esirn');
-        echo("connexion effectuée à la db");
         //$this->db = new PDO("sqlite:../data/molpe.db");
       } catch (PDOException $e) {
         exit("Erreur ouverture BD : ".$e->getMessage());
@@ -28,11 +25,16 @@
     // Verifie si le mail correspond au mot de passe, et verifie si la validation du mail a eu lieu
     // Renvoie 0 si le mail ne correspond pas au mot de passe, -1 si l'utilisateur n'a pas valide son mail et son id si tout va bien
     function checkLogin($mail,$mdp) {
+      echo("select pas encore fait");
       $req="select idUser from Utilisateur where mail='$mail' and mdp='$mdp';";
+      echo("la rekét a dhksdfsd");
       $res = $this->db->query($req);
+      echo("kldjqskhdsui 3");
       $id = $res->fetch();
+      echo("coucou maman0");
       if ($id == false) return 0;
       else {
+        echo("else !");
         $req="select * from VerifMail where mail='$mail';";
         $res2 = $this->db->query($req);
         $tab = $res2->fetch();
