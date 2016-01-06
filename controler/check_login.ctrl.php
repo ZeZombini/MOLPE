@@ -27,8 +27,9 @@ if(!isset($_POST['email'])) { // email non renseigné
 //            0 si n'existe pas,
 //            -1 si compte non activé
 
+  var_dump($_POST['mdp_encoded']);
   $validation = $dao->checkLogin($_POST['email'],$_POST['mdp_encoded']);
-
+  
 
   switch ($validation) :
     case 0 :
