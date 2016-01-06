@@ -27,14 +27,9 @@
     function checkLogin($mail,$mdp) {
       $req="select idUser from Utilisateur where mail='$mail' and mdp='$mdp';";
       $res = $this->db->query($req);
-      echo("blblbl");
-      var_dump($res);
       $id = $res->fetch();
-      var_dump($id);
-      echo("coucou maman0");
       if ($id == false) return 0;
       else {
-        echo("else !");
         $req="select * from VerifMail where mail='$mail';";
         $res2 = $this->db->query($req);
         $tab = $res2->fetch();
