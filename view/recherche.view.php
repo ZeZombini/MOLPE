@@ -314,6 +314,5 @@
 				$(the_id).addClass("hide");
 			});
 	}
-	return false;
 	});
 	</script>
