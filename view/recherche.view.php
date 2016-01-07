@@ -13,27 +13,26 @@
 		<form action="controler/search.ctrl.php" method="post">
 			<h3>Recherche</h3>
 			<hr>
-
 			<table><!-- RECHERCHE -->
 
 
 			<tr class="ligne_simple">
 				<td>Recherche *</td>
-				<td></td>
-				<td><input id="recherche" type="text" name="recherche" value="Entrez un mot-clé"/></td>
+				<td><img src="../../data/img/question58-1.png"/><span>Entrez un ou plusieurs mots-clés.</span></td>
+				<td><input id="recherche" type="text" name="recherche"/></td>
 			</tr>
 
 			<tr class="ligne_simple">
 				<td>Lieu &nbsp</td>
-				<td></td>
-				<td><input id="lieu" type="text" name="lieu" required></td>
+				<td><img src="../../data/img/question58-1.png"/><span>Entrez le nom d'une ville, d'une rue,... et sélectionnez votre choix dans la liste.</span></td>
+				<td><input id="lieu" type="text" name="lieu"></td>
 			</tr>
 
 			<tr class="ligne_radio">
 				<td>Vous recherchez un(e) &nbsp</td>
-				<td></td>
+				<td><img src="../../data/img/question58-1.png"/><span>Affinez votre recherche en sélecionnant un élément à rechercher. Les champs suivant s'adapteront.</span></td>
 				<td>
-					<input type="radio" name="type" value="Booker" id="radio_booker" checked/><label for="radio_booker">Booker</label>
+					<input type="radio" name="type" value="Booker" id="radio_booker"/><label for="radio_booker">Booker</label>
 					<input type="radio" name="type" value="Groupe" id="radio_groupe"/><label for="radio_groupe">Groupe</label>
 					<input type="radio" name="type" value="Organisateur" id="radio_orga"/><label for="radio_orga">Organisateur</label>
 					<input type="radio" name="type" value="Evenement" id="radio_evt"/><label for="radio_evt">Évènement</label>
@@ -46,11 +45,11 @@
 
 			<h3>Options avancées</h3>
 			<hr>
-			<table id="radio_booker"> <!-- RECHERCHE AVANCEE BOOKER -->
+			<table> <!-- RECHERCHE AVANCEE BOOKER -->
 			
 			<tr class="ligne_simple">
 				<td>Nombre de groupes &nbsp</td>
-				<td></td>
+				<td><img src="../../data/img/question58-1.png"/><span>Nombre de groupes bookés par ce booker.</span></td>
 				<td>  <select name="nbgrp">
 						<option value="peuimporteNb" selected>- Peu importe -</option>
     					<option value="aucun">Aucun</option>
@@ -62,7 +61,7 @@
   			</tr>
   			<tr class="ligne_simple">
   				<td>Note des groupes &nbsp</td>
-				<td></td>
+				<td><img src="../../data/img/question58-1.png"/><span>Moyenne des notes obtenues par les groupes bookés par ce booker.</span></td>
 				<td>  <select name="nbetoiles">
 						<option value="peuimporteEt" selected>- Peu importe -</option>
     					<option value="uneetoile">1 étoile</option>
@@ -72,9 +71,20 @@
     					<option value="cinqetoiles">5 étoiles</option>
   					</select></td>
   			</tr>
+
+			<tr class="ligne_chckbx">
+  				<td>Niveau des groupes &nbsp</td>
+				<td><img src="../../data/img/question58-1.png"/><span>Niveau des groupes bookés par ce booker.</span></td>
+				<td>
+    				<input type="checkbox" name="nivgrp" value="amateur"><div>Amateur</div>
+    				<input type="checkbox" name="nivgrp" value="semipro"><div>Semi-Pro</div>
+    				<input type="checkbox" name="nivgrp" value="pro"><div>Pro</div>
+  				</td>
+			</tr>
+
   			<tr class="ligne_simple">
   				<td>Distance &nbsp</td>
-				<td></td>
+				<td><img src="../../data/img/question58-1.png"/><span>Distance vous séparant du booker recherché (basé sur l'adresse fournie dans le profil)</span></td>
 				<td>  <select name="distance">
 						<option value="peuimporteDist" selected>- Peu importe -</option>
     					<option value="dixkm">Moins de 10km</option>
@@ -87,23 +97,13 @@
 
 			<tr class="ligne_slide">
 				<td>Commission maximale &nbsp</td>
-				<td></td>
+				<td><img src="../../data/img/question58-1.png"/><span>Pourcentage maximum récupéré par le booker. Seuls les bookers dont le pourcentage moyen de commission est inférieur ou égal seront affichés.</span></td>
 				<td><input type="range" name="commission" min="0" max="100" step="2" value="8" onchange="updateSlider(this.value)"> <span id="sliderAmount">8%</span></td>
 			</tr>
 
 			<tr class="ligne_chckbx">
-  				<td>Niveau des groupes &nbsp</td>
-				<td></td>
-				<td>
-    				<input type="checkbox" name="nivgrp" value="amateur"><div>Amateur</div>
-    				<input type="checkbox" name="nivgrp" value="semipro"><div>Semi-Pro</div>
-    				<input type="checkbox" name="nivgrp" value="pro"><div>Pro</div>
-  				</td>
-			</tr>
-
-			<tr class="ligne_chckbx">
 				<td>Style des groupes &nbsp</td>
-				<td></td>
+				<td><img src="../../data/img/question58-1.png"/><span>Style des groupes bookés par ce booker. Les styles non présents dans cette liste seront recherchés par défaut.</span></td>
 				<td> 
 
 					<input type="checkbox" name="style" value="blues"><div>Blues</div>
@@ -114,7 +114,7 @@
 					<input type="checkbox" name="style" value="funk"><div>Funk</div>
 					<input type="checkbox" name="style" value="hardrock"><div>Hard Rock</div>
 					<input type="checkbox" name="style" value="jazz"><div>Jazz</div> <br />
-					<input type="checkbox" name="style" value="metal"><div>Metal</div>
+					<input type="checkbox" name="style" value="metal"><div>Métal</div>
 					<input type="checkbox" name="style" value="pop"><div>Pop</div>
 					<input type="checkbox" name="style" value="punk"><div> Punk</div>
 					<input type="checkbox" name="style" value="rnb"><div>R&B</div> <br />
@@ -132,7 +132,7 @@
 			<hr>
 
 
-			<table id="radio_groupe" class="hide"> <!-- RECHERCHE AVANCEE GROUPE -->
+			<table> <!-- RECHERCHE AVANCEE GROUPE -->
 
   			<tr class="ligne_simple">
   				<td>Note du groupe &nbsp</td>
@@ -182,7 +182,7 @@
 					<input type="checkbox" name="style" value="funk"><div>Funk</div>
 					<input type="checkbox" name="style" value="hardrock"><div>Hard Rock</div>
 					<input type="checkbox" name="style" value="jazz"><div>Jazz</div> <br />
-					<input type="checkbox" name="style" value="metal"><div>Metal</div>
+					<input type="checkbox" name="style" value="metal"><div>Métal</div>
 					<input type="checkbox" name="style" value="pop"><div>Pop</div>
 					<input type="checkbox" name="style" value="punk"><div> Punk</div>
 					<input type="checkbox" name="style" value="rnb"><div>R&B</div> <br />
@@ -200,7 +200,7 @@
 			<hr>
 
 
-			<table id="radio_orga" class="hide"> <!-- RECHERCHE AVANCEE ORGA -->
+			<table> <!-- RECHERCHE AVANCEE ORGA -->
   			<tr class="ligne_simple">
   				<td>Distance &nbsp</td>
 				<td></td>
@@ -223,7 +223,7 @@
 
 
 
-			<table id="radio_evt" class="hide"> <!-- RECHERCHE AVANCEE EVENEMENT -->
+			<table> <!-- RECHERCHE AVANCEE EVENEMENT -->
   			<tr class="ligne_simple">
   				<td>Distance &nbsp</td>
 				<td></td>
@@ -257,7 +257,7 @@
 					<input type="checkbox" name="style" value="funk"><div>Funk</div>
 					<input type="checkbox" name="style" value="hardrock"><div>Hard Rock</div>
 					<input type="checkbox" name="style" value="jazz"><div>Jazz</div> <br />
-					<input type="checkbox" name="style" value="metal"><div>Metal</div>
+					<input type="checkbox" name="style" value="metal"><div>Métal</div>
 					<input type="checkbox" name="style" value="pop"><div>Pop</div>
 					<input type="checkbox" name="style" value="punk"><div> Punk</div>
 					<input type="checkbox" name="style" value="rnb"><div>R&B</div> <br />
@@ -274,7 +274,7 @@
 			<!-- A RETIRER ENSUITE -->
 			<hr>
 
-			<table id="radio_salle" class="hide"> <!-- RECHERCHE AVANCEE SALLE -->
+			<table> <!-- RECHERCHE AVANCEE SALLE -->
   			<tr class="ligne_simple">
   				<td>Distance &nbsp</td>
 				<td></td>
@@ -304,15 +304,3 @@
         $(this).children(".tooltip-message").addClass('hide');
  });
 </script>
-	<script type="text/javascript">
-	$('input').click(function(){
-	var type = $(this).attr('type');
-    if(type == "radio") {
-		var the_id = $(this).attr("id");
-			$("table").not(the_id).each(function() {
-				$(the_id).removeClass("show");
-				$(the_id).addClass("hide");
-			});
-	}
-	});
-	</script>

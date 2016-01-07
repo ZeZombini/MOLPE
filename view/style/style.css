@@ -208,21 +208,47 @@ nav a:hover{
 /*                                             */
 /* ------------------------------------------- */
 
-/* INFOBULLE AIDE */
-.tooltip-message {
-    font-size: 0.7em;
-    text-align: center;
-    width: 150px;
-    color: white;
-    position: relative;
-    background-color: rgb(127, 90, 181);
-    padding: 10px;
+/* INFOBULLE "?" DE FORMULAIRE */
+#recherche table td:nth-child(2) img, #inscription table td:nth-child(2) img{
+	width: 20px;
+	height: 20px;
+	border: none !important;
+}
+#recherche table td:nth-child(2), #inscription table td:nth-child(2){
+	width: 25px;
+	position: relative;
 }
 
-.tooltip-message-hide {
- visibility: hidden;
- width:0px;
+#recherche table td:nth-child(2) span, #inscription table td:nth-child(2) span{
+	width: 150px;
+	position: absolute;
+	visibility: hidden;
+	z-index: -1;
+	font-size: 0.8em;
+    overflow: hidden;
+    color: white;
+    background-color: rgb(127, 90, 181);
+    padding: 5px;
+    opacity: 0;
 }
+#recherche table td:nth-child(2):hover span, #inscription table td:nth-child(2):hover span{
+	position: absolute;
+	left: 25px;
+	visibility: visible;
+	z-index: 120;
+	font-size: 0.8em;
+	height: auto;
+    width: 300px;
+    color: white;
+    background-color: rgb(127, 90, 181);
+    padding: 5px;
+    opacity: 1;
+	transition:all 0.5s;
+	-webkit-transition: all 0.5s;
+  	-moz-transition: all 0.5s;
+}
+
+/* FIN INFOBULLE */
 
 
 /* INSCRIPTION */
@@ -251,16 +277,6 @@ nav a:hover{
 #inscription table td:first-child{
 	text-align: right;
 	width: 20%;
-}
-
-/* Seconde case du tableau (Celle qui stock le point d'intérogation) */
-#inscription table td:nth-child(2){
-	width: 25px;
-	padding-right: 10px;
-	background-image: url("../../data/img/question58-1.png");
-	background-size: 20px;
-    background-position: 40% 80%;
-	background-repeat: no-repeat;
 }
 
 #inscription .disable{
@@ -381,16 +397,6 @@ nav a:hover{
 #recherche table td:first-child{
 	text-align: right;
 	width: 20%;
-}
-
-/* Seconde case du tableau (Celle qui stock le point d'intérogation) */
-#recherche table td:nth-child(2){
-	width: 25px;
-	padding-right: 10px;
-	background-image: url("../../data/img/question58-1.png");
-	background-size: 20px;
-    	background-position: 40% 60%;
-	background-repeat: no-repeat;
 }
 
 #recherche .disable{
