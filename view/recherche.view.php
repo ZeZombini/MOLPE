@@ -114,7 +114,7 @@
 					<input type="checkbox" name="style" value="funk"><div>Funk</div>
 					<input type="checkbox" name="style" value="hardrock"><div>Hard Rock</div>
 					<input type="checkbox" name="style" value="jazz"><div>Jazz</div> <br />
-					<input type="checkbox" name="style" value="metal"><div>Métal</div>
+					<input type="checkbox" name="style" value="metal"><div>Metal</div>
 					<input type="checkbox" name="style" value="pop"><div>Pop</div>
 					<input type="checkbox" name="style" value="punk"><div> Punk</div>
 					<input type="checkbox" name="style" value="rnb"><div>R&B</div> <br />
@@ -182,7 +182,7 @@
 					<input type="checkbox" name="style" value="funk"><div>Funk</div>
 					<input type="checkbox" name="style" value="hardrock"><div>Hard Rock</div>
 					<input type="checkbox" name="style" value="jazz"><div>Jazz</div> <br />
-					<input type="checkbox" name="style" value="metal"><div>Métal</div>
+					<input type="checkbox" name="style" value="metal"><div>Metal</div>
 					<input type="checkbox" name="style" value="pop"><div>Pop</div>
 					<input type="checkbox" name="style" value="punk"><div> Punk</div>
 					<input type="checkbox" name="style" value="rnb"><div>R&B</div> <br />
@@ -257,7 +257,7 @@
 					<input type="checkbox" name="style" value="funk"><div>Funk</div>
 					<input type="checkbox" name="style" value="hardrock"><div>Hard Rock</div>
 					<input type="checkbox" name="style" value="jazz"><div>Jazz</div> <br />
-					<input type="checkbox" name="style" value="metal"><div>Métal</div>
+					<input type="checkbox" name="style" value="metal"><div>Metal</div>
 					<input type="checkbox" name="style" value="pop"><div>Pop</div>
 					<input type="checkbox" name="style" value="punk"><div> Punk</div>
 					<input type="checkbox" name="style" value="rnb"><div>R&B</div> <br />
