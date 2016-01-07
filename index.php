@@ -33,6 +33,11 @@ $app->get("/inscription", function() use ($app,$config) {
     include ("controler/inscription.ctrl.php");
 });
 
+$app->get("/recherche", function() use ($app,$config) {
+    insertHead($app,$config);
+    include ("controler/recherche.ctrl.php");
+});
+
 $app->get("/user", function () use ($app,$config) {
     insertHead($app,$config);
     include ("controler/afficher_utilisateur.ctrl.php");
