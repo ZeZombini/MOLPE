@@ -139,7 +139,7 @@
 
     // Cardinalite : * //
     function getBookersFromGroupeID($r_type,$idGroupe) {
-      $req = "select * from Booker where idUser_Booker in (select idUser_Booker from BookerGroupe where idUser_Groupe=$idGroupe);";
+      $req = "select * from Booker where idUser_Booker in (select idBooker from BookerGroupe where idGroupe=$idGroupe);";
       $bookers = $this->db->query($req);
       if ($r_type==self::R_CLASS) {
         $tab = $bookers->fetchAll(PDO::FETCH_CLASS,'Booker');
@@ -166,7 +166,7 @@
 
     // Cardinalite : * //
     function getGroupesFromBookerID($r_type,$idBooker) {
-      $req = "select * from Groupe where idUser_Groupe in (select idUser_Groupe from BookerGroupe where idUser_Booker=$idBooker);";
+      $req = "select * from Groupe where idUser_Groupe in (select idUGroupe from BookerGroupe where idBooker=$idBooker);";
       $groupes = $this->db->query($req);
       if ($r_type==self::R_CLASS) {
         $tab = $groupes->fetchAll(PDO::FETCH_CLASS,'Groupe');

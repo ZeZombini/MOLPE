@@ -13,11 +13,11 @@
     var $groupes; // Cardinalite : * //
 
 // Constructeur ////////////////////////////////////////////////////////////////////////////////////////////
-    function __construct($idUser) {
-      parent::__construct($idUser);
+    function __construct() {
+      parent::__construct($this->idUser_Booker);
       $dao = new DAO();
-      $this->init($dao->getBookerFromID(DAO::R_ARRAY,$idUser));
-      $groupes = $dao->getGroupesFromBookerID(DAO::R_CLASS,$this->idBooker);
+      $this->init($dao->getBookerFromID(DAO::R_ARRAY,$this->idUser_Booker));
+      $groupes = $dao->getGroupesFromBookerID(DAO::R_CLASS,$this->idUser_Booker);
     }
 
 // Methodes ////////////////////////////////////////////////////////////////////////////////////////////////

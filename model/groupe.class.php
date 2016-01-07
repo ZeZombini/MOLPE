@@ -18,12 +18,12 @@
     var $passages; // Cardinalite : * //
 
 // Constructeur ////////////////////////////////////////////////////////////////////////////////////////////
-    function __construct($idUser) {
-      parent::__construct($idUser);
+    function __construct() {
+      parent::__construct($this->idUser_Groupe);
       $dao = new DAO();
-      $this->init($dao->getGroupeFromID(DAO::R_ARRAY,$idUser));
-      $bookers = $dao->getBookersFromGroupeID(DAO::R_CLASS,$this->idGroupe);
-      $passages = $dao->getPassagesFromGroupeID(DAO::R_CLASS,$this->idGroupe);
+      $this->init($dao->getGroupeFromID(DAO::R_ARRAY,$this->idUser_Groupe));
+      $bookers = $dao->getBookersFromGroupeID(DAO::R_CLASS,$this->idUser_Groupe);
+      $passages = $dao->getPassagesFromGroupeID(DAO::R_CLASS,$this->idUser_Groupe);
     }
 
 // Methodes ////////////////////////////////////////////////////////////////////////////////////////////////

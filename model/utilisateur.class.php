@@ -25,13 +25,13 @@ class Utilisateur {
 // Constructeur ////////////////////////////////////////////////////////////////////////////////////////////
   function __construct($idUser) {
     $dao = new DAO();
-    $this->init($dao->getUserFromID(DAO::R_ARRAY,$idUser));
+    $this->initUser($dao->getUserFromID(DAO::R_ARRAY,$idUser));
     $this->contacts = $dao->getContactsFromUserID(DAO::R_CLASS,$this->idUser);
   }
 
 // Methodes ////////////////////////////////////////////////////////////////////////////////////////////////
   // Initialise chaque attribut de la classe avec sa valeur dans le array
-  function init($array) {
+  function initUser($array) {
     $this->idUser = $array['idUser'];
     $this->nom = $array['nom'];
     $this->prenom = $array['prenom'];
