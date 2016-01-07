@@ -15,7 +15,7 @@ require_once("../model/DAO.class.php");
 if(!isset($_POST['email'])) { // email non renseigné
   header("Location : " .$config['project_path'] . "/connexion?fail=1");
 } else if (!isset($_POST['mdp_encoded'])) { // mot de passe non renseigné mais e-mail ok
-  header("Location: ". $config['project_path'] . "/connexion?fail=1&email=" .$_POST['email']); // retourne page avec message d'erreur et e-mail pré rentrée.
+  header("Location: ". $config['project_path'] . "/connexion?fail=1&email=" .$_POST['email']); // retourne page avec message d'erreur et e-mail pré rentré.
 } else { // On  les 2 et on regarde si on le connecte ou pas
   $dao = new DAO();
 

@@ -8,7 +8,11 @@
 			<table><!-- INFO PERSO -->
 			<tr class="ligne_radio">
 				<td>Vous êtes un &nbsp</td>
-				<td></td>
+				<td class="tooltip">
+					<div class="tooltip-message hide">
+						Explication 1
+					</div>
+				</td>
 				<td>
 					<input type="radio" name="type" value="Booker" id="radio_booker" checked/><label for="radio_booker">Booker</label>
 					<input type="radio" name="type" value="Groupe" id="radio_groupe"/><label for="radio_groupe">Groupe</label>
@@ -129,4 +133,7 @@
 			$('pseudo').removeClass('disable');
 		}
 	}
+	$("tooltip").hover(function(){
+	  	$(this).removeClass('hide');
+	})
 </script>
