@@ -10,7 +10,7 @@
 <div id="content">
 	<h2>Recherche</h2>
 	<div id="recherche">
-		<form action="controler/search.ctrl.php" method="post">
+		<form action="controler/resultsearch.ctrl.php" method="post">
 			<h3>Recherche</h3>
 			<hr>
 			<table><!-- RECHERCHE -->

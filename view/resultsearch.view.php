@@ -1,0 +1,1 @@
+<?php echo ("Résultat de recherche"); ?>
