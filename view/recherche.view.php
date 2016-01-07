@@ -309,10 +309,11 @@
 	var type = $(this).attr('type');
     if(type == "radio") {
 		var the_id = $(this).attr("id");
-		$("table").removeClass("hide");
 			$("table").not(the_id).each(function() {
+				$(the_id).removeClass("show");
 				$(the_id).addClass("hide");
 			});
 	}
+	return false;
 	});
 	</script>
