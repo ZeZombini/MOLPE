@@ -305,11 +305,14 @@
  });
 </script>
 	<script type="text/javascript">
-	$('input[type^="radio"]').click(function(){
-	var the_id = $(this).attr("id");
-	$("table").removeClass("hide");
-		$("table").not(the_id).each(function() {
-			$(the_id).addClass("hide");
-		});
+	$('input').click(function(){
+	var type = $(elementId).attr('type');
+    if(type == "radio") {
+		var the_id = $(this).attr("id");
+		$("table").removeClass("hide");
+			$("table").not(the_id).each(function() {
+				$(the_id).addClass("hide");
+			});
+	}
 	});
 	</script>
