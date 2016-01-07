@@ -46,7 +46,7 @@
 
 			<h3>Options avancées</h3>
 			<hr>
-			<table> <!-- RECHERCHE AVANCEE BOOKER -->
+			<table id="radio_booker"> <!-- RECHERCHE AVANCEE BOOKER -->
 			
 			<tr class="ligne_simple">
 				<td>Nombre de groupes &nbsp</td>
@@ -132,7 +132,7 @@
 			<hr>
 
 
-			<table> <!-- RECHERCHE AVANCEE GROUPE -->
+			<table id="radio_groupe"> <!-- RECHERCHE AVANCEE GROUPE -->
 
   			<tr class="ligne_simple">
   				<td>Note du groupe &nbsp</td>
@@ -200,7 +200,7 @@
 			<hr>
 
 
-			<table> <!-- RECHERCHE AVANCEE ORGA -->
+			<table id="radio_orga"> <!-- RECHERCHE AVANCEE ORGA -->
   			<tr class="ligne_simple">
   				<td>Distance &nbsp</td>
 				<td></td>
@@ -223,7 +223,7 @@
 
 
 
-			<table> <!-- RECHERCHE AVANCEE EVENEMENT -->
+			<table id="radio_evt"> <!-- RECHERCHE AVANCEE EVENEMENT -->
   			<tr class="ligne_simple">
   				<td>Distance &nbsp</td>
 				<td></td>
@@ -274,7 +274,7 @@
 			<!-- A RETIRER ENSUITE -->
 			<hr>
 
-			<table> <!-- RECHERCHE AVANCEE SALLE -->
+			<table id="radio_salle"> <!-- RECHERCHE AVANCEE SALLE -->
   			<tr class="ligne_simple">
   				<td>Distance &nbsp</td>
 				<td></td>
@@ -304,3 +304,12 @@
         $(this).children(".tooltip-message").addClass('hide');
  });
 </script>
+	<script type="text/javascript">
+	$('input[type^="radio"]').click(function(){
+	var the_id = $(this).attr("id");
+	$("table").removeClass("hide");
+		$("table").not(the_id).each(function() {
+			$(the_id).addClass("hide");
+		});
+	});
+	</script>
