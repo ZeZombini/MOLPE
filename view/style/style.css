@@ -409,8 +409,11 @@ nav a:hover{
 }
 
 #recherche .ligne_slide td input{
-	width: 93%;
-	height: 30px;
+	width: 90%;
+	display: inline;
+}
+#recherche .ligne_slide td{
+	text-align: center;
 }
 
 #recherche .ligne_chckbx td input{
@@ -434,7 +437,6 @@ nav a:hover{
     height: 30px;
 }
 
-
 #recherche .ligne_radio input:checked + label{
     box-shadow: 0 0 4px rgb(127, 90, 181) inset;
     height: 31px;
@@ -447,41 +449,6 @@ nav a:hover{
 	border: solid 1px rgb(127, 90, 181);
 	width: 100%;
 	height: 30px;
-}
-
-/* Ligne plus petite pour les champs qui demande moins d'info */
-#recherche .ligne_petite td:last-child input{
-	width: 39%;
-	height: 30px;
-	border: solid 1px rgb(127, 90, 181);
-	background: white;
-}
-
-/* Ligne double */
-#recherche .ligne_double td:last-child > input{
-	width: 39%;
-	height: 30px;
-	border: solid 1px rgb(127, 90, 181);
-}
-#recherche .ligne_double td:last-child span{
-	margin-left: 50px;
-}
-
-/* Le bouton de changement entre Pseudonyme et Prénom/Nom */
-#recherche #img_opposite{
-	width: 30px;
-	height: 30px;
-	padding: 0px;
-	background: white;
-	border: none;
-	position : relative;
-	right: 10px;
-	bottom: 20px;
-	background-image: url("../../data/img/opposite5.png");
-	background-size: 30px;
-    background-position: 40% 80%;
-	background-repeat: no-repeat;
-	z-index: 0;
 }
 
 

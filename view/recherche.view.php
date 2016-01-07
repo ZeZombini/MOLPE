@@ -10,7 +10,7 @@
 <div id="content">
 	<h2>Recherche</h2>
 	<div id="recherche">
-		<form action="../controler/resultsearch.ctrl.php" method="post">
+		<form action="" method="post">
 			<h3>Recherche</h3>
 			<hr>
 			<table><!-- RECHERCHE -->
@@ -128,11 +128,8 @@
 			</table>
 
 
-			<!-- A RETIRER ENSUITE -->
-			<hr>
-
-
-			<table> <!-- RECHERCHE AVANCEE GROUPE -->
+<!-- RECHERCHE AVANCEE GROUPE --><!--
+			<table> 
 
   			<tr class="ligne_simple">
   				<td>Note du groupe &nbsp</td>
@@ -196,11 +193,8 @@
 			</table>
 
 
-			<!-- A RETIRER ENSUITE -->
-			<hr>
-
-
-			<table> <!-- RECHERCHE AVANCEE ORGA -->
+--><!-- RECHERCHE AVANCEE ORGA --><!--
+			<table> 
   			<tr class="ligne_simple">
   				<td>Distance &nbsp</td>
 				<td><img src="../../data/img/question58-1.png"/><span>Distance vous séparant de l'organisateur recherché (basé sur l'adresse fournie dans le profil)</span></td>
@@ -216,14 +210,8 @@
 			</table>
 
 
-
-
-			<!-- A RETIRER ENSUITE -->
-			<hr>
-
-
-
-			<table> <!-- RECHERCHE AVANCEE EVENEMENT -->
+--><!-- RECHERCHE AVANCEE EVENEMENT --><!--
+			<table> 
   			<tr class="ligne_simple">
   				<td>Distance &nbsp</td>
 				<td><img src="../../data/img/question58-1.png"/><span>Distance vous séparant de l'évènement recherché (basé sur l'adresse fournie dans le profil)</span></td>
@@ -271,10 +259,9 @@
 
 
 
-			<!-- A RETIRER ENSUITE -->
-			<hr>
 
-			<table> <!-- RECHERCHE AVANCEE SALLE -->
+--> <!-- RECHERCHE AVANCEE SALLE --><!--
+			<table>
   			<tr class="ligne_simple">
   				<td>Distance &nbsp</td>
 				<td><img src="../../data/img/question58-1.png"/><span>Distance vous séparant de la salle recherchée (basé sur l'adresse fournie dans le profil)</span></td>
@@ -287,7 +274,9 @@
     					<option value="pluscentkm">100km ou plus</option>
   					</select></td>
 			</tr>
-			</table>
+			</table> 
+
+		-->
 
 
 			<input type="submit" value="Rechercher">
