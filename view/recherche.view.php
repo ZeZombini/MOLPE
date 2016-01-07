@@ -306,7 +306,7 @@
 </script>
 	<script type="text/javascript">
 	$('input').click(function(){
-	var type = $(elementId).attr('type');
+	var type = $(this).attr('type');
     if(type == "radio") {
 		var the_id = $(this).attr("id");
 		$("table").removeClass("hide");
