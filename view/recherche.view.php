@@ -13,7 +13,7 @@
 		<form action="" method="post">
 			<h3>Recherche</h3>
 			<hr>
-			<table><!-- RECHERCHE -->
+			<table id="recherche"><!-- RECHERCHE -->
 
 
 			<tr class="ligne_simple">
@@ -45,7 +45,9 @@
 
 			<h3>Options avancées</h3>
 			<hr>
-			<table> <!-- RECHERCHE AVANCEE BOOKER -->
+
+
+			<table id="radio_booker" class="hide"> <!-- RECHERCHE AVANCEE BOOKER -->
 			
 			<tr class="ligne_simple">
 				<td>Nombre de groupes &nbsp</td>
@@ -128,8 +130,8 @@
 			</table>
 
 
-<!-- RECHERCHE AVANCEE GROUPE --><!--
-			<table> 
+<!-- RECHERCHE AVANCEE GROUPE -->
+			<table id="radio_groupe" class="hide"> 
 
   			<tr class="ligne_simple">
   				<td>Note du groupe &nbsp</td>
@@ -193,8 +195,8 @@
 			</table>
 
 
---><!-- RECHERCHE AVANCEE ORGA --><!--
-			<table> 
+<!-- RECHERCHE AVANCEE ORGA -->
+			<table id="radio_orga" class="hide"> 
   			<tr class="ligne_simple">
   				<td>Distance &nbsp</td>
 				<td><img src="../../data/img/question58-1.png"/><span>Distance vous séparant de l'organisateur recherché (basé sur l'adresse fournie dans le profil)</span></td>
@@ -210,8 +212,8 @@
 			</table>
 
 
---><!-- RECHERCHE AVANCEE EVENEMENT --><!--
-			<table> 
+<!-- RECHERCHE AVANCEE EVENEMENT -->
+			<table id="radio_evt" class="hide"> 
   			<tr class="ligne_simple">
   				<td>Distance &nbsp</td>
 				<td><img src="../../data/img/question58-1.png"/><span>Distance vous séparant de l'évènement recherché (basé sur l'adresse fournie dans le profil)</span></td>
@@ -260,8 +262,8 @@
 
 
 
---> <!-- RECHERCHE AVANCEE SALLE --><!--
-			<table>
+ <!-- RECHERCHE AVANCEE SALLE -->
+			<table id="radio_salle" class="hide">
   			<tr class="ligne_simple">
   				<td>Distance &nbsp</td>
 				<td><img src="../../data/img/question58-1.png"/><span>Distance vous séparant de la salle recherchée (basé sur l'adresse fournie dans le profil)</span></td>
@@ -276,7 +278,6 @@
 			</tr>
 			</table> 
 
-		-->
 
 
 			<input type="submit" value="Rechercher">
@@ -285,11 +286,34 @@
 	</div>
 </div>
 
-
-<script>
- $(".tooltip").hover(function(){
-    $(this).children(".tooltip-message").removeClass('hide');
- }, function(){
-        $(this).children(".tooltip-message").addClass('hide');
+ <script type="text/javascript">
+ $('input').click(function(){
+  var type = $(this).attr('type');
+     if(type == "radio") {
+   var the_id = $(this).attr("id");
+   if(the_id == 'radio_tous') {
+    $("table").each(function() {
+    	if($(this).attr("id") == "recherche"){
+     		$(this).removeClass("hide");
+     		$(this).addClass("show");
+     	}else{
+     		$(this).removeClass("show");
+     		$(this).addClass("hide");
+     	}
+    });
+   } else {
+    $("table").not(the_id).each(function() {
+    	if($(this).attr("id") == "recherche"){
+     		$(this).removeClass("hide");
+     		$(this).addClass("show");
+     	}else{
+     		$(this).removeClass("show");
+     		$(this).addClass("hide");
+     	}
+    });
+    $("table#"+the_id).removeClass("hide");
+    $("table#"+the_id).addClass("show");
+   }
+  }
  });
-</script>
+ </script>

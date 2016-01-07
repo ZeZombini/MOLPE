@@ -122,7 +122,6 @@ header{
 }
 
 
-
 /* Affichage des news */
 
 #header-top > #news{
@@ -488,12 +487,13 @@ nav a:hover{
 
 /* MINI HEADER */
 .hide{
- 	visibility: hidden;
+  	display: none;
 }
 
 .show{
- 	visibility: visible;
+ 	display: inline-table;
 }
+
 
 .fixHeader{
  height: 25px;
