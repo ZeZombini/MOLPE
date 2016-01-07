@@ -10,7 +10,7 @@
 <div id="content">
 	<h2>Recherche</h2>
 	<div id="recherche">
-		<form action="controler/resultsearch.ctrl.php" method="post">
+		<form action="../controler/resultsearch.ctrl.php" method="post">
 			<h3>Recherche</h3>
 			<hr>
 			<table><!-- RECHERCHE -->
@@ -136,7 +136,7 @@
 
   			<tr class="ligne_simple">
   				<td>Note du groupe &nbsp</td>
-				<td></td>
+				<td><img src="../../data/img/question58-1.png"/><span>Note minimale obtenue par le groupe recherché.</span></td>
 				<td>  <select name="nbetoiles">
 						<option value="peuimporteEt" selected>- Peu importe -</option>
     					<option value="uneetoile">1 étoile</option>
@@ -148,7 +148,7 @@
   			</tr>
   			<tr class="ligne_simple">
   				<td>Distance &nbsp</td>
-				<td></td>
+				<td><img src="../../data/img/question58-1.png"/><span>Distance vous séparant du groupe recherché (basé sur l'adresse fournie dans le profil)</span></td>
 				<td>  <select name="distance">
 						<option value="peuimporteDist" selected>- Peu importe -</option>
     					<option value="dixkm">Moins de 10km</option>
@@ -161,7 +161,7 @@
 
 			<tr class="ligne_chckbx">
   				<td>Niveau du groupe &nbsp</td>
-				<td></td>
+				<td><img src="../../data/img/question58-1.png"/><span>Niveau du groupe recherché.</span></td>
 				<td>
     				<input type="checkbox" name="nivgrp" value="amateur"><div>Amateur</div>
     				<input type="checkbox" name="nivgrp" value="semipro"><div>Semi-Pro</div>
@@ -171,7 +171,7 @@
 
 			<tr class="ligne_chckbx">
 				<td>Style du groupe &nbsp</td>
-				<td></td>
+				<td><img src="../../data/img/question58-1.png"/><span>Style du groupe recherché. Les styles non présents dans cette liste seront recherchés par défaut.</span></td>
 				<td> 
 
 					<input type="checkbox" name="style" value="blues"><div>Blues</div>
@@ -203,7 +203,7 @@
 			<table> <!-- RECHERCHE AVANCEE ORGA -->
   			<tr class="ligne_simple">
   				<td>Distance &nbsp</td>
-				<td></td>
+				<td><img src="../../data/img/question58-1.png"/><span>Distance vous séparant de l'organisateur recherché (basé sur l'adresse fournie dans le profil)</span></td>
 				<td>  <select name="distance">
 						<option value="peuimporteDist" selected>- Peu importe -</option>
     					<option value="dixkm">Moins de 10km</option>
@@ -226,7 +226,7 @@
 			<table> <!-- RECHERCHE AVANCEE EVENEMENT -->
   			<tr class="ligne_simple">
   				<td>Distance &nbsp</td>
-				<td></td>
+				<td><img src="../../data/img/question58-1.png"/><span>Distance vous séparant de l'évènement recherché (basé sur l'adresse fournie dans le profil)</span></td>
 				<td>  <select name="distance">
 						<option value="peuimporteDist" selected>- Peu importe -</option>
     					<option value="dixkm">Moins de 10km</option>
@@ -238,15 +238,15 @@
 			</tr>
 			<tr class="ligne_simple">
   				<td>Date &nbsp</td>
-				<td></td>
+				<td><img src="../../data/img/question58-1.png"/><span>Date à laquelle l'évènement recherché aura ou a eu lieu.</span></td>
 				<td>
 					<input type="date" name="dateevt">
 				</td>
 			</tr>
 
 			<tr class="ligne_chckbx">
-				<td>Style du groupe &nbsp</td>
-				<td></td>
+				<td>Style de l'évènement &nbsp</td>
+				<td><img src="../../data/img/question58-1.png"/><span>Style de l'évènement recherché. Les styles non présents dans cette liste seront recherchés par défaut.</span></td>
 				<td> 
 
 					<input type="checkbox" name="style" value="blues"><div>Blues</div>
@@ -277,7 +277,7 @@
 			<table> <!-- RECHERCHE AVANCEE SALLE -->
   			<tr class="ligne_simple">
   				<td>Distance &nbsp</td>
-				<td></td>
+				<td><img src="../../data/img/question58-1.png"/><span>Distance vous séparant de la salle recherchée (basé sur l'adresse fournie dans le profil)</span></td>
 				<td>  <select name="distance">
 						<option value="peuimporteDist" selected>- Peu importe -</option>
     					<option value="dixkm">Moins de 10km</option>
