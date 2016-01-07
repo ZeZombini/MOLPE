@@ -5,25 +5,21 @@
 
   class Groupe extends Utilisateur {
 // Attributs /////////////////////////////////////////////////////////////////////////////////////////////////
+    var $dao;
+
     var $idUser_Groupe;
     var $style;
     var $taille;
     var $matDispo;
     var $ficheTech;
 
-    // Association avec booker
-    var $bookers; // Cardinalite : * //
-
-    // Association avec Evenement et scene via passage
-    var $passages; // Cardinalite : * //
+    // Association avec Booker(*) et Passage(*)
 
 // Constructeur ////////////////////////////////////////////////////////////////////////////////////////////
     function __construct() {
       parent::__construct($this->idUser_Groupe);
       $dao = new DAO();
       $this->init($dao->getGroupeFromID(DAO::R_ARRAY,$this->idUser_Groupe));
-      $bookers = $dao->getBookersFromGroupeID(DAO::R_CLASS,$this->idUser_Groupe);
-      $passages = $dao->getPassagesFromGroupeID(DAO::R_CLASS,$this->idUser_Groupe);
     }
 
 // Methodes ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -34,6 +30,14 @@
       $this->taille = $array['taille'];
       $this->matDispo = $array['matDispo'];
       $this->ficheTech = $array['ficheTech'];
-    }    
+    }
+
+    function getBookers() {
+      return $dao->getBookersFromGroupeID(DAO::R_CLASS,$this->idUser_Groupe);
+    }
+
+    function getPassages() {
+      return $dao->getPassagesFromGroupeID(DAO::R_CLASS,$this->idUser_Groupe);
+    }
   }
  ?>

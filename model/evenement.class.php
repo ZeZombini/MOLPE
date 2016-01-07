@@ -4,6 +4,8 @@
 
   class Evenement {
 // Attributs /////////////////////////////////////////////////////////////////////////////////////////////////
+    var $dao;
+
     var $idEvenement;
     var $nom;
     var $dateDeb;
@@ -15,22 +17,12 @@
     var $remunerer;
     var $matosDispo;
 
-    // Association avec Organisateur
-    var $organisateurs; // Cardinalite : * //
-
-    // Association avec Lieu
-    var $lieux; // Cardinalite : * //
-
-    // Association avec Passage
-    var $passages; // Cardinalite : * //
+    // Association avec Organisateur(*) et Lieux(*) et Passage(*)
 
 // Constructeur ////////////////////////////////////////////////////////////////////////////////////////////
     function __construct($idEvent) {
       $dao = new DAO();
       $this->init($dao->getEvenementFromID(DAO::R_ARRAY,$idEvent));
-      $this->organisateurs = $dao->getOrganisateursFromEvenementID(DAO::R_CLASS,$this->idEvenement);
-      $this->lieux = $dao->getLieuxFromEvenementID(DAO::R_CLASS,$this->idEvenement);
-      $this->passages = $dao->getPassagesFromEvenementID(DAO::R_CLASS,$this->idEvenement);
     }
 
 
@@ -49,5 +41,16 @@
       $this->matosDispo = $array['matosDispo'];
     }
 
+    function getOrganisateurs() {
+      return $dao->getOrganisateursFromEvenementID(DAO::R_CLASS,$this->idEvenement);
+    }
+
+    function getLieux() {
+      return $dao->getLieuxFromEvenementID(DAO::R_CLASS,$this->idEvenement);
+    }
+
+    function getPassages() {
+      return $dao->getPassagesFromEvenementID(DAO::R_CLASS,$this->idEvenement);
+    }
   }
  ?>

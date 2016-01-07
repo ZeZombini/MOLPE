@@ -3,6 +3,8 @@ require_once("DAO.class.php");
 
 class Utilisateur {
 // Attributs /////////////////////////////////////////////////////////////////////////////////////////////////
+  var $dao;
+
   var $idUser;
   var $mail;
   var $motDePasse;
@@ -19,14 +21,12 @@ class Utilisateur {
   var $ville;
   var $pays;
 
-  // Association avec les contacts de l'utilisateur
-  var $contacts; // Cardinalite : * //
+  // Association avec Contact(*)
 
 // Constructeur ////////////////////////////////////////////////////////////////////////////////////////////
   function __construct($idUser) {
     $dao = new DAO();
     $this->initUser($dao->getUserFromID(DAO::R_ARRAY,$idUser));
-    $this->contacts = $dao->getContactsFromUserID(DAO::R_CLASS,$this->idUser);
   }
 
 // Methodes ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -47,6 +47,10 @@ class Utilisateur {
     $this->pays = $array['pays'];
     $this->imageProfil = $array['imageProfil'];
     $this->banniere = $array['banniere'];
+  }
+
+  function getContacts() {
+    return $dao->getContactsFromUserID(DAO::R_CLASS,$this->idUser);
   }
 }
  ?>

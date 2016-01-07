@@ -5,28 +5,20 @@
 
   class Lieu {
 // Attributs /////////////////////////////////////////////////////////////////////////////////////////////////
+    var $dao;
+
     var $idLieu;
     var $bar;
     var $adresse;
     var $salle;
     var $description;
 
-    // Association avec scene
-    var $scenes; // Cardinalite : * //
-
-    // Association avec Organisateur
-    var $proprietaire; // Cardinalite : 1 //
-
-    // Association avec Evenement
-    var $evenements; // Cardinalite : * //
+    // Association avec Organisateur(1) et Scene(*) et Evenement(*)
 
 // Constructeur ////////////////////////////////////////////////////////////////////////////////////////////
     function __construct($idL) {
       $dao = new DAO();
       $this->init($dao->getLieuFromID(DAO::R_ARRAY,$idL));
-      $this->scenes = $dao->getScenesFromLieuID(DAO::R_CLASS,$this->idLieu);
-      $this->proprietaire = $dao->getOrganisateurFromLieuID(DAO::R_CLASS,$this->idLieu);
-      $this->evenements = $dao->getEvenementsFromLieuID(DAO::R_CLASS,$this->idLieu);
       }
 
 // Methodes ////////////////////////////////////////////////////////////////////////////////////////////////
@@ -36,6 +28,18 @@
       $this->adresse = $array['adresse'];
       $this->salle = $array['salle'];
       $this->description = $array['description'];
+    }
+
+    function getScenes() {
+      return $dao->getScenesFromLieuID(DAO::R_CLASS,$this->idLieu);
+    }
+
+    function getProprietaire() {
+      return $dao->getOrganisateurFromLieuID(DAO::R_CLASS,$this->idLieu);
+    }
+
+    function getEvenements() {
+      return $dao->getEvenementsFromLieuID(DAO::R_CLASS,$this->idLieu);
     }
   }
  ?>
