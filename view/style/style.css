@@ -208,6 +208,23 @@ nav a:hover{
 /*                                             */
 /* ------------------------------------------- */
 
+/* INFOBULLE AIDE */
+.tooltip-message {
+    font-size: 0.7em;
+    text-align: center;
+    width: 150px;
+    color: white;
+    position: relative;
+    background-color: rgb(127, 90, 181);
+    padding: 10px;
+}
+
+.tooltip-message-hide {
+ visibility: hidden;
+ width:0px;
+}
+
+
 /* INSCRIPTION */
 #inscription table{
 	width: 100%;
@@ -233,7 +250,7 @@ nav a:hover{
 /* Première case du tableau */
 #inscription table td:first-child{
 	text-align: right;
-	width: 25%;
+	width: 20%;
 }
 
 /* Seconde case du tableau (Celle qui stock le point d'intérogation) */
@@ -338,6 +355,148 @@ nav a:hover{
 
 
 
+/* RECHERCHE */
+#recherche table{
+	width: 100%;
+	padding-right: 30px;
+}
+
+#recherche h3{
+	padding-left: 10px;
+	margin-bottom: 0px;
+}
+
+#recherche hr{
+	background-color: rgb(127, 90, 181);
+	height: 1px;
+	border: 0;
+	color: #F5F5F5;
+}
+
+#recherche table td{
+	padding-top: 20px;
+}
+
+/* Première case du tableau */
+#recherche table td:first-child{
+	text-align: right;
+	width: 20%;
+}
+
+/* Seconde case du tableau (Celle qui stock le point d'intérogation) */
+#recherche table td:nth-child(2){
+	width: 0px;
+	/*padding-right: 10px;
+	background-image: url("../../data/img/question58-1.png");
+	background-size: 20px;
+    background-position: 40% 60%;
+	background-repeat: no-repeat;*/
+}
+
+#recherche .disable{
+	opacity: 0.8;
+}
+
+/* Les trois radio button */
+#recherche .ligne_radio input{
+	display: none;
+}
+
+#recherche .ligne_slide td input{
+	width: 93%;
+	height: 30px;
+}
+
+#recherche .ligne_chckbx td input{
+	maring: auto;
+}
+#recherche .ligne_chckbx td div{
+	display: inline-block;
+	width: 6em;
+}
+
+#recherche .ligne_radio input + label{
+	display: inline-block;
+	box-sizing: border-box;
+    margin:0px;
+    padding: 6px;
+   	overflow: hidden;
+   	width:16.2%;
+    text-align: center;
+    box-shadow: 1px 1px 1px rgb(127, 90, 181);
+    border: solid silver 1px;
+    height: 30px;
+}
+
+
+#recherche .ligne_radio input:checked + label{
+    box-shadow: 0 0 4px rgb(127, 90, 181) inset;
+    height: 31px;
+}
+
+
+
+/* L'input d'une ligne simple */
+#recherche .ligne_simple td *{
+	border: solid 1px rgb(127, 90, 181);
+	width: 100%;
+	height: 30px;
+}
+
+/* Ligne plus petite pour les champs qui demande moins d'info */
+#recherche .ligne_petite td:last-child input{
+	width: 39%;
+	height: 30px;
+	border: solid 1px rgb(127, 90, 181);
+	background: white;
+}
+
+/* Ligne double */
+#recherche .ligne_double td:last-child > input{
+	width: 39%;
+	height: 30px;
+	border: solid 1px rgb(127, 90, 181);
+}
+#recherche .ligne_double td:last-child span{
+	margin-left: 50px;
+}
+
+/* Le bouton de changement entre Pseudonyme et Prénom/Nom */
+#recherche #img_opposite{
+	width: 30px;
+	height: 30px;
+	padding: 0px;
+	background: white;
+	border: none;
+	position : relative;
+	right: 10px;
+	bottom: 20px;
+	background-image: url("../../data/img/opposite5.png");
+	background-size: 30px;
+    background-position: 40% 80%;
+	background-repeat: no-repeat;
+	z-index: 0;
+}
+
+
+/* Le boutton pour envoyer le formulaire */
+#recherche input[type="submit"]{
+	font-size: 1.2em;
+    width: 50%;
+    text-align: center;
+    box-shadow: 1px 1px 0px rgb(127, 90, 181);
+    border: solid silver 1px;
+    background-color: white;
+    height: 30px;
+    margin-left: 25%;
+    margin-top: 50px;
+}
+
+#recherche input[type="submit"]:active {
+	box-shadow: 0 0 4px rgb(127, 90, 181) inset;
+    height: 31px;
+}
+
 
 
 
@@ -419,3 +578,70 @@ nav a:hover{
     background-color: rgb(165, 158, 211);
 }
 
+
+/* ---------------------------- */
+/* CSS SLIDERS SUR TOUT LE SITE */
+/* ---------------------------- */
+
+/* Supprime l'affichage classique du navigateur */
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+}
+input[type=range]:focus {
+  outline: none;
+}
+
+/* Affichage Webkit */
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+  background: #A59ED3;
+  border-radius: 50px;
+}
+input[type=range]::-webkit-slider-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+  background: rgb(127, 90, 181);
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -5px;
+}
+
+/* Affichage Mozilla */
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+  background: #A59ED3;
+  border-radius: 50px;
+  border: 0px;
+}
+input[type=range]::-moz-range-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+  background: rgb(127, 90, 181);
+  cursor: pointer;
+  border: 0px;
+}
+
+/* Affichage Microsoft */
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+  background: #A59ED3;
+  border-radius: 50px;
+}
+
+input[type=range]::-ms-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+  background: rgb(127, 90, 181);
+  cursor: pointer;
+  margin: 3.6px;
+}
