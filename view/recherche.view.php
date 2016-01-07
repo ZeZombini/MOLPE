@@ -33,7 +33,7 @@
 				<td>Vous recherchez un(e) &nbsp</td>
 				<td></td>
 				<td>
-					<input type="radio" name="type" value="Booker" id="radio_booker"/><label for="radio_booker">Booker</label>
+					<input type="radio" name="type" value="Booker" id="radio_booker" checked/><label for="radio_booker">Booker</label>
 					<input type="radio" name="type" value="Groupe" id="radio_groupe"/><label for="radio_groupe">Groupe</label>
 					<input type="radio" name="type" value="Organisateur" id="radio_orga"/><label for="radio_orga">Organisateur</label>
 					<input type="radio" name="type" value="Evenement" id="radio_evt"/><label for="radio_evt">Évènement</label>
@@ -132,7 +132,7 @@
 			<hr>
 
 
-			<table id="radio_groupe"> <!-- RECHERCHE AVANCEE GROUPE -->
+			<table id="radio_groupe" class="hide"> <!-- RECHERCHE AVANCEE GROUPE -->
 
   			<tr class="ligne_simple">
   				<td>Note du groupe &nbsp</td>
@@ -200,7 +200,7 @@
 			<hr>
 
 
-			<table id="radio_orga"> <!-- RECHERCHE AVANCEE ORGA -->
+			<table id="radio_orga" class="hide"> <!-- RECHERCHE AVANCEE ORGA -->
   			<tr class="ligne_simple">
   				<td>Distance &nbsp</td>
 				<td></td>
@@ -223,7 +223,7 @@
 
 
 
-			<table id="radio_evt"> <!-- RECHERCHE AVANCEE EVENEMENT -->
+			<table id="radio_evt" class="hide"> <!-- RECHERCHE AVANCEE EVENEMENT -->
   			<tr class="ligne_simple">
   				<td>Distance &nbsp</td>
 				<td></td>
@@ -274,7 +274,7 @@
 			<!-- A RETIRER ENSUITE -->
 			<hr>
 
-			<table id="radio_salle"> <!-- RECHERCHE AVANCEE SALLE -->
+			<table id="radio_salle" class="hide"> <!-- RECHERCHE AVANCEE SALLE -->
   			<tr class="ligne_simple">
   				<td>Distance &nbsp</td>
 				<td></td>
