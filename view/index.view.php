@@ -5,9 +5,6 @@
 		<p>Molpé - Moteur d’Organisation, Listing et Partage d’événementiel - est un gestionnaire destiné aux acteurs du monde de la musique ; bookers, musiciens et organisateurs d'évènement musicaux.</p>
 	</div>
 	<div class="33page">
-		<h3>Truc</h3>
-	</div>
-	<div class="33page">
 		<h3>Connexion/Inscription</h3>
 		<form action="../connexion">
 			<input type="submit" value="Se connecter">
