@@ -39,7 +39,11 @@ if(isset($_POST['email'])) {
         $dao->creation_key_activation($mail,$key);
 
 
+<<<<<<< HEAD
         if(sendMail($mail,
+=======
+        /*if(mail($mail,"Activation de votre compte MOLPE",
+>>>>>>> 99badcfcd0b3d0e60a0868f2ced6f82ebca72441
             "Bonjour ". $_POST['prenom'] .
             "\r\nBienvenue sur MOLPE.
             \r\nPour activer votre compte, cliquez sur le lien suivant ou,
@@ -53,8 +57,8 @@ if(isset($_POST['email'])) {
       header("Location : " . $config['project_path'] . "connexion?fail=6");
     } else {
       echo "Erreur lors envoi mail";
-    }
-
+    }*/
+    header("Location: " . $config['project_path'] . "connexion?fail=6");
     } else {
       if (!isset($_POST['libelle'])) {
           $_POST['libelle'] = "";
@@ -75,10 +79,10 @@ if(isset($_POST['email'])) {
             code_postal=".$_POST['code_postal']."&
             pays=".$_POST['pays']
         ;
-        header("Location : " . $config['project_path'] . "inscription?$return_url");
+        header("Location: " . $config['project_path'] . "inscription?$return_url");
     }
 } else {
-    header("Location : " . $config['project_path'] . "inscription?fail=1");
+    header("Location: " . $config['project_path'] . "inscription?fail=1");
 }
 
 ?>
