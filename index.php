@@ -24,6 +24,7 @@ $app->get('/', function() use ($app,$config){
     //$app->redirect($config['project_path'] . "index.php");
     insertHead($app,$config);
     include ("controler/index.ctrl.php");
+    insertFooter($app,$config);
 });
 
 $app->get("/connexion", function() use ($app,$config) {
