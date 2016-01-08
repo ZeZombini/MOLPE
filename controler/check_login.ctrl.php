@@ -26,7 +26,7 @@ if(!isset($_POST['email'])) { // email non renseigné
 // Retourne   id utilisateur de la BD ou
 //            0 si n'existe pas,
 //            -1 si compte non activé
-      var_dump($_POST['email']);
+
   $validation = $dao->checkLogin($_POST['email'],$_POST['mdp_encoded']);
 
   switch ($validation) :
