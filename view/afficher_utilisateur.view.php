@@ -16,7 +16,10 @@
 ?>
 
 <div id="content">
+	<?php if($data['userValid'] == false) : ?>
+		<p class="error">Cet utilisateur n'existe pas.</p>
 	<div id="fiche-contact">
+	<?php else :?>
 		<img class="banniere_profil" src="$config['project_path']/view/style/img/">
 		<div id="fiche-contact-top">
 			<img class="img-profil" src="$config['project_path']view/style/img/noimage.jpg"/>
@@ -81,4 +84,5 @@
 
 		</div>
 	</div>
+<?php endif; ?>
 </div>

@@ -122,7 +122,6 @@ header{
 }
 
 
-
 /* Affichage des news */
 
 #header-top > #news{
@@ -208,6 +207,49 @@ nav a:hover{
 /*                                             */
 /* ------------------------------------------- */
 
+/* INFOBULLE "?" DE FORMULAIRE */
+#recherche table td:nth-child(2) img, #inscription table td:nth-child(2) img{
+	width: 20px;
+	height: 20px;
+	border: none !important;
+}
+#recherche table td:nth-child(2), #inscription table td:nth-child(2){
+	width: 25px;
+	position: relative;
+}
+
+#recherche table td:nth-child(2) span, #inscription table td:nth-child(2) span{
+	width: 150px;
+	position: absolute;
+	visibility: hidden;
+	z-index: -1;
+	font-size: 0.8em;
+    overflow: hidden;
+    color: white;
+    background-color: rgb(127, 90, 181);
+    padding: 5px;
+    opacity: 0;
+}
+#recherche table td:nth-child(2):hover span, #inscription table td:nth-child(2):hover span{
+	position: absolute;
+	left: 25px;
+	visibility: visible;
+	z-index: 120;
+	font-size: 0.8em;
+	height: auto;
+    width: 300px;
+    color: white;
+    background-color: rgb(127, 90, 181);
+    padding: 5px;
+    opacity: 1;
+	transition:all 0.5s;
+	-webkit-transition: all 0.5s;
+  	-moz-transition: all 0.5s;
+}
+
+/* FIN INFOBULLE */
+
+
 /* INSCRIPTION */
 #inscription table{
 	width: 100%;
@@ -233,17 +275,7 @@ nav a:hover{
 /* Première case du tableau */
 #inscription table td:first-child{
 	text-align: right;
-	width: 25%;
-}
-
-/* Seconde case du tableau (Celle qui stock le point d'intérogation) */
-#inscription table td:nth-child(2){
-	width: 25px;
-	padding-right: 10px;
-	background-image: url("../../data/img/question58-1.png");
-	background-size: 20px;
-    background-position: 40% 80%;
-	background-repeat: no-repeat;
+	width: 20%;
 }
 
 #inscription .disable{
@@ -338,6 +370,105 @@ nav a:hover{
 
 
 
+/* RECHERCHE */
+#recherche table{
+	width: 100%;
+	padding-right: 30px;
+}
+
+#recherche h3{
+	padding-left: 10px;
+	margin-bottom: 0px;
+}
+
+#recherche hr{
+	background-color: rgb(127, 90, 181);
+	height: 1px;
+	border: 0;
+	color: #F5F5F5;
+}
+
+#recherche table td{
+	padding-top: 20px;
+}
+
+/* Première case du tableau */
+#recherche table td:first-child{
+	text-align: right;
+	width: 20%;
+}
+
+#recherche .disable{
+	opacity: 0.8;
+}
+
+/* Les trois radio button */
+#recherche .ligne_radio input{
+	display: none;
+}
+
+#recherche .ligne_slide td input{
+	width: 90%;
+	display: inline;
+}
+#recherche .ligne_slide td{
+	text-align: center;
+}
+
+#recherche .ligne_chckbx td input{
+	maring: auto;
+}
+#recherche .ligne_chckbx td div{
+	display: inline-block;
+	width: 6em;
+}
+
+#recherche .ligne_radio input + label{
+	display: inline-block;
+	box-sizing: border-box;
+    margin:0px;
+    padding: 6px;
+   	overflow: hidden;
+   	width:16.2%;
+    text-align: center;
+    box-shadow: 1px 1px 1px rgb(127, 90, 181);
+    border: solid silver 1px;
+    height: 30px;
+}
+
+#recherche .ligne_radio input:checked + label{
+    box-shadow: 0 0 4px rgb(127, 90, 181) inset;
+    height: 31px;
+}
+
+
+
+/* L'input d'une ligne simple */
+#recherche .ligne_simple td *{
+	border: solid 1px rgb(127, 90, 181);
+	width: 100%;
+	height: 30px;
+}
+
+
+/* Le boutton pour envoyer le formulaire */
+#recherche input[type="submit"]{
+	font-size: 1.2em;
+    width: 50%;
+    text-align: center;
+    box-shadow: 1px 1px 0px rgb(127, 90, 181);
+    border: solid silver 1px;
+    background-color: white;
+    height: 30px;
+    margin-left: 25%;
+    margin-top: 50px;
+}
+
+#recherche input[type="submit"]:active {
+	box-shadow: 0 0 4px rgb(127, 90, 181) inset;
+    height: 31px;
+}
+
 
 
 
@@ -356,12 +487,13 @@ nav a:hover{
 
 /* MINI HEADER */
 .hide{
- 	visibility: hidden;
+  	display: none;
 }
 
 .show{
- 	visibility: visible;
+ 	display: inline-table;
 }
+
 
 .fixHeader{
  height: 25px;
@@ -418,3 +550,113 @@ nav a:hover{
 ::-webkit-scrollbar-corner {
     background-color: rgb(165, 158, 211);
 }
+<<<<<<< HEAD
+=======
+
+
+/* ---------------------------- */
+/* CSS SLIDERS SUR TOUT LE SITE */
+/* ---------------------------- */
+
+/* Supprime l'affichage classique du navigateur */
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+}
+input[type=range]:focus {
+  outline: none;
+}
+
+/* Affichage Webkit */
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+  background: #A59ED3;
+  border-radius: 50px;
+}
+input[type=range]::-webkit-slider-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+  background: rgb(127, 90, 181);
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -5px;
+}
+
+/* Affichage Mozilla */
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+  background: #A59ED3;
+  border-radius: 50px;
+  border: 0px;
+}
+input[type=range]::-moz-range-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+  background: rgb(127, 90, 181);
+  cursor: pointer;
+  border: 0px;
+}
+
+/* Affichage Microsoft */
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+  background: #A59ED3;
+  border-radius: 50px;
+}
+
+input[type=range]::-ms-thumb {
+  height: 20px;
+  width: 20px;
+  border-radius: 50px;
+  background: rgb(127, 90, 181);
+  cursor: pointer;
+  margin: 3.6px;
+}
+
+/* FOOTER */
+footer {
+	margin-top: 20px;
+	width: 100%;
+	height: 50px;
+	border-top: solid 1px #A59ED3;
+	text-align: center;
+}
+
+footer ul li {
+	display: inline-block;
+	padding: 5px,10px,5px,10px;
+}
+
+footer img {
+	width: 32px;
+	height: 32px;
+}
+
+footer ul li a, footer ul li a:hover {
+	color: black;
+}
+
+footer table {
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 20px;
+}
+
+footer table td:first-child {
+	text-align: right;
+}
+
+.33page {
+	width: 30%;
+	vertical-align: top;
+}
+>>>>>>> 3b2700d971e2231ae097f37b28bea4ca65d4d5f7

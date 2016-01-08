@@ -4,29 +4,25 @@
 
   class Booker extends Utilisateur {
 // Attributs /////////////////////////////////////////////////////////////////////////////////////////////////
+    var $dao;
+
     var $idUser_Booker;
     var $pourcentageCom;
     var $tailleGrp;
     var $stylePref;
 
-    // Association avec groupe
-    var $groupes; // Cardinalite : * //
+    // Association avec Groupe(*)
 
 // Constructeur ////////////////////////////////////////////////////////////////////////////////////////////
-    function __construct($idUser) {
-      parent::__construct($idUser);
-      $dao = new DAO();
-      $this->init($dao->getBookerFromID(DAO::R_ARRAY,$idUser));
-      $groupes = $dao->getGroupesFromBookerID(DAO::R_CLASS,$this->idBooker);
+    function __construct() {
+      if ($idUser_Booker != null) {
+        parent::__construct($this->idUser_Booker);
+        $dao = new DAO();
+      }
     }
-
 // Methodes ////////////////////////////////////////////////////////////////////////////////////////////////
-    // Initialise chaque attribut de la classe avec sa valeur dans le array
-    function init($array) {
-      $this->idUser_Booker = $array['idUser_Booker'];
-      $this->pourcentageCom = $array['pourcentageCom'];
-      $this->tailleGrp = $array['tailleGrp'];
-      $this->stylePref = $array['stylePref'];
+    function getGroupes() {
+      return $dao->getGroupesFromBookerID(DAO::R_CLASS,$this->idUser_Booker);
     }
   }
  ?>

@@ -6,31 +6,32 @@
 
   class Passage {
 // Attributs /////////////////////////////////////////////////////////////////////////////////////////////////
+    var $dao;
+
     var $datePassage;
     var $dateBalances;
 
-    // Association avec Groupe
-    var $groupe;           // Cardinalite : 1 //
-
-    // Association avec Evenement
-    var $evenement;         // Cardinalite : 1 //
-
-    // Association avec Scene
-    var $scene;         // Cardinalite : 1 //
+    // Association avec Groupe(1) et Evenement(1) et Scene(1)
+    var $idEvenement;
+    var $idScene;
+    var $idGroupe;
 
 // Constructeur ////////////////////////////////////////////////////////////////////////////////////////////
-    function __construct($idGrp,$idEvent,$idScene) {
+    function __construct() {
       $dao = new DAO();
-      $this->init($dao->getPassageFromIDs($idGrp,$idEvent,$idScene));
-      $this->groupe = $dao->getGroupeFromID($idGrp);
-      $this->evenement = $dao->getEvenementFromID($idEvent);
-      $this->scene = $dao->getSceneFromID($idScene);
     }
 
 // Methodes ////////////////////////////////////////////////////////////////////////////////////////////////
-    function init($array) {
-      $this->datePassage = $array['datePassage'];
-      $this->dateBalances = $array['dateBalances'];
+    function getGroupe() {
+      return getGroupeFromID(DAO::R_CLASS,$idGroupe);
+    }
+
+    function getScene() {
+      return getSceneFromID(DAO::R_CLASS,$idScene);
+    }
+
+    function getEvenement() {
+      return getEvenementFromID(DAO::R_CLASS,$idEvenement);
     }
   }
 ?>
