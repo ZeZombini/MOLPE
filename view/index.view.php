@@ -9,10 +9,10 @@
 	</div>
 	<div class="33page">
 		<h3>Connexion/Inscription</h3>
-		<form action="controler/connexion.ctrl.php">
+		<form action="../connexion">
 			<input type="submit" value="Se connecter">
 		</form>
-		<form action="controler/inscription.ctrl.php">
+		<form action="../inscription">
 			<input type="submit" value="S'inscrire">
 		</form>
 	</div>
