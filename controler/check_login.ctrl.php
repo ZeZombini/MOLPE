@@ -14,8 +14,8 @@ require_once("../model/DAO.class.php");
 
 if(!isset($_POST['email'])) { // email non renseigné
   header("Location : " .$config['project_path'] . "/connexion?fail=1");
-} else if (!isset($_POST['mdp_encoded'])) { // mot de passe non renseigné mais e-mail ok
-  header("Location: ". $config['project_path'] . "/connexion?fail=1&email=" .$_POST['email']); // retourne page avec message d'erreur et e-mail pré rentré.
+} else if (!isset($_POST['mdp_encoded'])) { // mot de passe non renseigne mais e-mail ok
+  header("Location: ". $config['project_path'] . "/connexion?fail=1&email=" .$_POST['email']); // retourne page avec message d'erreur et e-mail pre rentre.
 } else { // On  les 2 et on regarde si on le connecte ou pas
   $dao = new DAO();
 
@@ -26,9 +26,8 @@ if(!isset($_POST['email'])) { // email non renseigné
 // Retourne   id utilisateur de la BD ou
 //            0 si n'existe pas,
 //            -1 si compte non activé
-
+      var_dump($_POST['email']);
   $validation = $dao->checkLogin($_POST['email'],$_POST['mdp_encoded']);
-        echo("zerzerzenon");
 
   switch ($validation) :
     case 0 :
