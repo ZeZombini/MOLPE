@@ -19,7 +19,7 @@
 			<tr class="ligne_simple">
 				<td>Recherche *</td>
 				<td><img src="../../data/img/question58-1.png"/><span>Entrez un ou plusieurs mots-clés.</span></td>
-				<td><input id="recherche" type="text" name="recherche"/></td>
+				<td><input id="recherche" type="text" name="recherche" required/></td>
 			</tr>
 
 			<tr class="ligne_simple">
