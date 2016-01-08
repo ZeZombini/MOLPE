@@ -652,3 +652,8 @@ footer table {
 footer table td:first-child {
 	text-align: right;
 }
+
+.33page {
+	width: 30%;
+	vertical-align: top;
+}
