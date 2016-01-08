@@ -16,6 +16,10 @@ function insertHead($app,$config) {
   include("controler/header.ctrl.php");
 }
 
+function insertFooter($app,$config) {
+  include("controler/footer.ctrl.php");
+}
+
 $app->get('/', function() use ($app,$config){
     //$app->redirect($config['project_path'] . "index.php");
     insertHead($app,$config);
