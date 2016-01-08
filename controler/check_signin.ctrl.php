@@ -33,12 +33,12 @@ if(isset($_POST['email'])) {
             $_POST['code_postal'],
             $_POST['pays'])
         ;
-
+        $mail = $_POST['email'];
         $key = random_string(32);
         $dao->creation_key_activation($mail,$key);
 
 
-        mail($mail,"Activation de votre compte MOLPE",
+        if(mail($mail,"Activation de votre compte MOLPE",
             "Bonjour ". $_POST['prenom'] .
             "\r\nBienvenue sur MOLPE.
             \r\nPour activer votre compte, cliquez sur le lien suivant ou,
@@ -47,9 +47,12 @@ if(isset($_POST['email'])) {
             \r\n" . $config['project_path']  . "check_email?email=$mail&key=$key
             \r\n
             \r\nMOLPE
-            \r\nMoteur d'Organisation et Listing de Eartage d'Evenementiel");
-
-    header("Location : " . $config['project_path'] . "connexion?fail=6");
+            \r\nMoteur d'Organisation et Listing de Eartage d'Evenementiel"))
+        {
+      header("Location : " . $config['project_path'] . "connexion?fail=6");
+    } else {
+      echo "Erreur lors envoi mail";
+    }
 
     } else {
       if (!isset($_POST['libelle'])) {

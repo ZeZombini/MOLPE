@@ -1,5 +1,5 @@
 <?php
-$config = parse_ini_file($config['project_path']."/config.ini", FALSE);
+$config = parse_ini_file("../config.ini", FALSE);
 require_once("../model/DAO.class.php");
 
 // renvoi vers connexion avec code fail :

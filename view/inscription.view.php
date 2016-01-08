@@ -98,7 +98,7 @@
 
 			<input type="submit" value="Valider l'inscription">
 
-			<input type="hidden" name="mdp_encoded" disabled/>
+			<input type="hidden" name="mdp_encoded"/>
 
 		</form>
 	</div>

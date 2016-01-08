@@ -15,8 +15,8 @@
 // Constructeur ////////////////////////////////////////////////////////////////////////////////////////////////////////////
     function __construct() {
       try {
-        $this->db = new PDO('mysql:host=localhost;dbname=Molpe;charset=utf8', 'molpe', 'esirn');
-        //$this->db = new PDO("sqlite:../data/molpe.db");
+        //$this->db = new PDO('mysql:host=localhost;dbname=Molpe;charset=utf8', 'molpe', 'esirn');
+        $this->db = new PDO("sqlite:../data/molpe.db");
       } catch (PDOException $e) {
         exit("Erreur ouverture BD : ".$e->getMessage());
       }
@@ -27,9 +27,10 @@
     function checkLogin($mail,$mdp) {
       $req="select idUser from Utilisateur where mail='$mail' and mdp='$mdp';";
       $res = $this->db->query($req);
-      $id = $res->fetch();
-      if ($id == false) return 0;
+      
+      if ($res == false) return 0;
       else {
+
         $req="select * from VerifMail where mail='$mail';";
         $res2 = $this->db->query($req);
         $tab = $res2->fetch();
