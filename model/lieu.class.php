@@ -16,20 +16,11 @@
     // Association avec Organisateur(1) et Scene(*) et Evenement(*)
 
 // Constructeur ////////////////////////////////////////////////////////////////////////////////////////////
-    function __construct($idL) {
+    function __construct() {
       $dao = new DAO();
-      $this->init($dao->getLieuFromID(DAO::R_ARRAY,$idL));
       }
 
 // Methodes ////////////////////////////////////////////////////////////////////////////////////////////////
-    function init($array) {
-      $this->idLieu = $array['idLieu'];
-      $this->bar = $array['bar'];
-      $this->adresse = $array['adresse'];
-      $this->salle = $array['salle'];
-      $this->description = $array['description'];
-    }
-
     function getScenes() {
       return $dao->getScenesFromLieuID(DAO::R_CLASS,$this->idLieu);
     }

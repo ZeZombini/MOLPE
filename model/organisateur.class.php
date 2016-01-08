@@ -15,17 +15,13 @@
 
 // Constructeur ////////////////////////////////////////////////////////////////////////////////////////////
     function __construct($idUser) {
-      parent::__construct($idUser);
-      $dao = new DAO();
-      $this->init($dao->getOrganisateurFromID(DAO::R_ARRAY,$idUser));
+      if ($idUser_Organisateur != null) {
+        parent::__construct($idUser);
+        $dao = new DAO();
+      }
     }
 
 // Methodes ////////////////////////////////////////////////////////////////////////////////////////////////
-    // Initialise chaque attribut de la classe avec sa valeur dans le array
-    function init($array) {
-      $this->idUser_Organisateur = $array['idUser_Organisateur'];
-    }
-
     function getEvenements() {
       return $dao->getEvenementsFromOrganisateurID(DAO::R_CLASS,$this->idUser_Organisateur);
     }

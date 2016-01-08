@@ -15,20 +15,12 @@
 
 // Constructeur ////////////////////////////////////////////////////////////////////////////////////////////
     function __construct() {
-      parent::__construct($this->idUser_Booker);
-      $dao = new DAO();
-      $this->init($dao->getBookerFromID(DAO::R_ARRAY,$this->idUser_Booker));
+      if ($idUser_Booker != null) {
+        parent::__construct($this->idUser_Booker);
+        $dao = new DAO();
+      }
     }
-
 // Methodes ////////////////////////////////////////////////////////////////////////////////////////////////
-    // Initialise chaque attribut de la classe avec sa valeur dans le array
-    function init($array) {
-      $this->idUser_Booker = $array['idUser_Booker'];
-      $this->pourcentageCom = $array['pourcentageCom'];
-      $this->tailleGrp = $array['tailleGrp'];
-      $this->stylePref = $array['stylePref'];
-    }
-
     function getGroupes() {
       return $dao->getGroupesFromBookerID(DAO::R_CLASS,$this->idUser_Booker);
     }

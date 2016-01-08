@@ -17,21 +17,12 @@
 
 // Constructeur ////////////////////////////////////////////////////////////////////////////////////////////
     function __construct() {
-      parent::__construct($this->idUser_Groupe);
-      $dao = new DAO();
-      $this->init($dao->getGroupeFromID(DAO::R_ARRAY,$this->idUser_Groupe));
+      if ($idUser_Groupe != null) {
+        parent::__construct($this->idUser_Groupe);
+        $dao = new DAO();
+      }
     }
-
 // Methodes ////////////////////////////////////////////////////////////////////////////////////////////////
-    // Initialise chaque attribut de la classe avec sa valeur dans le array
-    function init($array) {
-      $this->idUser_Groupe = $array['idUser_Groupe'];
-      $this->style = $array['style'];
-      $this->taille = $array['taille'];
-      $this->matDispo = $array['matDispo'];
-      $this->ficheTech = $array['ficheTech'];
-    }
-
     function getBookers() {
       return $dao->getBookersFromGroupeID(DAO::R_CLASS,$this->idUser_Groupe);
     }

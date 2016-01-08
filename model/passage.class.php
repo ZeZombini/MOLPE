@@ -17,20 +17,11 @@
     var $idGroupe;
 
 // Constructeur ////////////////////////////////////////////////////////////////////////////////////////////
-    function __construct($idGrp,$idEvent,$idScene) {
+    function __construct() {
       $dao = new DAO();
-      $this->init($dao->getPassageFromIDs($idGrp,$idEvent,$idScene));
     }
 
 // Methodes ////////////////////////////////////////////////////////////////////////////////////////////////
-    function init($array) {
-      $this->datePassage = $array['datePassage'];
-      $this->dateBalances = $array['dateBalances'];
-      $this->idGroupe = $array['idGroupe'];
-      $this->idEvenement = $array['idEvenement'];
-      $this->idScene = $array['idScene'];
-    }
-
     function getGroupe() {
       return getGroupeFromID(DAO::R_CLASS,$idGroupe);
     }
