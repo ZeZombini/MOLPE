@@ -2,7 +2,7 @@
 	<h2>Bienvenue sur Molpé</h2>
 	<div class="33page">
 		<h3>Présentation</h3>
-		<p>Texte présentation</p>
+		<p>Molpé - Moteur d’Organisation, Listing et Partage d’événementiel - est un gestionnaire destiné aux acteurs du monde de la musique ; bookers, musiciens et organisateurs d'évènement musicaux.</p>
 	</div>
 	<div class="33page">
 		<h3>Truc</h3>
