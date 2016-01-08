@@ -2,6 +2,7 @@
 $config = parse_ini_file("../config.ini", FALSE);
 
 require_once("../model/DAO.class.php");
+require_once("../data/mail/mail.php");
 
 //retourne � inscription avec le parametre fail
 // fail = 0 pas d'erreur, afficher message valider l'e-mail
@@ -38,7 +39,7 @@ if(isset($_POST['email'])) {
         $dao->creation_key_activation($mail,$key);
 
 
-        if(mail($mail,"Activation de votre compte MOLPE",
+        if(sendMail($mail,
             "Bonjour ". $_POST['prenom'] .
             "\r\nBienvenue sur MOLPE.
             \r\nPour activer votre compte, cliquez sur le lien suivant ou,
