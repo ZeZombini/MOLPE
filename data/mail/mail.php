@@ -31,12 +31,12 @@ $mail->isHTML(false);                                  // Set email format to HT
 $mail->Subject = 'Bienvenue sur Molpe !';
 $mail->Body = '$message';
 
-if(!$mail->send()) {
+/*if(!$mail->send()) {
     echo 'Message could not be sent.';
     echo 'Mailer Error: ' . $mail->ErrorInfo;
 } else {
-    echo 'Message has been sent';
-}
+    //echo 'Message has been sent';
+}*/
 
 }
 ?>

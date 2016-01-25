@@ -45,7 +45,6 @@
       $res = $this->db->query($req);
       $resf = $res->fetch();
       if ($resf != false) {
-        var_dump($resf);
         return false;
       } else {
         return true;
